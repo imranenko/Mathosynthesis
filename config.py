@@ -1,10 +1,4 @@
-from files_handler import get_timestamp
+FOLDER_NAME = "Math Tasks"
+FILE_NAME = "Math-Task"
 
-timestamp = get_timestamp()
-
-OUTPUT_FOLDER = "Math Tasks"
-
-OUTPUT_FILENAME = "math_task"
-OUTPUT_FILENAME_WITH_TIMESTAMP = f"{OUTPUT_FILENAME}_{timestamp}"
-
-OUTPUT_FILE_PATH_WITH_TIMESTAMP = f"{OUTPUT_FOLDER}/{OUTPUT_FILENAME_WITH_TIMESTAMP}"
+FILE_PATH = f"{FOLDER_NAME}/{FILE_NAME}"
