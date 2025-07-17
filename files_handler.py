@@ -46,7 +46,7 @@ def open_pdf(pdf_file_path):
         
 
 
-def create_files(content, file_path=FILE_PATH, open_pdf_after_create=False):
+def create_files(content, file_path=FILE_PATH, auto_open=False):
     timestamp = get_timestamp()
     md_file_path = f"{file_path}_{timestamp}.md"
     pdf_file_path = f"{file_path}_{timestamp}.pdf"
@@ -54,5 +54,5 @@ def create_files(content, file_path=FILE_PATH, open_pdf_after_create=False):
     create_md(content, md_file_path)
     create_pdf(md_file_path, pdf_file_path)
     
-    if open_pdf_after_create:
+    if auto_open:
         open_pdf(pdf_file_path)
