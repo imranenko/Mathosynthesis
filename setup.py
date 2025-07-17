@@ -24,10 +24,10 @@ def basic_operations():
     tasks += [Subtraction.generate_task((100, 1000), (100, 1000), only_pos=True) for _ in range(5)]
     tasks += "\n"
     
-    tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
+    tasks += [Multiplication.generate_task((2, 9), (21, 29)) for _ in range(5)]
     tasks += "\n"
     
-    tasks += [Division.generate_task((5, 9), (21, 29)) for _ in range(5)]
+    tasks += [Division.generate_task((2, 9), (21, 29)) for _ in range(5)]
     
     return tasks
 

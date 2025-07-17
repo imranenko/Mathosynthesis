@@ -32,22 +32,27 @@ def create_pdf(md_file_path, pdf_file_path, open_pdf=False):
     except subprocess.CalledProcessError:
         print("Error: Pandoc conversion failed.")
 
-    if open_pdf:
-        open_file_command = [
-            "open",
-            "-a", "Preview",
-            pdf_file_path
-            ]
-        try:
-            subprocess.run(open_file_command, check=True)
-        except subprocess.CalledProcessError:
-            print("Error: PDF file open failed.")
+    
+def open_pdf(pdf_file_path):
+    open_pdf_command = [
+        "open",
+        "-a", "Preview",
+        pdf_file_path
+        ]
+    try:
+        subprocess.run(open_pdf_command, check=True)
+    except subprocess.CalledProcessError:
+        print("Error: PDF file open failed.")
+        
 
 
-def create_files(content, file_path=FILE_PATH):
+def create_files(content, file_path=FILE_PATH, open_pdf_after_create=False):
     timestamp = get_timestamp()
     md_file_path = f"{file_path}_{timestamp}.md"
     pdf_file_path = f"{file_path}_{timestamp}.pdf"
     
     create_md(content, md_file_path)
     create_pdf(md_file_path, pdf_file_path)
+    
+    if open_pdf_after_create:
+        open_pdf(pdf_file_path)
