@@ -7,7 +7,6 @@ from files_handler import *
 
 from config import OUTPUT_FILE_PATH_WITH_TIMESTAMP
 
-
 if __name__ == "__main__":
     
     tasks = []
@@ -15,13 +14,13 @@ if __name__ == "__main__":
     tasks += [Addition.generate_task((100, 1000), (100, 1000)) for _ in  range (5)]
     tasks += "\n"
 
-    tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
+    tasks += [Subtraction.generate_task((100, 1000), (100, 1000), only_pos=True) for _ in range(5)]
     tasks += "\n"
     
     tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
     tasks += "\n"
     
-    tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
+    tasks += [Division.generate_task((5, 9), (21, 29)) for _ in range(5)]
 
 
     md_file_path = OUTPUT_FILE_PATH_WITH_TIMESTAMP + '.md'
