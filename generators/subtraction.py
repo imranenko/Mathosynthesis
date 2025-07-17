@@ -20,7 +20,7 @@ class Subtraction():
         difference = minuend - subtrahend
         
         if random.random() < 0.5:
-            task = f"$${minuend} - \_\_\_ = {str(difference)*2}$$\n"
+            task = f"$${minuend} - \\_\\_\\_ = {str(difference)*2}$$\n"
         else:
-            task = f"$$\_\_\_ - {subtrahend} = {difference}$$\n"
+            task = f"$$\\_\\_\\_ - {subtrahend} = {difference}$$\n"
         return task

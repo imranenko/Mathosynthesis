@@ -14,7 +14,7 @@ class Addition():
         sum = summand1 + summand2
         
         if random.random() < 0.5:
-            task = f"$${summand1} + \_\_\_ = {str(sum)*2}$$\n"
+            task = f"$${summand1} + \\_\\_\\_ = {str(sum)*2}$$\n"
         else:
-            task = f"$$\_\_\_ + {summand2} = {sum}$$\n"
+            task = f"$$\\_\\_\\_ + {summand2} = {sum}$$\n"
         return task

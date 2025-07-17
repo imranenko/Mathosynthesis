@@ -8,9 +8,9 @@ class Division():
         product = num1 * num2
         
         if random.random() < 0.5:
-            task = f"$${product} \div {num1} = $$\n"
+            task = f"$${product} \\div {num1} = $$\n"
         else:
-            task = f"$${product} \div {num2} = $$\n"
+            task = f"$${product} \\div {num2} = $$\n"
         return task
 
     def generate_with_missing_element(factor1=(2, 9), factor2=(2,9)):
@@ -19,9 +19,9 @@ class Division():
         product = num1 * num2
 
         if random.random() < 0.5:
-            task = f"$${product} \div \_\_\_ = {num1}$$\n"
+            task = f"$${product} \\div \\_\\_\\_ = {num1}$$\n"
         else:
-            task = f"$$\_\_\_ \div {num2} = {num1}$$\n"
+            task = f"$$\\_\\_\\_ \\div {num2} = {num1}$$\n"
         return task
 
 
