@@ -1,5 +1,8 @@
 from generators.addition import *
+from generators.subtraction import *
 from generators.multiplication import *
+from generators.division import *
+
 from files_handler import *
 
 from config import OUTPUT_FILE_PATH_WITH_TIMESTAMP
@@ -9,9 +12,16 @@ if __name__ == "__main__":
     
     tasks = []
     
-    tasks += [generate_addition_task((100, 1000), (100, 1000)) for i in  range (10)]
+    tasks += [Addition.generate_task((100, 1000), (100, 1000)) for _ in  range (5)]
     tasks += "\n"
-    tasks += [generate_multiplication_task((5, 9), (21, 29)) for i in range(10)]
+
+    tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
+    tasks += "\n"
+    
+    tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
+    tasks += "\n"
+    
+    tasks += [Multiplication.generate_task((5, 9), (21, 29)) for _ in range(5)]
 
 
     md_file_path = OUTPUT_FILE_PATH_WITH_TIMESTAMP + '.md'
