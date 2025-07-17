@@ -1,0 +1,20 @@
+{
+    "task_blocks": [
+        {
+            "instruction": "addition",
+            "settings": {
+                "amount": 10,
+                "range1": [1, 9],
+                "range2": [1, 9]
+            }
+        },
+        {
+            "instruction": "addition_missing",
+            "settings": {
+                "amount": 10,
+                "range1": [1, 9],
+                "range2": [1, 9]
+            }
+        }
+    ]
+}
