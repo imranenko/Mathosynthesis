@@ -1,11 +1,12 @@
 import subprocess
-import datetime
 import os
 
-from config import FILE_PATH
+import datetime
+
+from config import FILE_PATH, FOLDER_NAME
 
 def get_timestamp():
-    # Uses ISO 8601 timestamp with week date format
+    # Uses ISO 8601 timestamp with week date format, e.g. 2025-W29-5T13:42:06
     week_timestamp = datetime.datetime.now().strftime("%Y-W%W-%uT%H:%M:%S")
     return week_timestamp
 
@@ -15,7 +16,7 @@ def create_md(content, file_name):
         for task in content:
             file.write(task)
 
-def create_pdf(md_file_path, pdf_file_path, open_pdf=False):
+def create_pdf(md_file_path, pdf_file_path):
     create_pdf_command = [
         "pandoc",
         md_file_path,
@@ -45,8 +46,12 @@ def open_pdf(pdf_file_path):
         print("Error: PDF file open failed.")
         
 
-
 def create_files(content, file_path=FILE_PATH, auto_open=False):
+    try:
+        os.makedirs(FOLDER_NAME, exist_ok=True)
+    except OSError as e:
+        print(f"Error creating folder: {e}")
+    
     timestamp = get_timestamp()
     md_file_path = f"{file_path}_{timestamp}.md"
     pdf_file_path = f"{file_path}_{timestamp}.pdf"

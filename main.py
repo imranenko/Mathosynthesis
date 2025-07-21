@@ -5,11 +5,7 @@ if __name__ == "__main__":
     
     # Generate tasks
     
-    # Setups:
-    # - .multplication()
-    # - .basic_operation()
-    
-    tasks = setup.multiplication()
+    tasks = setup.multiplication_intermidiate()
 
     # Create .md and .pdf files
     create_files(tasks, auto_open=True)
