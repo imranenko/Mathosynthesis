@@ -2,25 +2,47 @@ import random
 
 class Subtraction():
 
-    def generate_task(range1=(100, 999), range2=(100, 999), only_pos=False):
-        minuend = random.randint(*range1)
-        subtrahend = random.randint(*range2)
+    def generate_task(settings):
+        tasks = []
+        amount = settings.get("amount", 1)
+        range1 = settings.get("range1", (1, 10))
+        range2 = settings.get("range2", (1, 10))
+        only_pos = settings.get("only_pos", True)
         
-        if only_pos and minuend < subtrahend:
-            minuend, subtrahend = subtrahend, minuend
+        for _ in range(amount):
+        
+            minuend = random.randint(*range1)
+            subtrahend = random.randint(*range2)
+        
+            if only_pos and minuend < subtrahend:
+                minuend, subtrahend = subtrahend, minuend
             
-        return f"$${minuend} - {subtrahend} = $$\n"
+            tasks.append(f"$${minuend} - {subtrahend} = $$\n")
 
-    def generate_with_missing_element(range1=(100, 999), range2=(100, 999), only_pos=False):
-        minuend = random.randint(*range1)
-        subtrahend = random.randint(*range2)
+        return tasks
+
+    def generate_with_missing_element(settings):
+        tasks = []
+        amount = settings.get("amount", 1)
+        range1 = settings.get("range1", (1, 10))
+        range2 = settings.get("range2", (1, 10))
+        only_pos = settings.get("only_pos", True)
         
-        if only_pos and minuend - subtrahend:
-            minuend, subtrahend = subtrahend, minuend
-        difference = minuend - subtrahend
-        
-        if random.random() < 0.5:
-            task = f"$${minuend} - \\_\\_\\_ = {str(difference)*2}$$\n"
-        else:
-            task = f"$$\\_\\_\\_ - {subtrahend} = {difference}$$\n"
-        return task
+        for _ in range(amount):
+            
+            minuend = random.randint(*range1)
+            subtrahend = random.randint(*range2)
+            
+            if only_pos and minuend - subtrahend:
+                minuend, subtrahend = subtrahend, minuend
+                
+            difference = minuend - subtrahend
+            
+            if random.random() < 0.5:
+                task = f"$${minuend} - \\_\\_\\_ = {str(difference)*2}$$\n"
+            else:
+                task = f"$$\\_\\_\\_ - {subtrahend} = {difference}$$\n"
+                
+            tasks.appned(task)
+
+        return tasks
