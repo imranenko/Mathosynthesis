@@ -38,7 +38,7 @@ class Division():
             else:
                 task = f"$$\\_\\_\\_ \\div {num2} = {num1}$$\n"
                 
-        tasks.append(task)
+            tasks.append(task)
         
         return tasks
 
