@@ -5,10 +5,12 @@ import datetime
 
 from config import FILE_PATH, FOLDER_NAME
 
+# Uses ISO 8601 timestamp with week date format, e.g. 2025-W29-5T13:42:06
 def get_timestamp():
-    # Uses ISO 8601 timestamp with week date format, e.g. 2025-W29-5T13:42:06
-    week_timestamp = datetime.datetime.now().strftime("%Y-W%W-%uT%H:%M:%S")
-    return week_timestamp
+    now = datetime.datetime.now()
+    iso_year, iso_week, iso_weekday = now.isocalendar()
+    time_str = now.strftime("%H:%M:%S")
+    return f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
 
 
 def create_md(content, file_name):

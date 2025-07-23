@@ -9,6 +9,8 @@ if __name__ == "__main__":
     
     # Open json file
     json_data = read_json(json_path)
+    
+    # Create math tasks
     tasks = create_tasks(json_data)
     
     # Create .md and .pdf files
