@@ -28,7 +28,7 @@ class Division():
         range1 = settings.get("range1", (1, 10))
         range2 = settings.get("range2", (1, 10))
         
-        for i in range(amount):
+        for _ in range(amount):
             num1 = random.randint(*range1)
             num2 = random.randint(*range2)
             product = num1 * num2
@@ -40,7 +40,7 @@ class Division():
                 
         tasks.append(task)
         
-        return task
+        return tasks
 
 
 if __name__ == "__main__":
