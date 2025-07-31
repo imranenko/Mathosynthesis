@@ -1,7 +1,4 @@
-from generators.addition import *
-from generators.subtraction import *
-from generators.multiplication import *
-from generators.division import *
+from generators import *
 
 import json
 
@@ -13,7 +10,7 @@ instruction = {
     "multiplication": Multiplication.generate_task,
     "multiplication_missing": Multiplication.generate_with_missing_element,
     "division": Division.generate_task,
-    "division": Division.generate_with_missing_element
+    "division_missing": Division.generate_with_missing_element
 }
 
 def read_json(json_path):
@@ -35,6 +32,6 @@ def create_tasks(json_data):
         task_block = instruction[task_type](task_settings)
         
         tasks += task_block
-        tasks += "\n"
+        tasks.append("\n")
     
     return tasks
