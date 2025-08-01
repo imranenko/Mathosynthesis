@@ -1,4 +1,6 @@
-FOLDER_NAME = "Math Tasks"
-FILE_NAME = "Math-Task"
+TASKS_FOLDER = "math-tasks"
+TASK_NAME = "math-task"
 
-FILE_PATH = f"{FOLDER_NAME}/{FILE_NAME}"
+TASK_PATH = f"{TASKS_FOLDER}/{TASK_NAME}"
+
+SETUPS_DIR = "setups"

@@ -1,17 +1,26 @@
-from tasks_handler import create_tasks, read_json
-from files_handler import create_files
+from handlers import parse_args, read_json, create_tasks, create_files
+from config import SETUPS_DIR
 
+def main():
+    # Use CLI argument for setup file
+    args = parse_args()
+    json_file = args.setup
+    auto_open = args.open
+    show_file = args.file
+    
+    json_path = f"{SETUPS_DIR}/{json_file}"
 
-if __name__ == "__main__":
-    
-    # Choose json file
-    json_path = "setups/basic_operations.json"
-    
-    # Open json file
+    # Load JSON and generate tasks
     json_data = read_json(json_path)
     
-    # Create math tasks
+    # Generate tasks
     tasks = create_tasks(json_data)
+
+    # Create files (PDF, MD) and get the PDF path
+    create_files(tasks, auto_open=auto_open, auto_reveal=show_file)
     
-    # Create .md and .pdf files
-    create_files(tasks, auto_open=False)
+
+if __name__ == "__main__":
+    main()
+    
+    

@@ -1,7 +1,6 @@
 import random
 
-class Division():
-    
+class Division():  
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)

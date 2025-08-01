@@ -1,17 +1,5 @@
-from generators import *
-
+from generators import register
 import json
-
-instruction = {
-    "addition": Addition.generate_task,
-    "addition_missing": Addition.generate_with_missing_element,
-    "subtraction": Subtraction.generate_task,
-    "subtraction_missing": Subtraction.generate_with_missing_element,
-    "multiplication": Multiplication.generate_task,
-    "multiplication_missing": Multiplication.generate_with_missing_element,
-    "division": Division.generate_task,
-    "division_missing": Division.generate_with_missing_element
-}
 
 def read_json(json_path):
     with open(json_path, "r") as json_file:
@@ -29,7 +17,7 @@ def create_tasks(json_data):
         if not task_type:
             raise ValueError("Missing or invalid 'type' in task block.")
         
-        task_block = instruction[task_type](task_settings)
+        task_block = register[task_type](task_settings)
         
         tasks += task_block
         tasks.append("\n")

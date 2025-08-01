@@ -1,7 +1,6 @@
 import random
 
 class Subtraction():
-
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)

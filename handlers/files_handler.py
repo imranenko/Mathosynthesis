@@ -3,7 +3,8 @@ import os
 
 import datetime
 
-from config import FILE_PATH, FOLDER_NAME
+from config import TASK_PATH, TASKS_FOLDER
+
 
 # Uses ISO 8601 timestamp with week date format, e.g. 2025-W29-5T13:42:06
 def get_timestamp():
@@ -13,10 +14,18 @@ def get_timestamp():
     return f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
 
 
+def create_folder(folder_dir=TASKS_FOLDER):
+    try:
+        os.makedirs(folder_dir, exist_ok=True)
+    except OSError as e:
+        print(f"Error creating folder: {e}")
+
+
 def create_md(content, file_name):
     with open(file_name, 'w') as file:
         for task in content:
             file.write(task)
+
 
 def create_pdf(md_file_path, pdf_file_path):
     create_pdf_command = [
@@ -35,24 +44,27 @@ def create_pdf(md_file_path, pdf_file_path):
     except subprocess.CalledProcessError:
         print("Error: Pandoc conversion failed.")
 
-    
-def open_pdf(pdf_file_path):
+
+def open_file(file_path):
     open_pdf_command = [
         "open",
-        "-a", "Preview",
-        pdf_file_path
+        file_path
         ]
     try:
         subprocess.run(open_pdf_command, check=True)
     except subprocess.CalledProcessError:
-        print("Error: PDF file open failed.")
+        print("Error: Could not open file")
         
-
-def create_files(content, file_path=FILE_PATH, auto_open=False):
+        
+def reveal_file(file_path):
     try:
-        os.makedirs(FOLDER_NAME, exist_ok=True)
+        subprocess.run(["open", "-R", file_path], check=True)
     except OSError as e:
-        print(f"Error creating folder: {e}")
+        print(f"Error: Could not reveal file in Finder")
+        
+        
+def create_files(content, file_path=TASK_PATH, auto_open=False, auto_reveal=False):
+    create_folder()
     
     timestamp = get_timestamp()
     md_file_path = f"{file_path}_{timestamp}.md"
@@ -62,4 +74,9 @@ def create_files(content, file_path=FILE_PATH, auto_open=False):
     create_pdf(md_file_path, pdf_file_path)
     
     if auto_open:
-        open_pdf(pdf_file_path)
+        open_file(pdf_file_path)
+    
+    if auto_reveal:
+        reveal_file(pdf_file_path)
+
+
