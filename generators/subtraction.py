@@ -7,7 +7,7 @@ class Subtraction():
         range1 = settings.get("range1", (1, 10))
         range2 = settings.get("range2", (1, 10))
         only_pos = settings.get("only_pos", True)
-        
+
         for _ in range(amount):
         
             minuend = random.randint(*range1)
@@ -42,6 +42,6 @@ class Subtraction():
             else:
                 task = f"$$\\_\\_\\_ - {subtrahend} = {difference}$$\n"
                 
-            tasks.appned(task)
+            tasks.append(task)
 
         return tasks

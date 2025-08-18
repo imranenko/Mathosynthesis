@@ -20,7 +20,7 @@ class Multiplication():
         amount = settings.get("amount", 1)
         range1 = settings.get("range1", (1, 10))
         range2 = settings.get("range2", (1, 10))
-        
+
         
         for _ in range(amount):
             factor1 = random.randint(*range1)
