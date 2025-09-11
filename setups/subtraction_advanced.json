@@ -9,7 +9,7 @@
             }
         },
         {
-            "instruction": "subtraction_missing",
+            "instruction": "subtraction",
             "settings": {
                 "amount": 10,
                 "range1": [101, 999],

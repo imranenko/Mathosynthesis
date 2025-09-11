@@ -4,16 +4,16 @@
             "instruction": "multiplication",
             "settings": {
                 "amount": 10,
-                "range1": [2, 9],
-                "range2": [2, 9]
+                "range1": [101, 999],
+                "range2": [101, 999]
             }
         },
         {
             "instruction": "multiplication",
             "settings": {
                 "amount": 10,
-                "range1": [2, 9],
-                "range2": [2, 9]
+                "range1": [101, 999],
+                "range2": [101, 999]
             }
         }
     ]

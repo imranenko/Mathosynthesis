@@ -3,7 +3,7 @@
         {
             "instruction": "addition",
             "settings": {
-                "amount": 5,
+                "amount": 6,
                 "range1": [11, 99],
                 "range2": [11, 99]
             }
@@ -11,7 +11,7 @@
         {
             "instruction": "subtraction",
             "settings": {
-                "amount": 5,
+                "amount": 6,
                 "range1": [11, 99],
                 "range2": [11, 99]
             }
@@ -19,7 +19,7 @@
         {
             "instruction": "multiplication",
             "settings": {
-                "amount": 5,
+                "amount": 6,
                 "range1": [2, 9],
                 "range2": [2, 9]
             }
@@ -27,7 +27,7 @@
         {
             "instruction": "division",
             "settings": {
-                "amount": 5,
+                "amount": 6,
                 "range1": [2, 9],
                 "range2": [2, 9]
             }

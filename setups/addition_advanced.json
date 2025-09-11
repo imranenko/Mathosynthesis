@@ -9,7 +9,7 @@
             }
         },
         {
-            "instruction": "addition_missing",
+            "instruction": "addition",
             "settings": {
                 "amount": 10,
                 "range1": [101, 999],
