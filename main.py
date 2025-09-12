@@ -1,4 +1,4 @@
-from handlers import parse_args, read_json, create_tasks, create_files
+from handlers import parse_args, read_json, create_blocks, create_files
 from config import SETUPS_DIR
 
 def main():
@@ -14,7 +14,7 @@ def main():
     json_data = read_json(json_path)
     
     # Generate tasks
-    tasks = create_tasks(json_data)
+    tasks = create_blocks(json_data)
 
     # Create files (PDF, MD) and get the PDF path
     create_files(tasks, auto_open=auto_open, auto_reveal=show_file)

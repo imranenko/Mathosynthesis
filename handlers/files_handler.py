@@ -25,8 +25,8 @@ def create_folder(folder_dir=TASKS_FOLDER):
 
 def create_md(content, file_name):
     with open(file_name, 'w') as file:
-        for task in content:
-            file.write(task)
+        for line in content:
+            file.write(line + '\n')
 
 
 def create_pdf(md_file_path, pdf_file_path):

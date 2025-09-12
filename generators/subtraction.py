@@ -1,6 +1,7 @@
+from .generator import Generator
 import random
 
-class Subtraction():
+class Subtraction(Generator):
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
@@ -16,7 +17,7 @@ class Subtraction():
             if only_pos and minuend < subtrahend:
                 minuend, subtrahend = subtrahend, minuend
             
-            tasks.append(f"$${minuend} - {subtrahend} = $$\n")
+            tasks.append(f"${minuend} - {subtrahend} = $\n")
 
         return tasks
 
@@ -38,9 +39,9 @@ class Subtraction():
             difference = minuend - subtrahend
             
             if random.random() < 0.5:
-                task = f"$${minuend} - \\_\\_\\_ = {str(difference)*2}$$\n"
+                task = f"${minuend} - \\_\\_\\_ = {str(difference)*2}$\n"
             else:
-                task = f"$$\\_\\_\\_ - {subtrahend} = {difference}$$\n"
+                task = f"$\\_\\_\\_ - {subtrahend} = {difference}$\n"
                 
             tasks.append(task)
 

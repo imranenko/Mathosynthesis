@@ -1,6 +1,7 @@
+from .generator import Generator
 import random
 
-class Division():  
+class Division(Generator):  
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
@@ -13,9 +14,9 @@ class Division():
             product = num1 * num2
             
             if random.random() < 0.5:
-                task = f"$${product} \\div {num1} = $$\n"
+                task = f"${product} \\div {num1} = $\n"
             else:
-                task = f"$${product} \\div {num2} = $$\n"
+                task = f"${product} \\div {num2} = $\n"
                 
             tasks.append(task)
                 
@@ -33,9 +34,9 @@ class Division():
             product = num1 * num2
 
             if random.random() < 0.5:
-                task = f"$${product} \\div \\_\\_\\_ = {num1}$$\n"
+                task = f"${product} \\div \\_\\_\\_ = {num1}$\n"
             else:
-                task = f"$$\\_\\_\\_ \\div {num2} = {num1}$$\n"
+                task = f"$\\_\\_\\_ \\div {num2} = {num1}$\n"
                 
             tasks.append(task)
         

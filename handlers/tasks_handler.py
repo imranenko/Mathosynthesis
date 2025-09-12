@@ -6,20 +6,26 @@ def read_json(json_path):
         json_data = json.load(json_file)
         return json_data
     
-def create_tasks(json_data):
+def create_blocks(json_data):
     task_blocks = json_data["task_blocks"]
-    tasks = []
+    lines = []
+    
+    # Import multicol
+    lines.append("---")
+    lines.append("header-includes:")
+    lines.append(" - \\usepackage{multicol}")
+    lines.append("---")
     
     # For-loop with task blocks
     for task_block in task_blocks:
         task_type = task_block["instruction"]
         task_settings = task_block["settings"]
         if not task_type:
-            raise ValueError("Missing or invalid 'type' in task block.")
+            raise ValueError("Missing or invalid 'type' in setup.")
         
         task_block = register[task_type](task_settings)
         
-        tasks += task_block
-        tasks.append("\n")
+        lines += task_block
+        lines.append("\\")
     
-    return tasks
+    return lines
