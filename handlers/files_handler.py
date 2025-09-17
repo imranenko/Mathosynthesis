@@ -3,7 +3,7 @@ import os
 
 import datetime
 
-from config import TASK_PATH, TASKS_FOLDER
+from config import TASK_PATH, TASKS_FOLDER, SETUPS_DIR
 
 
 # Uses ISO 8601 timestamp with week date format
@@ -82,3 +82,17 @@ def create_files(content, file_path=TASK_PATH, auto_open=False, auto_reveal=Fals
         reveal_file(pdf_file_path)
 
 
+def get_setups_list():
+    try:
+        files = os.listdir(SETUPS_DIR)
+        # Optional: filter only files (exclude directories)
+        files = [f for f in files if os.path.isfile(os.path.join(SETUPS_DIR, f))]
+        return files
+    except FileNotFoundError:
+        print(f"Error: Directory '{SETUPS_DIR}' does not exist.")
+        os.exit(1)
+    except OSError as e:
+        print(f"Error accessing '{SETUPS_DIR}': {e}")
+        os.exit(1)
+        
+    

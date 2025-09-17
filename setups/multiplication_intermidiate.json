@@ -1,7 +1,8 @@
 {
     "task_blocks": [
         {
-            "instruction": "multiplication",
+            "type": "multiplication",
+            "columns": 2,
             "settings": {
                 "amount": 10,
                 "range1": [2, 9],
@@ -9,7 +10,8 @@
             }
         },
         {
-            "instruction": "multiplication",
+            "type": "multiplication",
+            "columns": 2,
             "settings": {
                 "amount": 10,
                 "range1": [2, 9],

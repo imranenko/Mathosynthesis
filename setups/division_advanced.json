@@ -1,7 +1,8 @@
 {
     "task_blocks": [
         {
-            "instruction": "division",
+            "type": "division",
+            "columns": 2,
             "settings": {
                 "amount": 10,
                 "range1": [101, 999],
@@ -9,7 +10,8 @@
             }
         },
         {
-            "instruction": "division",
+            "type": "division",
+            "columns": 2,
             "settings": {
                 "amount": 10,
                 "range1": [101, 999],

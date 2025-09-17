@@ -1,33 +1,37 @@
 {
     "task_blocks": [
         {
-            "instruction": "addition",
+            "type": "addition",
+            "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 12,
                 "range1": [11, 99],
                 "range2": [11, 99]
             }
         },
         {
-            "instruction": "subtraction",
+            "type": "subtraction",
+            "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 12,
                 "range1": [11, 99],
                 "range2": [11, 99]
             }
         },
         {
-            "instruction": "multiplication",
+            "type": "multiplication",
+            "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 12,
                 "range1": [2, 9],
                 "range2": [2, 9]
             }
         },
         {
-            "instruction": "division",
+            "type": "division",
+            "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 12,
                 "range1": [2, 9],
                 "range2": [2, 9]
             }

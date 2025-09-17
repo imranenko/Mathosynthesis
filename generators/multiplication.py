@@ -1,7 +1,6 @@
-from .generator import Generator
 import random
 
-class Multiplication(Generator):
+class Multiplication():
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
@@ -12,7 +11,7 @@ class Multiplication(Generator):
             factor1 = random.randint(*range1)
             factor2 = random.randint(*range2)
             
-            tasks.append( f"${factor1} \\cdot {factor2} = $\n")
+            tasks.append( f"{factor1} \\cdot {factor2} = \n")
         
         return tasks
 
@@ -29,9 +28,9 @@ class Multiplication(Generator):
             product = factor1 * factor2
             
             if random.random() < 0.5:
-                task = f"${factor1} \\cdot \\_\\_\\_ = {product}$\n"
+                task = f"{factor1} \\cdot \\_\\_\\_ = {product}\n"
             else:
-                task = f"$\\_\\_\\_ \\cdot {factor2} = {product}$\n"
+                task = f"\\_\\_\\_ \\cdot {factor2} = {product}\n"
             
             tasks.append(task)
             

@@ -1,7 +1,6 @@
-from .generator import Generator
 import random
 
-class Subtraction(Generator):
+class Subtraction():
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
@@ -39,9 +38,9 @@ class Subtraction(Generator):
             difference = minuend - subtrahend
             
             if random.random() < 0.5:
-                task = f"${minuend} - \\_\\_\\_ = {str(difference)*2}$\n"
+                task = f"{minuend} - \\_\\_\\_ = {str(difference)*2}\n"
             else:
-                task = f"$\\_\\_\\_ - {subtrahend} = {difference}$\n"
+                task = f"\\_\\_\\_ - {subtrahend} = {difference}\n"
                 
             tasks.append(task)
 

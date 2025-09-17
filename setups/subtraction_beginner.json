@@ -1,7 +1,8 @@
 {
     "task_blocks": [
         {
-            "instruction": "subtraction",
+            "type": "subtraction",
+            "columns": 2,
             "settings": {
                 "amount": 10,
                 "range1": [1, 9],
@@ -9,7 +10,8 @@
             }
         },
         {
-            "instruction": "subtraction",
+            "type": "subtraction",
+            "columns": 2,
             "settings": {
                 "amount": 10,
                 "range1": [1, 9],

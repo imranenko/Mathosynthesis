@@ -1,7 +1,6 @@
-from .generator import Generator
 import random
 
-class Addition(Generator):
+class Addition():
     def generate_task(settings):
         lines = []
         
@@ -13,7 +12,7 @@ class Addition(Generator):
             summand1 = random.randint(*range1)
             summand2 = random.randint(*range2)
             
-            task = f"${summand1} + {summand2} =$"
+            task = f"{summand1} + {summand2} ="
             lines.append(task)
             
         return lines
@@ -31,9 +30,9 @@ class Addition(Generator):
             sum = summand1 + summand2
 
             if random.random() < 0.5:
-                task = f"\\${summand1} + \\_\\_\\_ = {sum}$"
+                task = f"{summand1} + \\_\\_\\_ = {sum}"
             else:
-                task = f"\\$\\_\\_\\_ + {summand2} = {sum}$"
+                task = f"\\_\\_\\_ + {summand2} = {sum}"
 
             lines.append(task)
 
