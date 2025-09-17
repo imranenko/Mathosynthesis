@@ -4,7 +4,7 @@
             "type": "addition",
             "columns": 2,
             "settings": {
-                "amount": 12,
+                "amount": 6,
                 "range1": [11, 99],
                 "range2": [11, 99]
             }
@@ -13,7 +13,7 @@
             "type": "subtraction",
             "columns": 2,
             "settings": {
-                "amount": 12,
+                "amount": 6,
                 "range1": [11, 99],
                 "range2": [11, 99]
             }
@@ -22,7 +22,7 @@
             "type": "multiplication",
             "columns": 2,
             "settings": {
-                "amount": 12,
+                "amount": 6,
                 "range1": [2, 9],
                 "range2": [2, 9]
             }
@@ -31,7 +31,7 @@
             "type": "division",
             "columns": 2,
             "settings": {
-                "amount": 12,
+                "amount": 6,
                 "range1": [2, 9],
                 "range2": [2, 9]
             }

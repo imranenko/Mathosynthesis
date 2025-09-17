@@ -16,7 +16,7 @@ class Subtraction():
             if only_pos and minuend < subtrahend:
                 minuend, subtrahend = subtrahend, minuend
             
-            tasks.append(f"${minuend} - {subtrahend} = $\n")
+            tasks.append(f"{minuend} - {subtrahend} = \n")
 
         return tasks
 

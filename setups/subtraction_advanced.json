@@ -17,6 +17,15 @@
                 "range1": [101, 999],
                 "range2": [101, 999]
             }
+        },
+        {
+            "type": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [101, 999],
+                "range2": [101, 999]
+            }
         }
     ]
 }
