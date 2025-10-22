@@ -27,6 +27,15 @@ def create_md(content, file_name):
     with open(file_name, 'w') as file:
         for line in content:
             file.write(line + '\n')
+            
+def delete_file(file_path):
+    try:
+        os.remove(file_path)
+        print(f"Deleted: {file_path}")
+    except FileNotFoundError:
+        print("Error: File not found.")
+    except OSError as e:
+        print(f"Error deleting file: {e}")
 
 
 def create_pdf(md_file_path, pdf_file_path):
@@ -57,7 +66,6 @@ def open_file(file_path):
     except subprocess.CalledProcessError:
         print("Error: Could not open file")
         
-        
 def reveal_file(file_path):
     try:
         subprocess.run(["open", "-R", file_path], check=True)
@@ -65,8 +73,8 @@ def reveal_file(file_path):
         print(f"Error: Could not reveal file in Finder")
         
         
-def create_files(content, file_path=TASK_PATH, auto_open=False, auto_reveal=False):
-    create_folder()
+def create_files(content, file_path=TASK_PATH, keep_md=False, auto_open=False, auto_reveal=False):
+    create_folder() # Create tasks folder
     
     timestamp = get_timestamp()
     md_file_path = f"{file_path}_{timestamp}.md"
@@ -74,6 +82,9 @@ def create_files(content, file_path=TASK_PATH, auto_open=False, auto_reveal=Fals
     
     create_md(content, md_file_path)
     create_pdf(md_file_path, pdf_file_path)
+    
+    if not keep_md:
+        delete_file(md_file_path)
     
     if auto_open:
         open_file(pdf_file_path)
@@ -94,5 +105,3 @@ def get_setups_list():
     except OSError as e:
         print(f"Error accessing '{SETUPS_DIR}': {e}")
         os.exit(1)
-        
-    

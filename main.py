@@ -6,7 +6,8 @@ def main():
     args = parse_args()
     setup_file = args.setup
     auto_open = args.open
-    show_file = args.file
+    auto_reveal = args.file
+    keep_md = args.md
 
     
     if not setup_file:
@@ -21,7 +22,7 @@ def main():
     tasks = generate_setup(json_data)
 
     # Create files (PDF, MD) and get the PDF path
-    create_files(tasks, auto_open=auto_open, auto_reveal=show_file)
+    create_files(tasks, keep_md=keep_md, auto_open=auto_open, auto_reveal=auto_reveal)
     
 
 if __name__ == "__main__":

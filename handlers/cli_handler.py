@@ -24,6 +24,12 @@ def parse_args():
         help="Reveal PDF file in Finder"
     )
     
+    parser.add_argument(
+        "--md", "-m",
+        action="store_true",
+        help="Keep md file after PDF creation"
+    )
+    
     return parser.parse_args()
 
 

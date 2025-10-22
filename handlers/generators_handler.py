@@ -10,7 +10,7 @@ def generate_setup(json_data):
     task_blocks = json_data["task_blocks"]
     lines = []
     
-    # Import multicol
+    # MULTICOL SUPPORT
     lines.append("---")
     lines.append("header-includes:")
     lines.append(" - \\usepackage{multicol}")
@@ -37,6 +37,7 @@ def generate_setup(json_data):
     return lines
 
 def generate_block(tasks, columns=2):
+    if columns > 1:
         lines = []
         lines.append(f"\\begin{{multicols}}{{{columns}}}")
         lines.append("\\begin{enumerate}")
@@ -46,5 +47,16 @@ def generate_block(tasks, columns=2):
         
         lines.append("\\end{enumerate}")
         lines.append("\\end{multicols}")
+        
+        return lines
+    
+    else: # NOTE: for columns <= 0, 1 set as deafult
+        lines = []
+        lines.append("\\begin{enumerate}")
+        
+        for task in tasks:
+            lines.append(f"\\item ${task}$")
+        
+        lines.append("\\end{enumerate}")
         
         return lines
