@@ -1,24 +1,23 @@
-from handlers import parse_args, read_json, generate_setup, create_files, ask_setup_file
+from handlers import parse_args, read_json, generate_setup, create_files, ask_setup
 from config import SETUPS_DIR
+# from config import AUTO_OPEN_FILE, AUTO_SHOW_FILE, KEEP_MD_FILE
 
 def main():
     # Use CLI argument for setup file
     args = parse_args()
     setup_file = args.setup
     auto_open = args.open
-    auto_reveal = args.file
+    auto_reveal = args.reveal
     keep_md = args.md
 
-    
+    # Ask for a setup if not given
     if not setup_file:
-        setup_file = ask_setup_file()
-        
-    json_path = f"{SETUPS_DIR}/{setup_file}"
-
-    # Load JSON and generate tasks
-    json_data = read_json(json_path)
+        setup_path = ask_setup()
     
-    # Generate tasks
+    # Load JSON
+    json_data = read_json(setup_path)
+    
+    # Generate setup
     tasks = generate_setup(json_data)
 
     # Create files (PDF, MD) and get the PDF path

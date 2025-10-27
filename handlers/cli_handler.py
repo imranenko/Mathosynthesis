@@ -1,5 +1,6 @@
 import argparse
-from .files_handler import get_setups_list
+from .files_handler import get_setups
+from config import SETUPS_DIR
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -19,7 +20,7 @@ def parse_args():
     )
     
     parser.add_argument(
-        "--file", "-f",
+        "--reveal", "-r",
         action="store_true",
         help="Reveal PDF file in Finder"
     )
@@ -33,25 +34,50 @@ def parse_args():
     return parser.parse_args()
 
 
-def ask_setup_file():
-    files = get_setups_list()
-    if not files:
-        print("No setup files found.")
+def ask_setup():
+    setups = get_setups()
+    if not setups:
+        print("No setups files found.")
         return None
+    
+    category_names = list(setups.keys())
+    files = []
+    for category_name in category_names:
+        files.extend(setups[category_name])
+    printables = []
+    counter = 0
+    
+    printables.append("=== SETUPS ===")
+    
+    for category_name in category_names:
+        category_files = setups[category_name]
+        
+        if category_name != 'NO_CATEGORY':
+            printables.append(f"  == {category_name} ==")
 
-    json_file = None
-    while json_file is None:
-        print("Setups:")
-        for i, f in enumerate(files):
-            print(f"{i + 1}. {f}")
+        for i, file in enumerate(category_files, start=counter):
+            printables.append(f"    {i+1}. {file}")
+        counter += len(category_files)
+
+    chosen_file = None
+    while not chosen_file:  
+        for printable in printables:
+            print(printable)   
         try:
             answer = input("Choose the number of setup: ")
-            number = int(answer) - 1  # list index starts at 0
-            if 0 <= number < len(files):
-                json_file = files[number]
+            chosen_number = int(answer) - 1
+            if 0 <= chosen_number < len(files):
+                chosen_file = files[chosen_number]
             else:
-                print("Invalid number!\n")
+                print("INVALID INPUT NUMBER!") # red
         except ValueError:
-            print("Please enter a valid number!\n")
+            print("PLEASE ENTER A VALID NUMBER\n") # red
 
-    return json_file
+    chosen_category = ""
+    for category_name in category_names:
+        if chosen_file in setups[category_name] and category_name != "NO_CATEGORY":
+            chosen_category = category_name
+            break
+
+    chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
+    return chosen_path

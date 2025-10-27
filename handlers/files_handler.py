@@ -93,15 +93,25 @@ def create_files(content, file_path=TASK_PATH, keep_md=False, auto_open=False, a
         reveal_file(pdf_file_path)
 
 
-def get_setups_list():
-    try:
-        files = os.listdir(SETUPS_DIR)
-        # Optional: filter only files (exclude directories)
-        files = [f for f in files if os.path.isfile(os.path.join(SETUPS_DIR, f))]
-        return files
-    except FileNotFoundError:
-        print(f"Error: Directory '{SETUPS_DIR}' does not exist.")
-        os.exit(1)
-    except OSError as e:
-        print(f"Error accessing '{SETUPS_DIR}': {e}")
-        os.exit(1)
+def get_setups():
+    setups = {}
+
+    # List all items in the parent folder
+    all_items = sorted(os.listdir(SETUPS_DIR)) # all_items = ['setup1.json', 'addition']
+
+    # Separate files and folders
+    files = [f for f in all_items if os.path.isfile(os.path.join(SETUPS_DIR, f)) and f.endswith('.json')]
+    folders = [d for d in all_items if os.path.isdir(os.path.join(SETUPS_DIR, d))]
+
+    # Add files in setups
+    if files:
+        setups['NO_CATEGORY'] = files
+
+    # Add files in each category folder
+    for folder in folders:
+        folder_path = os.path.join(SETUPS_DIR, folder)
+        child_files = sorted([f for f in os.listdir(folder_path) if f.endswith('.json')])
+        if child_files:
+            setups[folder] = child_files
+
+    return setups
