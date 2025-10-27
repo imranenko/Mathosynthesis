@@ -47,17 +47,18 @@ def ask_setup():
     printables = []
     counter = 0
     
-    printables.append("=== SETUPS ===")
+    printables.append("\n=== SETUPS ===\n")
     
     for category_name in category_names:
         category_files = setups[category_name]
         
         if category_name != 'NO_CATEGORY':
-            printables.append(f"  == {category_name} ==")
+            printables.append(f"== {category_name} ==")
 
         for i, file in enumerate(category_files, start=counter):
             printables.append(f"    {i+1}. {file}")
         counter += len(category_files)
+        printables.append("")
 
     chosen_file = None
     while not chosen_file:  
