@@ -1,6 +1,5 @@
 from handlers import parse_args, read_json, generate_setup, create_files, ask_setup
-from config import SETUPS_DIR
-# from config import AUTO_OPEN_FILE, AUTO_SHOW_FILE, KEEP_MD_FILE
+from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE
 
 def main():
     # Use CLI argument for setup file
@@ -13,6 +12,14 @@ def main():
     # Ask for a setup if not given
     if not setup_file:
         setup_path = ask_setup()
+        
+    # Use config settings for auto_open, auto_reveal, keep_md
+    if auto_open is None:
+        auto_open = AUTO_OPEN_FILE
+    if auto_reveal is None:
+        auto_reveal = AUTO_REVEAL_FILE
+    if keep_md is None:
+        keep_md = KEEP_MD_FILE
     
     # Load JSON
     json_data = read_json(setup_path)

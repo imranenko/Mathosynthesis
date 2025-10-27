@@ -2,6 +2,15 @@ import argparse
 from .files_handler import get_setups
 from config import SETUPS_DIR
 
+def str_to_bool(value):
+    val = str(value).lower()
+    if val in ("true", "1", "yes", "y"):
+        return True
+    elif val in ("false", "0", "no", "n"):
+        return False
+    else:
+        raise argparse.ArgumentTypeError("Boolean value expected (True/False).")
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Generate math takss from a setup file and opetionally open the results"
@@ -15,19 +24,25 @@ def parse_args():
     
     parser.add_argument(
         "--open", "-o",
-        action="store_true",
+        nargs="?", # optionaly to specify boolean
+        const=True, # if not specified, store True
+        type=str_to_bool, # if specified, determines boolean
         help="Open PDF file after creation"
     )
     
     parser.add_argument(
         "--reveal", "-r",
-        action="store_true",
+        nargs="?",
+        const=True,
+        type=str_to_bool,
         help="Reveal PDF file in Finder"
     )
     
     parser.add_argument(
         "--md", "-m",
-        action="store_true",
+        nargs="?",
+        const=True,
+        type=str_to_bool,
         help="Keep md file after PDF creation"
     )
     
