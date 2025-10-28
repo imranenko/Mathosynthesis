@@ -73,12 +73,19 @@ def reveal_file(file_path):
         print(f"Error: Could not reveal file in Finder")
         
         
-def create_files(content, setup_name=TASK_NAME, keep_md=False, auto_open=False, auto_reveal=False):
+def create_files(
+    content: list[str],
+    file_name: str = TASK_NAME,
+    keep_md: bool = False,
+    auto_open: bool = False,
+    auto_reveal: bool = False
+    ):
+    """Creates a Markdown and PDF file with the given content, optionally opens or reveals it"""
     _create_folder() # Create tasks folder
     
     timestamp = _get_timestamp()
-    md_file_path = f"{TASKS_FOLDER}/{setup_name}_{timestamp}.md"
-    pdf_file_path = f"{TASKS_FOLDER}/{setup_name}_{timestamp}.pdf"
+    md_file_path = f"{TASKS_FOLDER}/{file_name}_{timestamp}.md"
+    pdf_file_path = f"{TASKS_FOLDER}/{file_name}_{timestamp}.pdf"
     
     _create_md(content, md_file_path)
     _create_pdf(md_file_path, pdf_file_path)
@@ -93,7 +100,8 @@ def create_files(content, setup_name=TASK_NAME, keep_md=False, auto_open=False, 
         reveal_file(pdf_file_path)
 
 
-def get_setups():
+def get_setups() -> dict[str, list[str]]:
+    """Return dictionary mapping setup categories to their .json files."""
     setups = {}
 
     # List all items in the parent folder

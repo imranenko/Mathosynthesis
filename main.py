@@ -4,14 +4,14 @@ from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE
 def main():
     # Use CLI argument for setup file
     args = parse_args()
-    setup_file = args.setup
+    setup_path = args.setup
     auto_open = args.open
     auto_reveal = args.reveal
     keep_md = args.md
 
     # Ask for a setup if not given
-    if not setup_file:
-        setup_path, setup_file = ask_setup()
+    if not setup_path:
+        setup_path, setup_name = ask_setup()
         
     # Use config settings for auto_open, auto_reveal, keep_md
     if auto_open is None:
@@ -28,7 +28,16 @@ def main():
     tasks = generate_setup(json_data)
 
     # Create files (PDF, MD) and get the PDF path
-    create_files(tasks, setup_name=setup_file, keep_md=keep_md, auto_open=auto_open, auto_reveal=auto_reveal)
+    if setup_name[-5:] == '.json':
+       file_name = setup_name[:-5]
+       
+    create_files(
+        tasks,
+        file_name=file_name,
+        keep_md=keep_md,
+        auto_open=auto_open,
+        auto_reveal=auto_reveal
+        )
     
 
 if __name__ == "__main__":

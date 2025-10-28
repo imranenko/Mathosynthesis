@@ -2,7 +2,7 @@ import argparse
 from .files_handler import get_setups
 from config import SETUPS_DIR
 
-def str_to_bool(value):
+def _str_to_bool(value):
     val = str(value).lower()
     if val in ("true", "1", "yes", "y"):
         return True
@@ -11,9 +11,9 @@ def str_to_bool(value):
     else:
         raise argparse.ArgumentTypeError("Boolean value expected (True/False).")
 
-def parse_args():
+def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate math takss from a setup file and opetionally open the results"
+        description="Generate math tasks from a setup file and optionally open the results"
     )
     
     parser.add_argument(
@@ -24,9 +24,9 @@ def parse_args():
     
     parser.add_argument(
         "--open", "-o",
-        nargs="?", # optionaly to specify boolean
+        nargs="?", # optionally to specify boolean
         const=True, # if not specified, store True
-        type=str_to_bool, # if specified, determines boolean
+        type=_str_to_bool, # if specified, converts input to boolean
         help="Open PDF file after creation"
     )
     
@@ -34,7 +34,7 @@ def parse_args():
         "--reveal", "-r",
         nargs="?",
         const=True,
-        type=str_to_bool,
+        type=_str_to_bool,
         help="Reveal PDF file in Finder"
     )
     
@@ -42,14 +42,15 @@ def parse_args():
         "--md", "-m",
         nargs="?",
         const=True,
-        type=str_to_bool,
+        type=_str_to_bool,
         help="Keep md file after PDF creation"
     )
     
     return parser.parse_args()
 
 
-def ask_setup():
+def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
+    """Prompt the user to choose a setup file and return its path and file name."""
     setups = get_setups()
     if not setups:
         print("No setups files found.")
@@ -75,6 +76,7 @@ def ask_setup():
         counter += len(category_files)
         printables.append("")
 
+    # Prompt user
     chosen_file = None
     while not chosen_file:  
         for printable in printables:
@@ -97,6 +99,4 @@ def ask_setup():
 
     chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
     
-    chosen_name = chosen_file[:-5]
-    
-    return chosen_path, chosen_name
+    return chosen_path, chosen_file
