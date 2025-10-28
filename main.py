@@ -11,7 +11,7 @@ def main():
 
     # Ask for a setup if not given
     if not setup_file:
-        setup_path = ask_setup()
+        setup_path, setup_file = ask_setup()
         
     # Use config settings for auto_open, auto_reveal, keep_md
     if auto_open is None:
@@ -28,7 +28,7 @@ def main():
     tasks = generate_setup(json_data)
 
     # Create files (PDF, MD) and get the PDF path
-    create_files(tasks, keep_md=keep_md, auto_open=auto_open, auto_reveal=auto_reveal)
+    create_files(tasks, setup_name=setup_file, keep_md=keep_md, auto_open=auto_open, auto_reveal=auto_reveal)
     
 
 if __name__ == "__main__":

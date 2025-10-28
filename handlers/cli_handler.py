@@ -96,4 +96,7 @@ def ask_setup():
             break
 
     chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
-    return chosen_path
+    
+    chosen_name = chosen_file[:-5]
+    
+    return chosen_path, chosen_name

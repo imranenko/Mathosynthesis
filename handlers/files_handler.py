@@ -3,32 +3,32 @@ import os
 
 import datetime
 
-from config import TASK_PATH, TASKS_FOLDER, SETUPS_DIR
+from config import TASKS_FOLDER, TASK_NAME, SETUPS_DIR
 
 
 # Uses ISO 8601 timestamp with week date format
 # Uses '-' instead of ':' for supported file naming
 # Example: 2025-W29-5_T13-42-06
-def get_timestamp():
+def _get_timestamp():
     now = datetime.datetime.now()
     iso_year, iso_week, iso_weekday = now.isocalendar()
     time_str = now.strftime("%H-%M-%S")
     return f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
 
 
-def create_folder(folder_dir=TASKS_FOLDER):
+def _create_folder(folder_dir=TASKS_FOLDER):
     try:
         os.makedirs(folder_dir, exist_ok=True)
     except OSError as e:
         print(f"Error creating folder: {e}")
 
 
-def create_md(content, file_name):
+def _create_md(content, file_name):
     with open(file_name, 'w') as file:
         for line in content:
             file.write(line + '\n')
             
-def delete_file(file_path):
+def _delete_file(file_path):
     try:
         os.remove(file_path)
         print(f"Deleted: {file_path}")
@@ -38,7 +38,7 @@ def delete_file(file_path):
         print(f"Error deleting file: {e}")
 
 
-def create_pdf(md_file_path, pdf_file_path):
+def _create_pdf(md_file_path, pdf_file_path):
     create_pdf_command = [
         "pandoc",
         md_file_path,
@@ -56,7 +56,7 @@ def create_pdf(md_file_path, pdf_file_path):
         print("Error: Pandoc conversion failed.")
 
 
-def open_file(file_path):
+def _open_file(file_path):
     open_pdf_command = [
         "open",
         file_path
@@ -73,21 +73,21 @@ def reveal_file(file_path):
         print(f"Error: Could not reveal file in Finder")
         
         
-def create_files(content, file_path=TASK_PATH, keep_md=False, auto_open=False, auto_reveal=False):
-    create_folder() # Create tasks folder
+def create_files(content, setup_name=TASK_NAME, keep_md=False, auto_open=False, auto_reveal=False):
+    _create_folder() # Create tasks folder
     
-    timestamp = get_timestamp()
-    md_file_path = f"{file_path}_{timestamp}.md"
-    pdf_file_path = f"{file_path}_{timestamp}.pdf"
+    timestamp = _get_timestamp()
+    md_file_path = f"{TASKS_FOLDER}/{setup_name}_{timestamp}.md"
+    pdf_file_path = f"{TASKS_FOLDER}/{setup_name}_{timestamp}.pdf"
     
-    create_md(content, md_file_path)
-    create_pdf(md_file_path, pdf_file_path)
+    _create_md(content, md_file_path)
+    _create_pdf(md_file_path, pdf_file_path)
     
     if not keep_md:
-        delete_file(md_file_path)
+        _delete_file(md_file_path)
     
     if auto_open:
-        open_file(pdf_file_path)
+        _open_file(pdf_file_path)
     
     if auto_reveal:
         reveal_file(pdf_file_path)
