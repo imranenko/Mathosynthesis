@@ -51,6 +51,19 @@ def parse_args() -> argparse.Namespace:
 
 def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
     """Prompt the user to choose a setup file and return its path and file name."""
+    
+
+    try:
+        import colorama
+        colorama.init()
+        RESET = colorama.Style.RESET_ALL
+        RED = colorama.Fore.RED
+        GREEN = colorama.Fore.GREEN
+        YELLOW = colorama.Fore.YELLOW
+        BLUE = colorama.Fore.BLUE
+    except ImportError:
+        RESET = RED = GREEN = YELLOW = BLUE = ""
+    
     setups = get_setups()
     if not setups:
         print("No setups files found.")
@@ -63,33 +76,34 @@ def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
     printables = []
     counter = 0
     
-    printables.append("\n=== SETUPS ===\n")
+    printables.append(f"\n{BLUE}=== SETUPS ==={RESET}\n")
     
     for category_name in category_names:
         category_files = setups[category_name]
         
         if category_name != 'NO_CATEGORY':
-            printables.append(f"== {category_name} ==")
+            printables.append(f"{BLUE}== {category_name} =={RESET}")
 
         for i, file in enumerate(category_files, start=counter):
-            printables.append(f"    {i+1}. {file}")
+            printables.append(f"    {BLUE}{i+1}.{RESET} {file}")
         counter += len(category_files)
         printables.append("")
+        
+        for printable in printables:
+            print(printable)   
 
     # Prompt user
     chosen_file = None
     while not chosen_file:  
-        for printable in printables:
-            print(printable)   
         try:
             answer = input("Choose the number of setup: ")
             chosen_number = int(answer) - 1
             if 0 <= chosen_number < len(files):
                 chosen_file = files[chosen_number]
             else:
-                print("INVALID INPUT NUMBER!") # red
+                print(f"{RED}INVALID INPUT NUMBER!{RESET}\n") # red
         except ValueError:
-            print("PLEASE ENTER A VALID NUMBER\n") # red
+            print(f"{RED}INVALID INPUT NUMBER!{RESET}\n") # red
 
     chosen_category = ""
     for category_name in category_names:
