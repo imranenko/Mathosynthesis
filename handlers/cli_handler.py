@@ -89,8 +89,8 @@ def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
         counter += len(category_files)
         printables.append("")
         
-        for printable in printables:
-            print(printable)   
+    for printable in printables:
+        print(printable)   
 
     # Prompt user
     chosen_file = None
