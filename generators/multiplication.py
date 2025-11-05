@@ -35,7 +35,3 @@ class Multiplication():
             tasks.append(task)
             
         return tasks
-    
-if __name__ == "__init__":
-    print("Hello World!!!")
-    print(Multiplication.generate_with_missing_element())

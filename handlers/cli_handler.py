@@ -52,7 +52,6 @@ def parse_args() -> argparse.Namespace:
 def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
     """Prompt the user to choose a setup file and return its path and file name."""
     
-
     try:
         import colorama
         colorama.init()
@@ -73,6 +72,8 @@ def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
     files = []
     for category_name in category_names:
         files.extend(setups[category_name])
+        
+    # Prepare printable setup list
     printables = []
     counter = 0
     
@@ -88,7 +89,8 @@ def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
             printables.append(f"    {BLUE}{i+1}.{RESET} {file}")
         counter += len(category_files)
         printables.append("")
-        
+    
+    # Print setups list
     for printable in printables:
         print(printable)   
 

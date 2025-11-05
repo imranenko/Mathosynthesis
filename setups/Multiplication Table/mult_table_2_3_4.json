@@ -1,0 +1,31 @@
+{
+    "task_blocks": [
+        {
+            "type": "multiplication",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [2, 2],
+                "range2": [1, 10]
+            }
+        },
+        {
+            "type": "multiplication",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [3, 3],
+                "range2": [1, 10]
+            }
+        },
+        {
+            "type": "multiplication",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [4, 4],
+                "range2": [1, 10]
+            }
+        }
+    ]
+}

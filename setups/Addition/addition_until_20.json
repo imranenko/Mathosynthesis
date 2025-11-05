@@ -1,0 +1,31 @@
+{
+    "task_blocks": [
+        {
+            "type": "addition",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [10, 19],
+                "range2": [10, 19]
+            }
+        },
+        {
+            "type": "addition",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [10, 19],
+                "range2": [10, 19]
+            }
+        },
+        {
+            "type": "addition",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "range1": [10, 19],
+                "range2": [10, 19]
+            }
+        }
+    ]
+}
