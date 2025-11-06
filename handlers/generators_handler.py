@@ -58,7 +58,7 @@ def _generate_block(tasks, columns=2):
         
         return lines
     
-    else: # NOTE: for columns <= 0, 1 set as deafult
+    else: # NOTE: for columns <= 0, 1 set by deafult
         lines = []
         lines.append("\\begin{enumerate}")
         

@@ -3,17 +3,21 @@ import os
 
 import datetime
 
-from config import TASKS_FOLDER, TASK_NAME, SETUPS_DIR
+from config import TASKS_FOLDER, TASK_NAME, SETUPS_DIR, WEEK_DATE_FORMAT
 
-
+# By default:
 # Uses ISO 8601 timestamp with week date format
 # Uses '-' instead of ':' for supported file naming
-# Example: 2025-W29-5_T13-42-06
-def _get_timestamp():
+# Example: 2025-W29-5T13-42-06
+def _get_timestamp(week_date_format=WEEK_DATE_FORMAT):
     now = datetime.datetime.now()
-    iso_year, iso_week, iso_weekday = now.isocalendar()
-    time_str = now.strftime("%H-%M-%S")
-    return f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
+    if week_date_format:
+        iso_year, iso_week, iso_weekday = now.isocalendar()
+        time_str = now.strftime("%H-%M-%S")
+        datetime_stamp = f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
+    else:
+        datetime_stamp = now.strftime("%Y-%m-%dT%H-%H-%M-%S")
+    return datetime_stamp
 
 
 def _create_folder(folder_dir=TASKS_FOLDER):

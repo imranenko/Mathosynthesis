@@ -32,7 +32,7 @@
         },
         {
             "type": "division",
-            "description": "Divide the numbers."
+            "description": "Divide the numbers.",
             "columns": 2,
             "settings": {
                 "amount": 6,
