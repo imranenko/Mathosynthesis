@@ -1,0 +1,32 @@
+{
+    "task_blocks": [
+        {
+            "type": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen ohne Einmaleins-Tabelle:",
+                "en": "Multiply the numbers without using the multiplication table:",
+                "uk": "Помнож числа без використання таблиці множення:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "range1": [8, 8],
+                "range2": [1, 10]
+            }
+        },
+        {
+            "type": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen ohne Einmaleins-Tabelle:",
+                "en": "Multiply the numbers without using the multiplication table:",
+                "uk": "Помнож числа без використання таблиці множення:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "range1": [9, 9],
+                "range2": [1, 10]
+            }
+        }
+    ]
+}
