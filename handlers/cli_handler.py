@@ -11,7 +11,7 @@ def _str_to_bool(value):
     else:
         raise argparse.ArgumentTypeError("Boolean value expected (True/False).")
 
-def parse_args() -> argparse.Namespace:
+def parse_args():
     parser = argparse.ArgumentParser(
         description="Generate math tasks from a setup file and optionally open the results"
     )

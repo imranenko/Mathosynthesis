@@ -1,6 +1,7 @@
 from generators import register
 import json
 from typing import Any
+from config import PREFERENCED_LANGUAGES
 
 def read_json(json_path: str) -> dict[str, Any]:
     """Read a JSON file from the given path and return its contents as a dictionary."""
@@ -31,6 +32,7 @@ def generate_setup(json_data: dict[str, Any]) -> list[str]:
         task_type = task_block.get("type")
         task_settings = task_block.get("settings")
         task_columns = task_block.get("columns")
+        task_descriptions = task_block.get("description")
         
         if task_type is None or task_settings is None or task_columns is None:
             raise ValueError("Missing required keys in task block!")
@@ -38,6 +40,15 @@ def generate_setup(json_data: dict[str, Any]) -> list[str]:
         # Create tasks for block and corresponding blocks
         tasks = register[task_type](task_settings)
         block = _generate_block(tasks, task_columns)
+        
+        # Choose language and add description
+        if not task_descriptions is None:
+            supported_languages_list = task_descriptions.keys()
+            for supported_language in PREFERENCED_LANGUAGES:
+                if supported_language in supported_languages_list:
+                    description = task_descriptions.get(supported_language)
+                    lines.append(description)
+                    break
         
         lines.extend(block)
         lines.append("\\")
@@ -68,3 +79,4 @@ def _generate_block(tasks, columns=2):
         lines.append("\\end{enumerate}")
         
         return lines
+    

@@ -10,3 +10,9 @@ AUTO_REVEAL_FILE = False
 KEEP_MD_FILE = False
 
 WEEK_DATE_FORMAT = True
+
+PREFERENCED_LANGUAGES = [
+    "en",
+    "uk",
+    "de",
+    ]

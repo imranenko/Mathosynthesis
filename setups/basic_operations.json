@@ -2,7 +2,11 @@
     "task_blocks": [
         {
             "type": "addition",
-            "description": "Add the numbers together.",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 6,
@@ -12,7 +16,11 @@
         },
         {
             "type": "subtraction",
-            "description": "Subtract the numbers.",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 6,
@@ -22,7 +30,11 @@
         },
         {
             "type": "multiplication",
-            "description": "Multiply the numbers.",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 6,
@@ -32,7 +44,11 @@
         },
         {
             "type": "division",
-            "description": "Divide the numbers.",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 6,

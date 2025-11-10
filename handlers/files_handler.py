@@ -47,11 +47,13 @@ def _create_pdf(md_file_path, pdf_file_path):
         "pandoc",
         md_file_path,
         "-o", pdf_file_path,
+        "--pdf-engine=xelatex",  # use Unicode-compatible engine
         "-V", "documentclass=extarticle",    # allows larger font sizes
-        "-V", "fontsize=20pt", # 10 or 12pt is common for default
+        "-V", "fontsize=20pt",  # 10 or 12pt is common for default
         "-V", "geometry=margin=1.5cm",
         "-V", "papersize=a4",
-        "-V", "pagestyle=empty" # to remove page numbers
+        "-V", "pagestyle=empty", # to remove page numbers
+        "--variable", "mainfont=Lora"
     ]
     try:
         subprocess.run(create_pdf_command, check=True)
