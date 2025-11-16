@@ -6,6 +6,7 @@ This project generates mathematical tasks as PDF files from Markdown files based
 
 - **Python 3.6+** installed  
 - **Pandoc** installed and available in your system PATH  
+- **Lora font** installed (used by default for PDF generation)
 
 ### Installing Pandoc
 

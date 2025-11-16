@@ -16,3 +16,5 @@ PREFERRED_LANGUAGES = [
     "de",
     "uk",
     ]
+
+PDF_FONT = "Lora"

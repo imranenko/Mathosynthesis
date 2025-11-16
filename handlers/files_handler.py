@@ -3,7 +3,7 @@ import os
 
 import datetime
 
-from config import TASKS_FOLDER, TASK_NAME, SETUPS_DIR, WEEK_DATE_FORMAT
+from config import TASKS_FOLDER, TASK_NAME, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
 
 # By default:
 # Uses ISO 8601 timestamp with week date format
@@ -41,7 +41,7 @@ def _create_pdf(md_file_path, pdf_file_path):
         "-V", "geometry=margin=1.5cm",
         "-V", "papersize=a4",
         "-V", "pagestyle=empty", # to remove page numbers
-        "--variable", "mainfont=Lora"
+        "--variable", f"mainfont={PDF_FONT}"
     ]
     try:
         subprocess.run(create_pdf_command, check=True)
