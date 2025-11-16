@@ -74,7 +74,7 @@ def _reveal_file(file_path):
     except OSError as e:
         print(f"Error: Could not reveal file in Finder")
             
-def create_files(
+def create_files( #TODO: Split into smaller functions. Move some to main.py
     content: list[str],
     file_name: str = TASK_NAME,
     keep_md: bool = False,
