@@ -13,7 +13,6 @@ def read_json(json_path: str) -> dict[str, Any]:
     except json.JSONDecodeError as e:
         raise ValueError(f"Invalid JSON format in file '{json_path}': {e}")
 
-
 def generate_setup(
     json_data: dict[str, Any],
     preferred_languagess: list[str] = PREFERRED_LANGUAGES

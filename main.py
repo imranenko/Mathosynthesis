@@ -45,6 +45,9 @@ def main():
         auto_reveal=auto_reveal,
         )
     
+    # NOTE: Could move open/reveal/etc file here?
+    # File path needed; Should create in main.py
+    
 
 if __name__ == "__main__":
     main()

@@ -19,28 +19,16 @@ def _get_timestamp(week_date_format=WEEK_DATE_FORMAT):
         datetime_stamp = now.strftime("%Y-%m-%dT%H-%H-%M-%S")
     return datetime_stamp
 
-
 def _create_folder(folder_dir=TASKS_FOLDER):
     try:
         os.makedirs(folder_dir, exist_ok=True)
     except OSError as e:
         print(f"Error creating folder: {e}")
 
-
 def _create_md(content, file_name):
     with open(file_name, 'w') as file:
         for line in content:
-            file.write(line + '\n')
-            
-def _delete_file(file_path):
-    try:
-        os.remove(file_path)
-        print(f"Deleted: {file_path}")
-    except FileNotFoundError:
-        print("Error: File not found.")
-    except OSError as e:
-        print(f"Error deleting file: {e}")
-
+            file.write(line + '\n') 
 
 def _create_pdf(md_file_path, pdf_file_path):
     create_pdf_command = [
@@ -61,7 +49,6 @@ def _create_pdf(md_file_path, pdf_file_path):
     except subprocess.CalledProcessError:
         print("Error: Pandoc conversion failed.")
 
-
 def _open_file(file_path):
     open_pdf_command = [
         "open",
@@ -71,14 +58,22 @@ def _open_file(file_path):
         subprocess.run(open_pdf_command, check=True)
     except subprocess.CalledProcessError:
         print("Error: Could not open file")
-        
-def reveal_file(file_path):
+
+def _delete_file(file_path):
+    try:
+        os.remove(file_path)
+        print(f"Deleted: {file_path}")
+    except FileNotFoundError:
+        print("Error: File not found.")
+    except OSError as e:
+        print(f"Error deleting file: {e}")
+      
+def _reveal_file(file_path):
     try:
         subprocess.run(["open", "-R", file_path], check=True)
     except OSError as e:
         print(f"Error: Could not reveal file in Finder")
-        
-        
+            
 def create_files(
     content: list[str],
     file_name: str = TASK_NAME,
@@ -103,8 +98,7 @@ def create_files(
         _open_file(pdf_file_path)
     
     if auto_reveal:
-        reveal_file(pdf_file_path)
-
+        _reveal_file(pdf_file_path)
 
 def get_setups() -> dict[str, list[str]]:
     """Return dictionary mapping setup categories to their .json files."""
