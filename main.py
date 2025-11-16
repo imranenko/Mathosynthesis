@@ -1,5 +1,5 @@
 from handlers import parse_args, read_json, generate_setup, create_files, ask_setup
-from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERED_LANGUAGES
+from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES
 
 def main():
     # Use CLI argument for setup file
@@ -22,7 +22,7 @@ def main():
     if keep_md is None:
         keep_md = KEEP_MD_FILE
     if preferred_languagess is None:
-        preferred_languagess = PREFERED_LANGUAGES
+        preferred_languagess = PREFERRED_LANGUAGES
     # Create files (PDF, MD) and get the PDF path
     if setup_name[-5:] == '.json':
        file_name = setup_name[:-5]
