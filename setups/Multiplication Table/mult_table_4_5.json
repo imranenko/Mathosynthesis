@@ -3,7 +3,7 @@
         {
             "type": "multiplication",
             "description": {
-                "de": "Löse die Aufgaben ohne Einmaleins-Tabelle:",
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
                 "en": "Solve the tasks without using the multiplication table:",
                 "uk": "Виріши завдання без використання таблиці множення:"
             },
@@ -17,7 +17,7 @@
         {
             "type": "multiplication",
             "description": {
-                "de": "Löse die Aufgaben ohne Einmaleins-Tabelle:",
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
                 "en": "Solve the tasks without using the multiplication table:",
                 "uk": "Виріши завдання без використання таблиці множення:"
             },
