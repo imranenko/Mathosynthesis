@@ -48,8 +48,8 @@ def _create_pdf(md_file_path, pdf_file_path):
         md_file_path,
         "-o", pdf_file_path,
         "--pdf-engine=xelatex",  # use Unicode-compatible engine
-        "-V", "documentclass=extarticle",    # allows larger font sizes
-        "-V", "fontsize=20pt",  # 10 or 12pt is common for default
+        "-V", "documentclass=extarticle",  # allows larger font sizes
+        "-V", "fontsize=17pt",  # Supports only default font-sizes: 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
         "-V", "geometry=margin=1.5cm",
         "-V", "papersize=a4",
         "-V", "pagestyle=empty", # to remove page numbers
@@ -84,7 +84,7 @@ def create_files(
     file_name: str = TASK_NAME,
     keep_md: bool = False,
     auto_open: bool = False,
-    auto_reveal: bool = False
+    auto_reveal: bool = False,
     ):
     """Creates a Markdown and PDF file with the given content, optionally opens or reveals it"""
     _create_folder() # Create tasks folder

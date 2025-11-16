@@ -1,7 +1,7 @@
 from generators import register
 import json
 from typing import Any
-from config import PREFERENCED_LANGUAGES
+from config import PREFERRED_LANGUAGES
 
 def read_json(json_path: str) -> dict[str, Any]:
     """Read a JSON file from the given path and return its contents as a dictionary."""
@@ -14,7 +14,10 @@ def read_json(json_path: str) -> dict[str, Any]:
         raise ValueError(f"Invalid JSON format in file '{json_path}': {e}")
 
 
-def generate_setup(json_data: dict[str, Any]) -> list[str]:
+def generate_setup(
+    json_data: dict[str, Any],
+    preferred_languagess: list[str] = PREFERRED_LANGUAGES
+    ) -> list[str]:
     """Generates a setup using the JSON data and returns created lines."""
     task_blocks = json_data["task_blocks"]
     lines = []
@@ -43,10 +46,10 @@ def generate_setup(json_data: dict[str, Any]) -> list[str]:
         
         # Choose language and add description
         if not task_descriptions is None:
-            supported_languages_list = task_descriptions.keys()
-            for supported_language in PREFERENCED_LANGUAGES:
-                if supported_language in supported_languages_list:
-                    description = task_descriptions.get(supported_language)
+            supported_languages = task_descriptions.keys()
+            for preferred_languages in preferred_languagess:
+                if preferred_languages in supported_languages:
+                    description = task_descriptions.get(preferred_languages)
                     lines.append(description)
                     break
         

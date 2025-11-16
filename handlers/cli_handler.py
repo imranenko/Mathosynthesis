@@ -39,11 +39,18 @@ def parse_args():
     )
     
     parser.add_argument(
-        "--md", "-m",
+        "--markdown", "-md",
         nargs="?",
         const=True,
         type=_str_to_bool,
         help="Keep md file after PDF creation"
+    )
+    
+    parser.add_argument(
+        "--language", "-lang",
+        nargs='+', # one or more arguments
+        type=str,
+        help="Specify the language for the generated tasks."
     )
     
     return parser.parse_args()

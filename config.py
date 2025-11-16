@@ -11,8 +11,8 @@ KEEP_MD_FILE = False
 
 WEEK_DATE_FORMAT = True
 
-PREFERENCED_LANGUAGES = [
+PREFERRED_LANGUAGES = [
     "en",
-    "uk",
     "de",
+    "uk",
     ]
