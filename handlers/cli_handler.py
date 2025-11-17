@@ -122,4 +122,4 @@ def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
 
     chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
     
-    return chosen_path, chosen_file
+    return chosen_path

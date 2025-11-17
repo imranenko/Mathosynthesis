@@ -3,7 +3,7 @@ import os
 
 import datetime
 
-from config import TASKS_FOLDER, TASK_NAME, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
+from config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
 
 # By default:
 # Uses ISO 8601 timestamp with week date format
@@ -19,18 +19,18 @@ def _get_timestamp(week_date_format=WEEK_DATE_FORMAT):
         datetime_stamp = now.strftime("%Y-%m-%dT%H-%H-%M-%S")
     return datetime_stamp
 
-def _create_folder(folder_dir=TASKS_FOLDER):
+def create_folder(folder_dir):
     try:
         os.makedirs(folder_dir, exist_ok=True)
     except OSError as e:
         print(f"Error creating folder: {e}")
 
-def _create_md(content, file_name):
+def create_md(content, file_name):
     with open(file_name, 'w') as file:
         for line in content:
             file.write(line + '\n') 
 
-def _create_pdf(md_file_path, pdf_file_path):
+def create_pdf(md_file_path, pdf_file_path):
     create_pdf_command = [
         "pandoc",
         md_file_path,
@@ -49,7 +49,7 @@ def _create_pdf(md_file_path, pdf_file_path):
     except subprocess.CalledProcessError:
         print("Error: Pandoc conversion failed.")
 
-def _open_file(file_path):
+def open_file(file_path):
     open_pdf_command = [
         "open",
         file_path
@@ -59,7 +59,7 @@ def _open_file(file_path):
     except subprocess.CalledProcessError:
         print("Error: Could not open file")
 
-def _delete_file(file_path):
+def delete_file(file_path):
     try:
         os.remove(file_path)
         print(f"Deleted: {file_path}")
@@ -68,37 +68,15 @@ def _delete_file(file_path):
     except OSError as e:
         print(f"Error deleting file: {e}")
       
-def _reveal_file(file_path):
+def reveal_file(file_path):
     try:
         subprocess.run(["open", "-R", file_path], check=True)
     except OSError as e:
         print(f"Error: Could not reveal file in Finder")
-            
-def create_files( #TODO: Split into smaller functions. Move some to main.py
-    content: list[str],
-    file_name: str = TASK_NAME,
-    keep_md: bool = False,
-    auto_open: bool = False,
-    auto_reveal: bool = False,
-    ):
-    """Creates a Markdown and PDF file with the given content, optionally opens or reveals it"""
-    _create_folder() # Create tasks folder
-    
+     
+def get_base_path(file_name):
     timestamp = _get_timestamp()
-    md_file_path = f"{TASKS_FOLDER}/{file_name}_{timestamp}.md"
-    pdf_file_path = f"{TASKS_FOLDER}/{file_name}_{timestamp}.pdf"
-    
-    _create_md(content, md_file_path)
-    _create_pdf(md_file_path, pdf_file_path)
-    
-    if not keep_md:
-        _delete_file(md_file_path)
-    
-    if auto_open:
-        _open_file(pdf_file_path)
-    
-    if auto_reveal:
-        _reveal_file(pdf_file_path)
+    return f"{TASKS_DIR}/{file_name}_{timestamp}"
 
 def get_setups() -> dict[str, list[str]]:
     """Return dictionary mapping setup categories to their .json files."""

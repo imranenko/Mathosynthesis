@@ -1,8 +1,9 @@
 # File and Folder names
-TASKS_FOLDER = "math-tasks"
-TASK_NAME = "math-task"
-
+TASKS_DIR = "math-tasks"
 SETUPS_DIR = "setups"
+
+# TASK_NAME = "math-task" # used only if couldn't read config name
+
 
 # Default settings
 AUTO_OPEN_FILE = False

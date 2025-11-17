@@ -1,5 +1,6 @@
-from handlers import parse_args, read_json, generate_setup, create_files, ask_setup
-from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES
+from handlers import parse_args, read_json, generate_setup, ask_setup, open_file, reveal_file, delete_file, get_base_path, create_md, create_pdf, create_folder
+from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES, TASKS_DIR
+from pathlib import Path
 
 def main():
     # Use CLI argument for setup file
@@ -8,12 +9,8 @@ def main():
     auto_open = args.open
     auto_reveal = args.reveal
     keep_md = args.markdown
-    preferred_languagess = args.language
+    preferred_languages = args.language
 
-    # Ask for a setup if not given
-    if not setup_path:
-        setup_path, setup_name = ask_setup()
-        
     # Use config settings for auto_open, auto_reveal, keep_md
     if auto_open is None:
         auto_open = AUTO_OPEN_FILE
@@ -21,11 +18,17 @@ def main():
         auto_reveal = AUTO_REVEAL_FILE
     if keep_md is None:
         keep_md = KEEP_MD_FILE
-    if preferred_languagess is None:
-        preferred_languagess = PREFERRED_LANGUAGES
-    # Create files (PDF, MD) and get the PDF path
-    if setup_name[-5:] == '.json':
-       file_name = setup_name[:-5]
+    if preferred_languages is None:
+        preferred_languages = PREFERRED_LANGUAGES
+
+    # Get file paths
+    if not setup_path:
+        setup_path = Path(ask_setup())
+
+    setup_stem = setup_path.stem
+    base_path = Path(get_base_path(setup_stem))
+    md_path = base_path.with_suffix(".md")
+    pdf_path = base_path.with_suffix(".pdf")
     
     # Load JSON
     json_data = read_json(setup_path)
@@ -33,20 +36,23 @@ def main():
     # Generate setup
     tasks = generate_setup(
         json_data,
-        preferred_languagess=preferred_languagess
+        preferred_languages=preferred_languages
         )
 
-    # Create file
-    create_files(
-        tasks,
-        file_name=file_name,
-        keep_md=keep_md,
-        auto_open=auto_open,
-        auto_reveal=auto_reveal,
-        )
+    # Create tasks folder if not exists
+    create_folder(TASKS_DIR)
     
-    # NOTE: Could move open/reveal/etc file here?
-    # File path needed; Should create in main.py
+    # Create files
+    create_md(tasks, md_path)
+    create_pdf(md_path, pdf_path)
+    
+    # Handle files
+    if auto_open:
+        open_file(pdf_path)
+    if auto_reveal:
+        reveal_file(pdf_path)
+    if not keep_md:
+        delete_file(md_path)
     
 
 if __name__ == "__main__":

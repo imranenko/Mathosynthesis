@@ -15,7 +15,7 @@ def read_json(json_path: str) -> dict[str, Any]:
 
 def generate_setup(
     json_data: dict[str, Any],
-    preferred_languagess: list[str] = PREFERRED_LANGUAGES
+    preferred_languages: list[str] = PREFERRED_LANGUAGES
     ) -> list[str]:
     """Generates a setup using the JSON data and returns created lines."""
     task_blocks = json_data["task_blocks"]
@@ -46,7 +46,7 @@ def generate_setup(
         # Choose language and add description
         if not task_descriptions is None:
             supported_languages = task_descriptions.keys()
-            for preferred_languages in preferred_languagess:
+            for preferred_languages in preferred_languages:
                 if preferred_languages in supported_languages:
                     description = task_descriptions.get(preferred_languages)
                     lines.append(description)
