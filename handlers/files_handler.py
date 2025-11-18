@@ -99,5 +99,9 @@ def get_setups() -> dict[str, list[str]]:
         child_files = sorted([f for f in os.listdir(folder_path) if f.endswith('.json')])
         if child_files:
             setups[folder] = child_files
+    
+    if not setups:
+        print("No setups found!")
+        return None
 
     return setups

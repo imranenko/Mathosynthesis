@@ -1,11 +1,11 @@
-from handlers import parse_args, read_json, generate_setup, ask_setup, open_file, reveal_file, delete_file, get_base_path, create_md, create_pdf, create_folder
+from handlers import parse_args, read_json, generate_setup, ask_setup, open_file, reveal_file, delete_file, get_base_path, create_md, create_pdf, create_folder, get_setups, build_printable_setups
 from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES, TASKS_DIR
 from pathlib import Path
 
 def main():
     # Use CLI argument for setup file
     args = parse_args()
-    setup_path = args.setup
+    chosen_setup = args.setup
     auto_open = args.open
     auto_reveal = args.reveal
     keep_md = args.markdown
@@ -22,16 +22,26 @@ def main():
         preferred_languages = PREFERRED_LANGUAGES
 
     # Get file paths
-    if not setup_path:
-        setup_path = Path(ask_setup())
+    if chosen_setup is None:
+        # Get setups
+        setups_dict = get_setups()
+        
+        # Build and show printable list
+        printable_setups = build_printable_setups(setups_dict)
+        for line in printable_setups:
+            print(line)
+        
+        # Ask for answer
+        chosen_setup = Path(ask_setup(setups_dict))
 
-    setup_stem = setup_path.stem
+    # Get file paths
+    setup_stem = chosen_setup.stem
     base_path = Path(get_base_path(setup_stem))
     md_path = base_path.with_suffix(".md")
     pdf_path = base_path.with_suffix(".pdf")
     
     # Load JSON
-    json_data = read_json(setup_path)
+    json_data = read_json(chosen_setup)
     
     # Generate setup
     tasks = generate_setup(

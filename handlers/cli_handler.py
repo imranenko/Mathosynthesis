@@ -1,6 +1,8 @@
 import argparse
 from .files_handler import get_setups
 from config import SETUPS_DIR
+import colorama
+colorama.init()
 
 def _str_to_bool(value):
     val = str(value).lower()
@@ -56,70 +58,55 @@ def parse_args():
     return parser.parse_args()
 
 
-def ask_setup() -> tuple[str, str] | None: # TODO isn't optimized well
-    """Prompt the user to choose a setup file and return its path and file name."""
-    
-    try:
-        import colorama
-        colorama.init()
-        RESET = colorama.Style.RESET_ALL
-        RED = colorama.Fore.RED
-        GREEN = colorama.Fore.GREEN
-        YELLOW = colorama.Fore.YELLOW
-        BLUE = colorama.Fore.BLUE
-    except ImportError:
-        RESET = RED = GREEN = YELLOW = BLUE = ""
-    
-    setups = get_setups()
-    if not setups:
-        print("No setups files found.")
-        return None
-    
-    category_names = list(setups.keys())
-    files = []
-    for category_name in category_names:
-        files.extend(setups[category_name])
-        
-    # Prepare printable setup list
-    printables = []
-    counter = 0
-    
-    printables.append(f"\n{BLUE}=== SETUPS ==={RESET}\n")
-    
-    for category_name in category_names:
-        category_files = setups[category_name]
-        
-        if category_name != 'NO_CATEGORY':
-            printables.append(f"{BLUE}== {category_name} =={RESET}")
+def build_printable_setups(setups_dict):
+    RESET = colorama.Style.RESET_ALL
+    BLUE = colorama.Fore.BLUE
 
-        for i, file in enumerate(category_files, start=counter):
-            printables.append(f"    {BLUE}{i+1}.{RESET} {file}")
-        counter += len(category_files)
-        printables.append("")
-    
-    # Print setups list
-    for printable in printables:
-        print(printable)   
+    category_names = list(setups_dict.keys())
+    lines = []
+    lines.append(f"\n{BLUE}=== SETUPS ==={RESET}\n")
+    index = 1
+    for category in category_names:
+        files_in_category = setups_dict[category]
+        if category != "NO_CATEGORY":
+            lines.append(f"{BLUE}== {category} =={RESET}")
 
-    # Prompt user
+        for filename in files_in_category:
+            lines.append(f"    {BLUE}{index}.{RESET} {filename}")
+            index += 1
+
+        lines.append("")
+    return lines
+
+def ask_setup(setups_dict: dict):
+    RESET = colorama.Style.RESET_ALL
+    RED = colorama.Fore.RED
+    
+    available_categories = list(setups_dict.keys())
+    available_setups = []
+    for category in available_categories:
+        available_setups.extend(setups_dict[category])
+    
     chosen_file = None
-    while not chosen_file:  
+    while chosen_file is None:
         try:
-            answer = input("Choose the number of setup: ")
-            chosen_number = int(answer) - 1
-            if 0 <= chosen_number < len(files):
-                chosen_file = files[chosen_number]
+            choice = input("Choose the number of the setup: ")
+            selected_index = int(choice) - 1
+            if 0 <= selected_index < len(available_setups):
+                chosen_file = available_setups[selected_index]
             else:
-                print(f"{RED}INVALID INPUT NUMBER!{RESET}\n") # red
+                print(f"{RED}INVALID INPUT NUMBER!{RESET}\n")
         except ValueError:
-            print(f"{RED}INVALID INPUT NUMBER!{RESET}\n") # red
-
-    chosen_category = ""
-    for category_name in category_names:
-        if chosen_file in setups[category_name] and category_name != "NO_CATEGORY":
-            chosen_category = category_name
-            break
-
-    chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
+            print(f"{RED}INVALID INPUT NUMBER!{RESET}\n")
     
+    # Find the category that contains the chosen file (excluding "NO_CATEGORY")
+    chosen_category = ""
+    for cat in available_categories:
+        if cat == "NO_CATEGORY":
+            continue
+        if chosen_file in setups_dict[cat]:
+            chosen_category = cat
+            break
+    
+    chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
     return chosen_path

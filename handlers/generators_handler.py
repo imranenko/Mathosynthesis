@@ -44,11 +44,11 @@ def generate_setup(
         block = _generate_block(tasks, task_columns)
         
         # Choose language and add description
-        if not task_descriptions is None:
+        if task_descriptions is not None:
             supported_languages = task_descriptions.keys()
-            for preferred_languages in preferred_languages:
-                if preferred_languages in supported_languages:
-                    description = task_descriptions.get(preferred_languages)
+            for lang in preferred_languages:
+                if lang in supported_languages:
+                    description = task_descriptions.get(lang)
                     lines.append(description)
                     break
         
