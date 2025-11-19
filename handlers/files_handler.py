@@ -1,5 +1,6 @@
 import subprocess
 import os
+from pathlib import Path
 
 import datetime
 
@@ -76,7 +77,8 @@ def reveal_file(file_path):
      
 def get_base_path(file_name):
     timestamp = _get_timestamp()
-    return f"{TASKS_DIR}/{file_name}_{timestamp}"
+    path = Path(f"{TASKS_DIR}/{file_name}_{timestamp}")
+    return path
 
 def get_setups() -> dict[str, list[str]]:
     """Return dictionary mapping setup categories to their .json files."""

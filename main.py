@@ -3,56 +3,38 @@ from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LAN
 from pathlib import Path
 
 def main():
-    # Use CLI argument for setup file
+    # Use CLI argument or defaults
     args = parse_args()
     chosen_setup = args.setup
-    auto_open = args.open
-    auto_reveal = args.reveal
-    keep_md = args.markdown
-    preferred_languages = args.language
+    auto_open = args.open if args.open is not None else AUTO_OPEN_FILE
+    auto_reveal = args.reveal if args.reveal is not None else AUTO_REVEAL_FILE
+    keep_md = args.markdown if args.markdown is not None else KEEP_MD_FILE
+    preferred_languages = args.language if args.language is not None else PREFERRED_LANGUAGES
 
-    # Use config settings for auto_open, auto_reveal, keep_md
-    if auto_open is None:
-        auto_open = AUTO_OPEN_FILE
-    if auto_reveal is None:
-        auto_reveal = AUTO_REVEAL_FILE
-    if keep_md is None:
-        keep_md = KEEP_MD_FILE
-    if preferred_languages is None:
-        preferred_languages = PREFERRED_LANGUAGES
-
-    # Get file paths
+    # Ask for setup if not specified
     if chosen_setup is None:
-        # Get setups
         setups_dict = get_setups()
-        
-        # Build and show printable list
         printable_setups = build_printable_setups(setups_dict)
         for line in printable_setups:
             print(line)
-        
-        # Ask for answer
         chosen_setup = Path(ask_setup(setups_dict))
 
     # Get file paths
     setup_stem = chosen_setup.stem
-    base_path = Path(get_base_path(setup_stem))
+    base_path = get_base_path(setup_stem)
     md_path = base_path.with_suffix(".md")
     pdf_path = base_path.with_suffix(".pdf")
     
     # Load JSON
-    json_data = read_json(chosen_setup)
+    try:
+        json_data = read_json(chosen_setup)
+    except (FileNotFoundError, ValueError) as e:
+        print(f"Error loading JSON file: {e}")
+        return
     
-    # Generate setup
-    tasks = generate_setup(
-        json_data,
-        preferred_languages=preferred_languages
-        )
-
-    # Create tasks folder if not exists
+    # Generate setup, folder and tasks file
+    tasks = generate_setup(json_data, preferred_languages=preferred_languages)
     create_folder(TASKS_DIR)
-    
-    # Create files
     create_md(tasks, md_path)
     create_pdf(md_path, pdf_path)
     
