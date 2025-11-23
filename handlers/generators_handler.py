@@ -31,16 +31,16 @@ def generate_setup(
     
     # Create blocks
     for task_block in task_blocks:
-        task_type = task_block.get("type")
+        task_id = task_block.get("id")
         task_settings = task_block.get("settings")
         task_columns = task_block.get("columns")
         task_descriptions = task_block.get("description")
         
-        if task_type is None or task_settings is None or task_columns is None:
+        if task_id is None or task_settings is None or task_columns is None:
             raise ValueError("Missing required keys in task block!")
         
         # Create tasks for block and corresponding blocks
-        tasks = register[task_type](task_settings)
+        tasks = register[task_id](task_settings)
         block = _generate_block(tasks, task_columns)
         
         # Choose language and add description

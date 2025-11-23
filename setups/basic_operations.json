@@ -1,7 +1,7 @@
 {
     "task_blocks": [
         {
-            "type": "addition",
+            "id": "addition",
             "description": {
                 "de": "Addiere die Zahlen miteinander:",
                 "en": "Add the numbers together:",
@@ -15,7 +15,7 @@
             }
         },
         {
-            "type": "subtraction",
+            "id": "subtraction",
             "description": {
                 "de": "Subtrahiere die Zahlen:",
                 "en": "Subtract the numbers:",
@@ -29,7 +29,7 @@
             }
         },
         {
-            "type": "multiplication",
+            "id": "multiplication",
             "description": {
                 "de": "Multipliziere die Zahlen:",
                 "en": "Multiply the numbers:",
@@ -43,7 +43,7 @@
             }
         },
         {
-            "type": "division",
+            "id": "division",
             "description": {
                 "de": "Dividiere die Zahlen:",
                 "en": "Divide the numbers:",

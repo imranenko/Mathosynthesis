@@ -1,7 +1,7 @@
 {
     "task_blocks": [
         {
-            "type": "division",
+            "id": "division",
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -10,7 +10,7 @@
             }
         },
         {
-            "type": "division",
+            "id": "division",
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -19,7 +19,7 @@
             }
         },
         {
-            "type": "division",
+            "id": "division",
             "columns": 2,
             "settings": {
                 "amount": 10,

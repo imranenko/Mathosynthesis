@@ -1,7 +1,7 @@
 {
     "task_blocks": [
         {
-            "type": "multiplication",
+            "id": "multiplication",
             "description": {
                 "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
                 "en": "Solve the tasks without using the multiplication table:",
@@ -15,7 +15,7 @@
             }
         },
         {
-            "type": "multiplication",
+            "id": "multiplication",
             "description": {
                 "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
                 "en": "Solve the tasks without using the multiplication table:",
