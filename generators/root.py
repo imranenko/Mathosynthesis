@@ -4,15 +4,18 @@ class Root():
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
-        range1 = settings.get("base", (1, 10))
-        range2 = settings.get("exponent", (2, 4))
+        root_range = settings.get("root", (2, 9))
+        index_range = settings.get("index", (2, 2))
         
         for _ in range(amount):
-            root = random.randint(*range1)
-            degree = random.randint(*range2)
-            radicant = root**degree
+            root = random.randint(*root_range)
+            index = random.randint(*index_range)
+            radicant = root**index
 
-            task = f"\sqrt[{degree}]{{{radicant}}} = "
+            if index == 2:
+                task = f"\sqrt{{{radicant}}} = "
+            else:
+                task = f"\sqrt[{index}]{{{radicant}}} = "
             tasks.append(task)
                 
         return tasks

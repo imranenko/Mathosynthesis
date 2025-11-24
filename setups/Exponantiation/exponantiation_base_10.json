@@ -1,0 +1,32 @@
+{
+    "task_blocks": [
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Exponenten:",
+                "en": "Calculate the square numbers:",
+                "uk": "Обчисли квадрати чисел:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "base": [10, 10],
+                "exponent": [2, 9]
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Kubikzahlen:",
+                "en": "Calculate the cube numbers:",
+                "uk": "Обчисли куби чисел:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "base": [10, 10],
+                "exponent": [2, 9]
+            }
+        }
+    ]
+}

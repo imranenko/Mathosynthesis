@@ -1,0 +1,32 @@
+{
+    "task_blocks": [
+        {
+            "id": "root",
+            "description": {
+                "de": "Berechne die Wurzeln:",
+                "en": "Calculate the roots:",
+                "uk": "Обчисли корені:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "root": [2, 9],
+                "index": [2, 2]
+            } 
+        },
+        {
+            "id": "root",
+            "description": {
+                "de": "Berechne die Kubikwurzeln:",
+                "en": "Calculate the cube roots:",
+                "uk": "Обчисли кубічні корені:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "root": [2, 9],
+                "index": [3, 3]
+            }
+        }
+    ]
+}

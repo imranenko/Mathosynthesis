@@ -26,6 +26,7 @@ def generate_setup(
         "---",
         "header-includes:",
         " - \\usepackage{multicol}",
+        " - \\usepackage{siunitx}",
         "---"
     ])
     

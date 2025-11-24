@@ -5,15 +5,15 @@ class Logarithm():
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
-        range1 = settings.get("base", (1, 10))
-        range2 = settings.get("exponent", (2, 4))
+        base_range = settings.get("base", (1, 10))
+        log_range = settings.get("log", (2, 4))
         
         for _ in range(amount):
-            base = random.randint(*range1)
-            log = random.randint(*range2)
+            base = random.randint(*base_range)
+            log = random.randint(*log_range)
             anti_log = base**log
             
-            task = f"\log_{{{base}}}{{{anti_log}}}\n"
+            task = f"\log_{{{base}}}\\num{{{anti_log}}} =\n"
             tasks.append(task)
         
         return tasks

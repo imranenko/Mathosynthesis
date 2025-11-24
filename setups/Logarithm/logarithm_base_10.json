@@ -1,0 +1,32 @@
+{
+    "task_blocks": [
+        {
+            "id": "logarithm",
+            "description": {
+                "de": "Berechne die Logarithmen:",
+                "en": "Calculate the logarithms:",
+                "uk": "Обчисли логаритми:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "base": [10, 10],
+                "log": [2, 5]
+            } 
+        },
+        {
+            "id": "logarithm",
+            "description": {
+                "de": "Berechne die Logarithmen:",
+                "en": "Calculate the logarithms:",
+                "uk": "Обчисли логаритми:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "base": [10, 10],
+                "log": [2, 5]
+            }
+        }
+    ]
+}
