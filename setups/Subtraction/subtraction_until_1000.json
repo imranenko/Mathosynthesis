@@ -5,8 +5,8 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [101, 999],
-                "range2": [101, 999]
+                "minuend": [101, 999],
+                "subtrahend": [101, 999]
             }
         },
         {
@@ -14,8 +14,8 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [101, 999],
-                "range2": [101, 999]
+                "minuend": [101, 999],
+                "subtrahend": [101, 999]
             }
         },
         {
@@ -23,8 +23,8 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [101, 999],
-                "range2": [101, 999]
+                "minuend": [101, 999],
+                "subtrahend": [101, 999]
             }
         }
     ]

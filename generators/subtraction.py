@@ -4,17 +4,17 @@ class Subtraction():
     def generate_task(settings):
         tasks = []
         amount = settings.get("amount", 1)
-        range1 = settings.get("range1", (1, 10))
-        range2 = settings.get("range2", (1, 10))
-        only_pos = settings.get("only_pos", True)
+        minuend_range = settings.get("minuend", (1, 10))
+        subtrahend_range = settings.get("subrahend", (1, 10))
+        only_pos = settings.get("only_pos", False)
 
         for _ in range(amount):
-        
-            minuend = random.randint(*range1)
-            subtrahend = random.randint(*range2)
-        
-            if only_pos and minuend < subtrahend:
-                minuend, subtrahend = subtrahend, minuend
+            if only_pos: # Will it be trully random distribution?
+                minuend = random.randint(*minuend_range)
+                subtrahend = random.randint(subtrahend_range[0], minuend-1)
+            else:
+                minuend = random.randint(*minuend_range)
+                subtrahend = random.randint(*subtrahend_range)
             
             tasks.append(f"{minuend} - {subtrahend} = \n")
 
@@ -23,17 +23,17 @@ class Subtraction():
     def generate_with_missing_element(settings):
         tasks = []
         amount = settings.get("amount", 1)
-        range1 = settings.get("range1", (1, 10))
-        range2 = settings.get("range2", (1, 10))
-        only_pos = settings.get("only_pos", True)
+        minuend_range = settings.get("minuend", (1, 10))
+        subtrahend_range = settings.get("subrahend", (1, 10))
+        only_pos = settings.get("only_pos", False)
         
         for _ in range(amount):
-            
-            minuend = random.randint(*range1)
-            subtrahend = random.randint(*range2)
-            
-            if only_pos and minuend - subtrahend:
-                minuend, subtrahend = subtrahend, minuend
+            if only_pos: # Will it be trully random distribution?
+                minuend = random.randint(*minuend_range)
+                subtrahend = random.randint(subtrahend_range[0], minuend-1)
+            else:
+                minuend = random.randint(*minuend_range)
+                subtrahend = random.randint(*subtrahend_range)
                 
             difference = minuend - subtrahend
             

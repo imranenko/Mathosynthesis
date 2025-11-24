@@ -5,8 +5,8 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [11, 99],
-                "range2": [11, 99]
+                "summand1": [11, 99],
+                "summand2": [11, 99]
             }
         },
         {
@@ -14,8 +14,8 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [11, 99],
-                "range2": [11, 99]
+                "summand1": [11, 99],
+                "summand2": [11, 99]
             }
         },
         {
@@ -23,8 +23,8 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [22, 99],
-                "range2": [11, 99]
+                "summand1": [22, 99],
+                "summand2": [11, 99]
             }
         }
     ]

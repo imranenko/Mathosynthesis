@@ -1,6 +1,4 @@
 import random
-from math import sqrt
-
 class Logarithm():
     def generate_task(settings):
         tasks = []

@@ -10,8 +10,8 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "range1": [8, 8],
-                "range2": [1, 10]
+                "factor1": [8, 8],
+                "factor2": [1, 10]
             }
         },
         {
@@ -24,8 +24,8 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "range1": [9, 9],
-                "range2": [1, 10]
+                "factor1": [9, 9],
+                "factor2": [1, 10]
             }
         }
     ]

@@ -5,8 +5,9 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [2, 9],
-                "range2": [11, 19]
+                "factor1": [2, 9],
+                "factor2": [11, 19],
+                "commutative": true
             }
         },
         {
@@ -14,8 +15,9 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [2, 9],
-                "range2": [11, 19]
+                "factor1": [2, 9],
+                "factor2": [11, 19],
+                "commutative": true
             }
         },
         {
@@ -23,8 +25,9 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "range1": [2, 9],
-                "range2": [11, 19]
+                "factor1": [2, 9],
+                "factor2": [11, 19],
+                "commutative": true
             }
         }
     ]

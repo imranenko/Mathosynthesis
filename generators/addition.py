@@ -5,12 +5,16 @@ class Addition():
         lines = []
         
         amount = settings.get("amount", 1)
-        range1 = settings.get("range1", (1, 10))
-        range2 = settings.get("range2", (1, 10))
+        summand1_range = settings.get("summand1", (1, 10))
+        summand2_range = settings.get("summand2", (1, 10))
+        commutative = settings.get("commutative", False)
         
+        if commutative and random.random() < 0.5:
+            summand1_range, summand2_range = summand2_range, summand1_range
+
         for _ in range(amount):
-            summand1 = random.randint(*range1)
-            summand2 = random.randint(*range2)
+            summand1 = random.randint(*summand1_range)
+            summand2 = random.randint(*summand2_range)
             
             task = f"{summand1} + {summand2} ="
             lines.append(task)
@@ -21,12 +25,16 @@ class Addition():
     def generate_with_missing_element(settings):
         lines = []
         amount = settings.get("amount", 1)
-        range1 = settings.get("range1", (1, 10))
-        range2 = settings.get("range2", (1, 10))
+        summand1_range = settings.get("summand1", (1, 10))
+        summand2_range = settings.get("summand2", (1, 10))
+        commutative = settings.get("commutative", False)
+        
+        if commutative and random.random() < 0.5:
+            summand1_range, summand2_range = summand2_range, summand1_range
 
         for _ in range(amount):
-            summand1 = random.randint(*range1)
-            summand2 = random.randint(*range2)
+            summand1 = random.randint(*summand1_range)
+            summand2 = random.randint(*summand2_range)
             sum = summand1 + summand2
 
             if random.random() < 0.5:
