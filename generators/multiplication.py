@@ -8,10 +8,11 @@ class Multiplication():
         factor2_range = settings.get("factor2", (1, 10))
         commutative = settings.get("commutative", False)
         
-        if commutative and random.random() < 0.5:
-            summand1_range, summand2_range = summand2_range, summand1_range
         
         for _ in range(amount):
+            if commutative and random.random() < 0.5:
+                factor1_range, factor2_range = factor2_range, factor1_range
+            
             factor1 = random.randint(*factor1_range)
             factor2 = random.randint(*factor2_range)
             

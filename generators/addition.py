@@ -9,10 +9,11 @@ class Addition():
         summand2_range = settings.get("summand2", (1, 10))
         commutative = settings.get("commutative", False)
         
-        if commutative and random.random() < 0.5:
-            summand1_range, summand2_range = summand2_range, summand1_range
 
         for _ in range(amount):
+            if commutative and random.random() < 0.5:
+                summand1_range, summand2_range = summand2_range, summand1_range
+            
             summand1 = random.randint(*summand1_range)
             summand2 = random.randint(*summand2_range)
             
