@@ -16,3 +16,6 @@ __pycache__/
 TEST.py
 
 !README.md
+
+# Log files
+logs

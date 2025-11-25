@@ -1,6 +1,7 @@
-from generators import register
 import json
 from typing import Any
+
+from generators import register
 from config import PREFERRED_LANGUAGES
 
 def read_json(json_path: str) -> dict[str, Any]:
@@ -21,7 +22,7 @@ def generate_setup(
     task_blocks = json_data["task_blocks"]
     lines = []
     
-    # MULTICOL SUPPORT
+    # Import Packages
     lines.extend([
         "---",
         "header-includes:",

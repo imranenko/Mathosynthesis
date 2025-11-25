@@ -1,8 +1,12 @@
 import argparse
+import logging
+
+import colorama
+
 from .files_handler import get_setups
 from config import SETUPS_DIR
-import colorama
-colorama.init()
+
+logger = logging.getLogger(__name__)
 
 def _str_to_bool(value):
     val = str(value).lower()
@@ -57,7 +61,6 @@ def parse_args():
     
     return parser.parse_args()
 
-
 def build_printable_setups(setups_dict):
     RESET = colorama.Style.RESET_ALL
     BLUE = colorama.Fore.BLUE
@@ -79,9 +82,6 @@ def build_printable_setups(setups_dict):
     return lines
 
 def ask_setup(setups_dict: dict):
-    RESET = colorama.Style.RESET_ALL
-    RED = colorama.Fore.RED
-    
     available_categories = list(setups_dict.keys())
     available_setups = []
     for category in available_categories:
@@ -95,9 +95,9 @@ def ask_setup(setups_dict: dict):
             if 0 <= selected_index < len(available_setups):
                 chosen_file = available_setups[selected_index]
             else:
-                print(f"{RED}INVALID INPUT NUMBER!{RESET}\n")
+                logger.warning(f"INVALID INPUT NUMBER!\n")
         except ValueError:
-            print(f"{RED}INVALID INPUT NUMBER!{RESET}\n")
+            logger.warning(f"INVALID INPUT NUMBER!\n")
     
     # Find the category that contains the chosen file (excluding "NO_CATEGORY")
     chosen_category = ""

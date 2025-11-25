@@ -1,8 +1,10 @@
+from pathlib import Path
+
 # File and Folder names
 TASKS_DIR = "math-tasks"
 SETUPS_DIR = "setups"
 
-# TASK_NAME = "math-task" # used only if couldn't read config name
+# TASK_NAME = "math-task"
 
 
 # Default settings
@@ -19,3 +21,6 @@ PREFERRED_LANGUAGES = [
     ]
 
 PDF_FONT = "Lora"
+
+LOG_LEVEL = "INFO"
+LOG_FILE_PATH = Path("logs/mathosynthesis.log")

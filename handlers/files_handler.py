@@ -1,10 +1,12 @@
-import subprocess
 import os
+import subprocess
+import datetime
+import logging
 from pathlib import Path
 
-import datetime
-
 from config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
+
+logger = logging.getLogger(__name__)
 
 # By default:
 # Uses ISO 8601 timestamp with week date format
@@ -24,7 +26,7 @@ def create_folder(folder_dir):
     try:
         os.makedirs(folder_dir, exist_ok=True)
     except OSError as e:
-        print(f"Error creating folder: {e}")
+        logger.error(f"Couldn't create folder: {e}")
 
 def create_md(content, file_name):
     with open(file_name, 'w') as file:
@@ -46,9 +48,9 @@ def create_pdf(md_file_path, pdf_file_path):
     ]
     try:
         subprocess.run(create_pdf_command, check=True)
-        print(f"PDF created: {pdf_file_path}")
+        logger.info(f"PDF created: {pdf_file_path}")
     except subprocess.CalledProcessError:
-        print("Error: Pandoc conversion failed.")
+        logger.error("Pandoc conversion failed!")
 
 def open_file(file_path):
     open_pdf_command = [
@@ -57,23 +59,23 @@ def open_file(file_path):
         ]
     try:
         subprocess.run(open_pdf_command, check=True)
-    except subprocess.CalledProcessError:
-        print("Error: Could not open file")
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Could not open file: {e}")
 
 def delete_file(file_path):
     try:
         os.remove(file_path)
-        print(f"Deleted: {file_path}")
+        logger.info(f"Deleted: {file_path}")
     except FileNotFoundError:
-        print("Error: File not found.")
+        logger.error("File not found!")
     except OSError as e:
-        print(f"Error deleting file: {e}")
+        logger.error(f"Coudn't delete file: {e}")
       
 def reveal_file(file_path):
     try:
         subprocess.run(["open", "-R", file_path], check=True)
     except OSError as e:
-        print(f"Error: Could not reveal file in Finder")
+        logger.error(f"Could not reveal file in Finder: {e}")
      
 def get_base_path(file_name):
     timestamp = _get_timestamp()
@@ -103,7 +105,7 @@ def get_setups() -> dict[str, list[str]]:
             setups[folder] = child_files
     
     if not setups:
-        print("No setups found!")
+        logger.error("No setups found!")
         return None
 
     return setups

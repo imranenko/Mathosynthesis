@@ -1,8 +1,19 @@
-from handlers import parse_args, read_json, generate_setup, ask_setup, open_file, reveal_file, delete_file, get_base_path, create_md, create_pdf, create_folder, get_setups, build_printable_setups
-from config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES, TASKS_DIR
+import logging
 from pathlib import Path
 
+import colorama
+
+from handlers import parse_args, read_json, generate_setup, ask_setup, open_file, reveal_file, delete_file, get_base_path, create_md, create_pdf, create_folder, get_setups, build_printable_setups
+from config.config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES, TASKS_DIR
+from config.logging_config import setup_logging
+
+colorama.init()
+logger = logging.getLogger(__name__)
+
 def main():
+    # Setup logging
+    setup_logging()
+    
     # Use CLI argument or defaults
     args = parse_args()
     chosen_setup = args.setup
@@ -29,7 +40,7 @@ def main():
     try:
         json_data = read_json(chosen_setup)
     except (FileNotFoundError, ValueError) as e:
-        print(f"Error loading JSON file: {e}")
+        logger.error(f"Coudn't load JSON file: {e}")
         return
     
     # Generate setup, folder and tasks file
