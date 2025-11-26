@@ -64,10 +64,10 @@
             "columns": 2,
             "settings": {
                 "amount": 6,
-                "divident": {
+                "divisor": {
                     "range": [2, 9]
                 },
-                "divisor": {
+                "quotient": {
                     "range": [2, 9]
                 }
             }

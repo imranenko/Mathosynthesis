@@ -15,7 +15,8 @@
                 },
                 "factor2": {
                     "range": [1, 10]
-                }
+                },
+                "commutative": true
             }
         },
         {
@@ -33,7 +34,8 @@
                 },
                 "factor2": {
                     "range": [1, 10]
-                }
+                },
+                "commutative": true
             }
         }
     ]

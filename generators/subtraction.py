@@ -7,7 +7,7 @@ class Subtraction(Generator):
         tasks = []
         amount = settings.get("amount", 1)
         minuend_cfg = settings.get("minuend", (1, 10))
-        subtrahend_cfg = settings.get("subrahend", (1, 10))
+        subtrahend_cfg = settings.get("subtrahend", (1, 10))
         only_pos = settings.get("only_pos", False)
 
         minuend_list = Subtraction.generate_numbers(minuend_cfg, amount)
