@@ -28,6 +28,7 @@ def generate_setup(
         "header-includes:",
         " - \\usepackage{multicol}",
         " - \\usepackage{siunitx}",
+        " - \\renewcommand{\\labelenumi}{\\arabic{enumi})}",
         "---"
     ])
     
@@ -83,4 +84,3 @@ def _generate_block(tasks, columns=2):
         lines.append("\\end{enumerate}")
         
         return lines
-    
