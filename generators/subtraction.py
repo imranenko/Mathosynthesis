@@ -3,7 +3,7 @@ from .generator import Generator
 
 class Subtraction(Generator):
     @staticmethod
-    def generate_task(settings):
+    def generate_task(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         minuend_cfg = settings.get("minuend", (1, 10))
@@ -25,7 +25,7 @@ class Subtraction(Generator):
         return tasks
 
     @staticmethod
-    def generate_with_missing_element(settings):
+    def generate_with_missing_element(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         minuend_cfg = settings.get("minuend", (1, 10))

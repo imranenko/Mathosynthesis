@@ -2,7 +2,7 @@ from .generator import Generator
 
 class Root(Generator):
     @staticmethod
-    def generate_task(settings):
+    def generate_task(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         root_cfg = settings.get("root", (2, 9))

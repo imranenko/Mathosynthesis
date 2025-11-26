@@ -12,28 +12,28 @@ logger = logging.getLogger(__name__)
 # Uses ISO 8601 timestamp with week date format
 # Uses '-' instead of ':' for supported file naming
 # Example: 2025-W29-5T13-42-06
-def _get_timestamp(week_date_format=WEEK_DATE_FORMAT):
+def _get_timestamp(week_date_format: bool =WEEK_DATE_FORMAT) -> str:
     now = datetime.datetime.now()
     if week_date_format:
         iso_year, iso_week, iso_weekday = now.isocalendar()
         time_str = now.strftime("%H-%M-%S")
         datetime_stamp = f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
     else:
-        datetime_stamp = now.strftime("%Y-%m-%dT%H-%H-%M-%S")
+        datetime_stamp = now.strftime("%Y-%m-%dT%H-%M-%S")
     return datetime_stamp
 
-def create_folder(folder_dir):
+def create_folder(folder_dir: str | Path) -> None:
     try:
         os.makedirs(folder_dir, exist_ok=True)
     except OSError as e:
         logger.error(f"Couldn't create folder: {e}")
 
-def create_md(content, file_name):
+def create_md(content: list[str], file_name: str | Path) -> None:
     with open(file_name, 'w') as file:
         for line in content:
-            file.write(line + '\n') 
+            file.write(line + '\n')
 
-def create_pdf(md_file_path, pdf_file_path):
+def create_pdf(md_file_path: str | Path, pdf_file_path: str | Path) -> None:
     create_pdf_command = [
         "pandoc",
         md_file_path,
@@ -52,7 +52,7 @@ def create_pdf(md_file_path, pdf_file_path):
     except subprocess.CalledProcessError:
         logger.error("Pandoc conversion failed!")
 
-def open_file(file_path):
+def open_file(file_path: str | Path) -> None:
     open_pdf_command = [
         "open",
         file_path
@@ -62,29 +62,29 @@ def open_file(file_path):
     except subprocess.CalledProcessError as e:
         logger.error(f"Could not open file: {e}")
 
-def delete_file(file_path):
+def delete_file(file_path: str | Path) -> None:
     try:
         os.remove(file_path)
         logger.info(f"Deleted: {file_path}")
     except FileNotFoundError:
         logger.error("File not found!")
     except OSError as e:
-        logger.error(f"Coudn't delete file: {e}")
+        logger.error(f"Couldn't delete file: {e}")
       
-def reveal_file(file_path):
+def reveal_file(file_path: str | Path) -> None:
     try:
         subprocess.run(["open", "-R", file_path], check=True)
     except OSError as e:
         logger.error(f"Could not reveal file in Finder: {e}")
      
-def get_base_path(file_name):
+def get_base_path(file_name: str) -> Path:
     timestamp = _get_timestamp()
     path = Path(f"{TASKS_DIR}/{file_name}_{timestamp}")
     return path
 
-def get_setups() -> dict[str, list[str]]:
+def get_setups() -> dict[str, list[str]] | None:
     """Return dictionary mapping setup categories to their .json files."""
-    setups = {}
+    setups: dict[str, list[str]] = {}
 
     # List all items in the parent folder
     all_items = sorted(os.listdir(SETUPS_DIR)) # all_items = ['setup1.json', 'addition']

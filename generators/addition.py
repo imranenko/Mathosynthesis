@@ -3,7 +3,7 @@ from .generator import Generator
 
 class Addition(Generator):
     @staticmethod
-    def generate_task(settings):
+    def generate_task(settings: dict) -> list[str]:
         lines = []
         
         amount = settings.get("amount", 1)
@@ -28,7 +28,7 @@ class Addition(Generator):
 
 
     @staticmethod
-    def generate_with_missing_element(settings):
+    def generate_with_missing_element(settings: dict) -> list[str]:
         lines = []
         amount = settings.get("amount", 1)
         summand1_cfg = settings.get("summand1", (1, 10))

@@ -10,7 +10,7 @@ This project generates mathematical tasks as PDF files from Markdown files based
 
 ### Installing Pandoc
 
-- macOS (Homebrew):  ```bash brew install pandoc```
+- macOS (Homebrew):  `bash brew install pandoc`
 - Windows: Download from https://pandoc.org/installing.html
 - Linux (Debian/Ubuntu): `sudo apt-get install pandoc`
 
@@ -20,4 +20,4 @@ This project generates mathematical tasks as PDF files from Markdown files based
 - German
 - Ukrainian
   
-(You can add more languages by extending the config and translation files.)
+(You can add more languages by extending the config and modifying JSON files.)

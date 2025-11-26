@@ -61,7 +61,7 @@ def parse_args():
     
     return parser.parse_args()
 
-def build_printable_setups(setups_dict):
+def build_printable_setups(setups_dict: dict) -> list[str]:
     RESET = colorama.Style.RESET_ALL
     BLUE = colorama.Fore.BLUE
 
@@ -81,7 +81,7 @@ def build_printable_setups(setups_dict):
         lines.append("")
     return lines
 
-def ask_setup(setups_dict: dict):
+def ask_setup(setups_dict: dict) -> str:
     available_categories = list(setups_dict.keys())
     available_setups = []
     for category in available_categories:

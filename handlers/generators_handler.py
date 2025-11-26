@@ -16,8 +16,9 @@ def read_json(json_path: str) -> dict[str, Any]:
 
 def generate_setup(
     json_data: dict[str, Any],
-    preferred_languages: list[str] = PREFERRED_LANGUAGES
+    preferred_languages: list[str] = PREFERRED_LANGUAGES,
     ) -> list[str]:
+    
     """Generates a setup using the JSON data and returns created lines."""
     task_blocks = json_data["task_blocks"]
     lines = []
@@ -60,7 +61,7 @@ def generate_setup(
     
     return lines
 
-def _generate_block(tasks, columns=2):
+def _generate_block(tasks: list[str], columns: int = 2) -> list[str]:
     if columns > 1:
         lines = []
         lines.append(f"\\begin{{multicols}}{{{columns}}}")

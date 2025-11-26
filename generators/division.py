@@ -3,7 +3,7 @@ from .generator import Generator
 
 class Division(Generator):  
     @staticmethod
-    def generate_task(settings):
+    def generate_task(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         divisor_cfg = settings.get("divisor", (1, 10))
@@ -23,7 +23,7 @@ class Division(Generator):
         return tasks
 
     @staticmethod
-    def generate_with_missing_element(settings):
+    def generate_with_missing_element(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         divisor_cfg = settings.get("divisor", (1, 10))

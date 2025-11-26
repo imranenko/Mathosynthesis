@@ -1,7 +1,7 @@
 from .generator import Generator
 class Logarithm(Generator):
     @staticmethod
-    def generate_task(settings):
+    def generate_task(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         base_cfg = settings.get("base", (1, 10))

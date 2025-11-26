@@ -3,7 +3,7 @@ from .generator import Generator
 
 class Multiplication(Generator):
     @staticmethod
-    def generate_task(settings):
+    def generate_task(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         factor1_cfg = settings.get("factor1", (1, 10))
@@ -26,7 +26,7 @@ class Multiplication(Generator):
         return tasks
 
     @staticmethod
-    def generate_with_missing_element(settings):
+    def generate_with_missing_element(settings: dict) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
         factor1_cfg = settings.get("factor1", (1, 10))
