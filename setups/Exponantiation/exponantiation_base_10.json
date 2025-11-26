@@ -10,8 +10,12 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "base": [10, 10],
-                "exponent": [2, 9]
+                "base": {
+                    "choices": [10]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
             } 
         },
         {
@@ -24,8 +28,12 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "base": [10, 10],
-                "exponent": [2, 9]
+                "base": {
+                    "choices": [10]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
             }
         }
     ]

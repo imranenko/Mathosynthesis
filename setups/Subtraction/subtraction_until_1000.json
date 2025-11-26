@@ -5,8 +5,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "minuend": [101, 999],
-                "subtrahend": [101, 999]
+                "minuend": {
+                    "range": [101, 999]
+                },
+                "subtrahend": {
+                    "range": [101, 999]
+                }
             }
         },
         {
@@ -14,8 +18,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "minuend": [101, 999],
-                "subtrahend": [101, 999]
+                "minuend": {
+                    "range": [101, 999]
+                },
+                "subtrahend": {
+                    "range": [101, 999]
+                }
             }
         },
         {
@@ -23,8 +31,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "minuend": [101, 999],
-                "subtrahend": [101, 999]
+                "minuend": {
+                    "range": [101, 999]
+                },
+                "subtrahend": {
+                    "range": [101, 999]
+                }
             }
         }
     ]

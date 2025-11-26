@@ -10,8 +10,12 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "base": [10, 10],
-                "log": [2, 5]
+                "base": {
+                    "choices": [10]
+                },
+                "log": {
+                    "range": [2, 5]
+                }
             } 
         },
         {
@@ -24,8 +28,12 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "base": [10, 10],
-                "log": [2, 5]
+                "base": {
+                    "choices": [10]
+                },
+                "log": {
+                    "range": [2, 5]
+                }
             }
         }
     ]

@@ -5,8 +5,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "factor1": [2, 9],
-                "factor2": [11, 19],
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [11, 19]
+                },
                 "commutative": true
             }
         },
@@ -15,8 +19,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "factor1": [2, 9],
-                "factor2": [11, 19],
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [11, 19]
+                },
                 "commutative": true
             }
         },
@@ -25,8 +33,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "factor1": [2, 9],
-                "factor2": [11, 19],
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [11, 19]
+                },
                 "commutative": true
             }
         }

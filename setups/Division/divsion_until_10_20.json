@@ -5,8 +5,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divident": [2, 9],
-                "divisor": [11, 19]
+                "divident": {
+                    "range": [2, 9]
+                },
+                "divisor": {
+                    "range": [11, 19]
+                }
             }
         },
         {
@@ -14,8 +18,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divident": [2, 9],
-                "divisor": [11, 19]
+                "divident": {
+                    "range": [2, 9]
+                },
+                "divisor": {
+                    "range": [11, 19]
+                }
             }
         },
         {
@@ -23,8 +31,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divident": [2, 9],
-                "divisor": [11, 19]
+                "divident": {
+                    "range": [2, 9]
+                },
+                "divisor": {
+                    "range": [11, 19]
+                }
             }
         }
     ]

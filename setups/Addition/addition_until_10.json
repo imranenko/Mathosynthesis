@@ -5,8 +5,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "summand1": [1, 9],
-                "summand2": [1, 9]
+                "summand1": {
+                    "range": [1, 9]
+                },
+                "summand2": {
+                    "range": [1, 9]
+                }
             }
         },
         {
@@ -14,8 +18,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "summand1": [1, 9],
-                "summand2": [1, 9]
+                "summand1": {
+                    "range": [1, 9]
+                },
+                "summand2": {
+                    "range": [1, 9]
+                }
             }
         },
         {
@@ -23,8 +31,12 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "summand1": [1, 9],
-                "summand2": [1, 9]
+                "summand1": {
+                    "range": [1, 9]
+                },
+                "summand2": {
+                    "range": [1, 9]
+                }
             }
         }
     ]

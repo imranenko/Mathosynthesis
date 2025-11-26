@@ -10,8 +10,12 @@
             "columns": 2,
             "settings": {
                 "amount": 6,
-                "summand1": [11, 99],
-                "summand2": [11, 99]
+                "summand1": {
+                    "range": [11, 99]
+                },
+                "summand2": {
+                    "range": [11, 99]
+                }
             }
         },
         {
@@ -24,8 +28,12 @@
             "columns": 2,
             "settings": {
                 "amount": 6,
-                "minuend": [11, 99],
-                "subtrahend": [11, 99]
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                }
             }
         },
         {
@@ -38,8 +46,12 @@
             "columns": 2,
             "settings": {
                 "amount": 6,
-                "factor1": [2, 9],
-                "factor2": [2, 9]
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                }
             }
         },
         {
@@ -52,8 +64,12 @@
             "columns": 2,
             "settings": {
                 "amount": 6,
-                "divident": [2, 9],
-                "divisor": [2, 9]
+                "divident": {
+                    "range": [2, 9]
+                },
+                "divisor": {
+                    "range": [2, 9]
+                }
             }
         }
     ]

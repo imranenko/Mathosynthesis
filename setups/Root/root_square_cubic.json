@@ -10,8 +10,12 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "root": [2, 9],
-                "index": [2, 2]
+                "root": {
+                    "range": [2, 9]
+                },
+                "index": {
+                    "choices": [2]
+                }
             } 
         },
         {
@@ -24,8 +28,12 @@
             "columns": 2,
             "settings": {
                 "amount": 16,
-                "root": [2, 9],
-                "index": [3, 3]
+                "root": {
+                    "range": [2, 9]
+                },
+                "index": {
+                    "choices": [3]
+                }
             }
         }
     ]
