@@ -1,9 +1,10 @@
 import random
+from typing import Any
 from .generator import Generator
 
 class Division(Generator):  
     @staticmethod
-    def generate_task(settings: dict) -> list[str]:
+    def generate_task(settings: dict[str, Any]) -> list[str]:
         """
         Generate division tasks as strings.
 
@@ -35,7 +36,7 @@ class Division(Generator):
         return tasks
 
     @staticmethod
-    def generate_with_missing_element(settings: dict) -> list[str]:
+    def generate_with_missing_element(settings: dict[str, Any]) -> list[str]:
         """
         Generate division tasks with one missing element represented by blanks.
 

@@ -1,7 +1,8 @@
+from typing import Any
 from .generator import Generator
 class Logarithm(Generator):
     @staticmethod
-    def generate_task(settings: dict) -> list[str]:
+    def generate_task(settings: dict[str, Any]) -> list[str]:
         """
         Generate logarithm tasks as strings.
 

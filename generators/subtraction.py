@@ -1,9 +1,10 @@
 import random
+from typing import Any
 from .generator import Generator
 
 class Subtraction(Generator):
     @staticmethod
-    def generate_task(settings: dict) -> list[str]:
+    def generate_task(settings: dict[str, Any]) -> list[str]:
         """
         Generate subtraction tasks as strings.
 
@@ -38,7 +39,7 @@ class Subtraction(Generator):
         return tasks
 
     @staticmethod
-    def generate_with_missing_element(settings: dict) -> list[str]:
+    def generate_with_missing_element(settings: dict[str, Any]) -> list[str]:
         """
         Generate subtraction tasks with one missing element represented by blanks.
 

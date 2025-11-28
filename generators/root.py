@@ -1,8 +1,9 @@
+from typing import Any
 from .generator import Generator
 
 class Root(Generator):
     @staticmethod
-    def generate_task(settings: dict) -> list[str]:
+    def generate_task(settings: dict[str, Any]) -> list[str]:
         """
         Generate root extraction tasks as strings.
 

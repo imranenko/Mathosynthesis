@@ -1,10 +1,11 @@
 import json
 from typing import Any
+from pathlib import Path
 
 from generators import register
 from config import PREFERRED_LANGUAGES
 
-def read_json(json_path: str) -> dict[str, Any]:
+def read_json(json_path: str | Path) -> dict[str, Any]:
     """Read a JSON file and return its contents as a dictionary.
 
     Args:

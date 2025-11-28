@@ -1,11 +1,12 @@
 import random
 import logging
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
 class Generator():
     @staticmethod
-    def generate_numbers(number_cfg: dict, amount: int = 1) -> list[int]:
+    def generate_numbers(number_cfg: dict[str, Any], amount: int = 1) -> list[int]:
         """
         Generate a list of random numbers according to the configuration.
 

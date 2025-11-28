@@ -1,9 +1,10 @@
 import random
+from typing import Any
 from .generator import Generator
 
 class Multiplication(Generator):
     @staticmethod
-    def generate_task(settings: dict) -> list[str]:
+    def generate_task(settings: dict[str, Any]) -> list[str]:
         """
         Generate multiplication tasks as strings.
 
@@ -39,7 +40,7 @@ class Multiplication(Generator):
         return tasks
 
     @staticmethod
-    def generate_with_missing_element(settings: dict) -> list[str]:
+    def generate_with_missing_element(settings: dict[str, Any]) -> list[str]:
         """
         Generate multiplication tasks with one missing element represented by blanks.
 

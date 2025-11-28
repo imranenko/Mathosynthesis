@@ -84,7 +84,7 @@ def parse_args() -> argparse.Namespace:
     
     return parser.parse_args()
 
-def build_printable_setups(setups_dict: dict) -> list[str]:
+def build_printable_setups(setups_dict: dict[str, list[str]]) -> list[str]:
     """
     Build a formatted list of strings representing available setup files grouped by category.
 
@@ -113,7 +113,7 @@ def build_printable_setups(setups_dict: dict) -> list[str]:
         lines.append("")
     return lines
 
-def ask_setup(setups_dict: dict) -> str:
+def ask_setup(setups_dict: dict[str, list[str]]) -> str:
     """
     Prompt the user to select a setup file from available categories and return its full path.
 

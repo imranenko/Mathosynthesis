@@ -10,7 +10,7 @@ from config.logging_config import setup_logging
 colorama.init()
 logger = logging.getLogger(__name__)
 
-def main():
+def main() -> None:
     # Setup logging
     setup_logging()
     
