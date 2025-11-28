@@ -8,7 +8,19 @@ from config import SETUPS_DIR
 
 logger = logging.getLogger(__name__)
 
-def _str_to_bool(value):
+def _str_to_bool(value: str) -> bool:
+    """
+    Convert a string representation of truth to a boolean.
+
+    Args:
+        value: String to convert, e.g., "true", "False", "1", "no".
+
+    Returns:
+        Boolean True or False corresponding to the input string.
+
+    Raises:
+        argparse.ArgumentTypeError: If the input string is not a valid boolean representation.
+    """
     val = str(value).lower()
     if val in ("true", "1", "yes", "y"):
         return True
@@ -17,7 +29,18 @@ def _str_to_bool(value):
     else:
         raise argparse.ArgumentTypeError("Boolean value expected (True/False).")
 
-def parse_args():
+def parse_args() -> argparse.Namespace:
+    """
+    Parse command-line arguments for the math task generator CLI.
+
+    Returns:
+        An argparse.Namespace object containing parsed command-line options:
+        - setup: JSON setup filename (str).
+        - open: Whether to open the PDF after creation (bool).
+        - reveal: Whether to reveal the PDF file in Finder (bool).
+        - markdown: Whether to keep the markdown file after PDF creation (bool).
+        - language: List of languages for generated tasks (list of str).
+    """
     parser = argparse.ArgumentParser(
         description="Generate math tasks from a setup file and optionally open the results"
     )
@@ -62,6 +85,15 @@ def parse_args():
     return parser.parse_args()
 
 def build_printable_setups(setups_dict: dict) -> list[str]:
+    """
+    Build a formatted list of strings representing available setup files grouped by category.
+
+    Args:
+        setups_dict: Dictionary mapping category names to lists of setup filenames.
+
+    Returns:
+        List of formatted strings ready to be printed to the console.
+    """
     RESET = colorama.Style.RESET_ALL
     BLUE = colorama.Fore.BLUE
 
@@ -82,6 +114,17 @@ def build_printable_setups(setups_dict: dict) -> list[str]:
     return lines
 
 def ask_setup(setups_dict: dict) -> str:
+    """
+    Prompt the user to select a setup file from available categories and return its full path.
+
+    Args:
+        setups_dict: Dictionary mapping category names to lists of setup filenames.
+
+    Returns:
+        Full path (string) to the chosen setup file, including category folder.
+
+    The function handles invalid input by prompting repeatedly.
+    """
     available_categories = list(setups_dict.keys())
     available_setups = []
     for category in available_categories:

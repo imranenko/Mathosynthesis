@@ -6,6 +6,21 @@ logger = logging.getLogger(__name__)
 class Generator():
     @staticmethod
     def generate_numbers(number_cfg: dict, amount: int = 1) -> list[int]:
+        """
+        Generate a list of random numbers according to the configuration.
+
+        Args:
+            number_cfg: Configuration dictionary containing either:
+                - 'range': tuple of (start, end) integers, and optional 'step'.
+                - 'choices': list of possible values, with optional 'weights'.
+            amount: Number of numbers to generate.
+
+        Returns:
+            List of generated integers.
+
+        Raises:
+            ValueError: If configuration format is invalid.
+        """
         results = []
         
         if "range" in number_cfg:

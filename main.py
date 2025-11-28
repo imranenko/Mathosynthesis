@@ -60,8 +60,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-    # Usage examples:
-    # python main.py
-    # python main.py -s basic_operations.json -o -f
-    # Run main.py using basic_operations.json setup; Open pdf-file; Find pdf-file

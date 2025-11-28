@@ -5,7 +5,18 @@ from generators import register
 from config import PREFERRED_LANGUAGES
 
 def read_json(json_path: str) -> dict[str, Any]:
-    """Read a JSON file from the given path and return its contents as a dictionary."""
+    """Read a JSON file and return its contents as a dictionary.
+
+    Args:
+        json_path: Path to the JSON file.
+
+    Returns:
+        Dictionary representing the JSON contents.
+
+    Raises:
+        FileNotFoundError: If the file does not exist.
+        ValueError: If the JSON is invalid.
+    """
     try:
         with open(json_path, "r", encoding="utf-8") as json_file:
             return json.load(json_file)
@@ -18,8 +29,18 @@ def generate_setup(
     json_data: dict[str, Any],
     preferred_languages: list[str] = PREFERRED_LANGUAGES,
     ) -> list[str]:
-    
-    """Generates a setup using the JSON data and returns created lines."""
+    """Generate task blocks from JSON configuration and return formatted lines.
+
+    Args:
+        json_data: Parsed JSON data with task block configurations.
+        preferred_languages: List of language codes to select descriptions.
+
+    Returns:
+        A list of formatted strings representing the generated setup.
+        
+    Raises:
+        ValueError: If required keys are missing in task blocks.
+    """ 
     task_blocks = json_data["task_blocks"]
     lines = []
     
@@ -62,6 +83,15 @@ def generate_setup(
     return lines
 
 def _generate_block(tasks: list[str], columns: int = 2) -> list[str]:
+    """Generate LaTeX formatted block of tasks.
+
+    Args:
+        tasks: List of task strings.
+        columns: Number of columns to format the tasks into.
+
+    Returns:
+        A list of strings containing LaTeX code for the task block.
+    """
     if columns > 1:
         lines = []
         lines.append(f"\\begin{{multicols}}{{{columns}}}")

@@ -4,6 +4,19 @@ from .generator import Generator
 class Multiplication(Generator):
     @staticmethod
     def generate_task(settings: dict) -> list[str]:
+        """
+        Generate multiplication tasks as strings.
+
+        Args:
+            settings: Configuration dictionary containing:
+                - amount: Number of tasks.
+                - factor1: Range or choices for first factor.
+                - factor2: Range or choices for second factor.
+                - commutative: Whether to randomly swap factors.
+
+        Returns:
+            List of multiplication tasks, e.g., "3 \\cdot 5 =".
+        """
         tasks = []
         amount = settings.get("amount", 1)
         factor1_cfg = settings.get("factor1", (1, 10))
@@ -27,6 +40,15 @@ class Multiplication(Generator):
 
     @staticmethod
     def generate_with_missing_element(settings: dict) -> list[str]:
+        """
+        Generate multiplication tasks with one missing element represented by blanks.
+
+        Args:
+            settings: Same as generate_task.
+
+        Returns:
+            List of multiplication tasks with a missing factor, e.g., "3 \\cdot ___ = 15".
+        """
         tasks = []
         amount = settings.get("amount", 1)
         factor1_cfg = settings.get("factor1", (1, 10))

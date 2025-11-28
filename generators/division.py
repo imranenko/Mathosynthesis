@@ -4,6 +4,18 @@ from .generator import Generator
 class Division(Generator):  
     @staticmethod
     def generate_task(settings: dict) -> list[str]:
+        """
+        Generate division tasks as strings.
+
+        Args:
+            settings: Configuration dictionary containing:
+                - amount: Number of tasks to generate.
+                - divisor: Range or choices for the divisor.
+                - quotient: Range or choices for the quotient.
+
+        Returns:
+            List of division task strings, e.g., "20 \\div 5 =".
+        """
         tasks = []
         amount = settings.get("amount", 1)
         divisor_cfg = settings.get("divisor", (1, 10))
@@ -24,6 +36,15 @@ class Division(Generator):
 
     @staticmethod
     def generate_with_missing_element(settings: dict) -> list[str]:
+        """
+        Generate division tasks with one missing element represented by blanks.
+
+        Args:
+            settings: Same as generate_task.
+
+        Returns:
+            List of division tasks with a missing divisor or dividend, e.g., "20 \\div ___ = 4".
+        """
         tasks = []
         amount = settings.get("amount", 1)
         divisor_cfg = settings.get("divisor", (1, 10))

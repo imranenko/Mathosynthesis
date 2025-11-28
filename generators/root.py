@@ -3,6 +3,18 @@ from .generator import Generator
 class Root(Generator):
     @staticmethod
     def generate_task(settings: dict) -> list[str]:
+        """
+        Generate root extraction tasks as strings.
+
+        Args:
+            settings: Configuration dictionary containing:
+                - amount: Number of tasks.
+                - root: Range or choices for the radicand.
+                - index: Range or choices for the root index.
+
+        Returns:
+            List of root extraction tasks, e.g., "\\sqrt{16} =", "\\sqrt[3]{27} =".
+        """
         tasks = []
         amount = settings.get("amount", 1)
         root_cfg = settings.get("root", (2, 9))
