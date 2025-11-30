@@ -20,8 +20,8 @@ class Subtraction(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        minuend_cfg = settings.get("minuend", (1, 10))
-        subtrahend_cfg = settings.get("subtrahend", (1, 10))
+        minuend_cfg = settings.get("minuend", {"range": (1, 10)})
+        subtrahend_cfg = settings.get("subtrahend", {"range": (1, 10)})
         only_pos = settings.get("only_pos", False)
 
         minuend_list = Subtraction.generate_numbers(minuend_cfg, amount)
@@ -51,8 +51,8 @@ class Subtraction(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        minuend_cfg = settings.get("minuend", (1, 10))
-        subtrahend_cfg = settings.get("subrahend", (1, 10))
+        minuend_cfg = settings.get("minuend", {"range": (1, 10)})
+        subtrahend_cfg = settings.get("subrahend", {"range": (1, 10)})
         only_pos = settings.get("only_pos", False)
 
         minuend_list = Subtraction.generate_numbers(minuend_cfg, amount)
@@ -68,9 +68,9 @@ class Subtraction(Generator):
             difference = minuend - subtrahend
             
             if random.random() < 0.5:
-                task = f"{minuend} - \\_\\_\\_ = {str(difference)*2}"
+                task = fr"{minuend} - \_\_\_ = {str(difference)*2}"
             else:
-                task = f"\\_\\_\\_ - {subtrahend} = {difference}"
+                task = fr"\_\_\_ - {subtrahend} = {difference}"
                 
             tasks.append(task)
 

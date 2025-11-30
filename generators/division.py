@@ -19,8 +19,8 @@ class Division(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        divisor_cfg = settings.get("divisor", (1, 10))
-        quotient_cfg = settings.get("quotient", (1, 10))
+        divisor_cfg = settings.get("divisor", {"range": (1, 10)})
+        quotient_cfg = settings.get("quotient", {"range": (1, 10)})
         
         divisor_list = Division.generate_numbers(divisor_cfg, amount)
         quotient_list = Division.generate_numbers(quotient_cfg, amount)
@@ -30,7 +30,7 @@ class Division(Generator):
             quotient = quotient_list[i]
             divident = quotient * divisor
             
-            task = f"{divident} \\div {divisor} ="
+            task = fr"{divident} \div {divisor} ="
             tasks.append(task)
                 
         return tasks
@@ -48,8 +48,8 @@ class Division(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        divisor_cfg = settings.get("divisor", (1, 10))
-        quotient_cfg = settings.get("quotient", (1, 10))
+        divisor_cfg = settings.get("divisor", {"range": (1, 10)})
+        quotient_cfg = settings.get("quotient", {"range": (1, 10)})
         
         divisor_list = Division.generate_numbers(divisor_cfg, amount)
         quotient_list = Division.generate_numbers(quotient_cfg, amount)
@@ -60,9 +60,9 @@ class Division(Generator):
             divident = quotient * divisor
 
             if random.random() < 0.5:
-                task = f"{divident} \\div \\_\\_\\_ = {quotient}"
+                task = fr"{divident} \div \_\_\_ = {quotient}"
             else:
-                task = f"\\_\\_\\_ \\div {divisor} = {quotient}"
+                task = fr"\_\_\_ \div {divisor} = {quotient}"
                 
             tasks.append(task)
         

@@ -18,21 +18,21 @@ class Root(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        root_cfg = settings.get("root", (2, 9))
-        index_cfg = settings.get("index", (2, 2))
+        root_cfg = settings.get("root", {"range": (2, 9)})
+        index_cfg = settings.get("index", {"range": (2, 2)})
         
         root_list = Root.generate_numbers(root_cfg, amount)
-        index_cfg = Root.generate_numbers(index_cfg, amount)
+        index_list = Root.generate_numbers(index_cfg, amount)
         
         for i in range(amount):
             root = root_list[i]
-            index = root_list[i]
+            index = index_list[i]
             radicant = root**index
 
             if index == 2:
-                task = f"\sqrt{{{radicant}}} ="
+                task = fr"\sqrt{{{radicant}}} ="
             else:
-                task = f"\sqrt[{index}]{{{radicant}}} ="
+                task = fr"\sqrt[{index}]{{{radicant}}} ="
                 
             tasks.append(task)
                 

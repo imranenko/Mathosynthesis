@@ -21,8 +21,8 @@ class Addition(Generator):
         lines = []
         
         amount = settings.get("amount", 1)
-        summand1_cfg = settings.get("summand1", (1, 10))
-        summand2_cfg = settings.get("summand2", (1, 10))
+        summand1_cfg = settings.get("summand1", {"range": (1, 10)})
+        summand2_cfg = settings.get("summand2", {"range": (1, 10)})
         commutative = settings.get("commutative", False)
         
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
@@ -54,8 +54,8 @@ class Addition(Generator):
         """
         lines = []
         amount = settings.get("amount", 1)
-        summand1_cfg = settings.get("summand1", (1, 10))
-        summand2_cfg = settings.get("summand2", (1, 10))
+        summand1_cfg = settings.get("summand1", {"range": (1, 10)})
+        summand2_cfg = settings.get("summand2", {"range": (1, 10)})
         commutative = settings.get("commutative", False)
         
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
@@ -70,9 +70,9 @@ class Addition(Generator):
                 summand1, summand2 = summand2, summand1
             
             if random.random() < 0.5:
-                task = f"{summand1} + \\_\\_\\_ = {sum}"
+                task = fr"{summand1} + \_\_\_ = {sum}"
             else:
-                task = f"\\_\\_\\_ + {summand2} = {sum}"
+                task = fr"\_\_\_ + {summand2} = {sum}"
 
             lines.append(task)
 

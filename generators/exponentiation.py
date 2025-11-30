@@ -18,8 +18,8 @@ class Exponantiation(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        base_cfg = settings.get("base", (1, 10))
-        exponent_cfg = settings.get("exponent", (2, 4))
+        base_cfg = settings.get("base", {"range": (1, 10)})
+        exponent_cfg = settings.get("exponent", {"range": (2, 4)})
 
         base_list = Exponantiation.generate_numbers(base_cfg, amount)
         exponent_list = Exponantiation.generate_numbers(exponent_cfg, amount)
