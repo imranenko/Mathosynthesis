@@ -1,11 +1,11 @@
-from generators.addition import Addition
-from generators.subtraction import Subtraction
-from generators.multiplication import Multiplication
-from generators.division import Division
+from .addition import Addition
+from .subtraction import Subtraction
+from .multiplication import Multiplication
+from .division import Division
 
-from generators.exponentiation import Exponantiation
-from generators.root import Root
-from generators.logarithm import Logarithm
+from .exponentiation import Exponantiation
+from .root import Root
+from .logarithm import Logarithm
 
 register = {
     "addition": Addition.generate_task,

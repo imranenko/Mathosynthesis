@@ -4,7 +4,7 @@ import datetime
 import logging
 from pathlib import Path
 
-from config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
+from ..config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
 
 logger = logging.getLogger(__name__)
 

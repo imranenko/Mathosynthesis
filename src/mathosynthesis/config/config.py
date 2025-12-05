@@ -2,7 +2,7 @@ from pathlib import Path
 
 # File and Folder names
 TASKS_DIR = "math-tasks"
-SETUPS_DIR = "setups"
+SETUPS_DIR = Path(__file__).resolve().parent.parent / "setups"
 
 # TASK_NAME = "math-task"
 

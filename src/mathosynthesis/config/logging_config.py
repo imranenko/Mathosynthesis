@@ -1,5 +1,5 @@
 import logging
-from config.config import LOG_LEVEL, LOG_FILE_PATH
+from .config import LOG_LEVEL, LOG_FILE_PATH
 
 def setup_logging():
     # Get the root logger instance and set logging level based on config

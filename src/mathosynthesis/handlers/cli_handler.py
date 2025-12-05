@@ -4,7 +4,7 @@ import logging
 import colorama
 
 from .files_handler import get_setups
-from config import SETUPS_DIR
+from ..config import SETUPS_DIR
 
 logger = logging.getLogger(__name__)
 

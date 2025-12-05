@@ -23,7 +23,7 @@ Before running the project, ensure you have the following installed:
 
 ## Usage
 
-Run the script with: ```python main.py ```
+Run the script with: ```PYTHONPATH=src python -m mathosynthesis.main```
 
 You will see a list of available setup files. Enter the number corresponding to the setup you want to generate.
 
