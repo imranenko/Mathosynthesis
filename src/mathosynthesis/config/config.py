@@ -6,7 +6,6 @@ SETUPS_DIR = Path(__file__).resolve().parent.parent / "setups"
 
 # TASK_NAME = "math-task"
 
-
 # Default settings
 AUTO_OPEN_FILE = False
 AUTO_REVEAL_FILE = False
@@ -23,4 +22,5 @@ PREFERRED_LANGUAGES = [
 PDF_FONT = "Lora"
 
 LOG_LEVEL = "INFO"
-LOG_FILE_PATH = Path("logs/mathosynthesis.log")
+LOGS_DIR = "logs"
+LOG_FILE_PATH = Path(LOGS_DIR, "mathosynthesis.log")

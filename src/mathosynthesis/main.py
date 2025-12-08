@@ -4,13 +4,17 @@ from pathlib import Path
 import colorama
 
 from .handlers import parse_args, read_json, generate_setup, ask_setup, open_file, reveal_file, delete_file, get_base_path, create_md, create_pdf, create_folder, get_setups, build_printable_setups
-from .config.config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES, TASKS_DIR
+from .config.config import AUTO_OPEN_FILE, AUTO_REVEAL_FILE, KEEP_MD_FILE, PREFERRED_LANGUAGES, TASKS_DIR, LOGS_DIR
 from .config.logging_config import setup_logging
 
 colorama.init()
 logger = logging.getLogger(__name__)
 
 def main() -> None:
+    # Create tasks and log folders if don't exist
+    create_folder(TASKS_DIR)
+    create_folder(LOGS_DIR)
+    
     # Setup logging
     setup_logging()
     
@@ -43,9 +47,8 @@ def main() -> None:
         logger.error(f"Coudn't load JSON file: {e}")
         return
     
-    # Generate setup, folder and tasks file
+    # Generate setup and tasks file
     tasks = generate_setup(json_data, preferred_languages=preferred_languages)
-    create_folder(TASKS_DIR)
     create_md(tasks, md_path)
     create_pdf(md_path, pdf_path)
     
