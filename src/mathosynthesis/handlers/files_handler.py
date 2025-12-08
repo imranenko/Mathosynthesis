@@ -10,11 +10,11 @@ logger = logging.getLogger(__name__)
 
 def _get_timestamp(week_date_format: bool = WEEK_DATE_FORMAT) -> str:
     """
-    Return the current timestamp as a formatted string.
+    Return the current timestamp.
 
     Args:
-        week_date_format: If True, return ISO week date format (YYYY-Www-DTHH-MM-SS).
-                          If False, return standard datetime format (YYYY-MM-DDTHH-MM-SS).
+        week_date_format: If True, return ISO week date format (on YYYY-Www-D at HH-MM-SS).
+                          If False, return standard datetime format (on YYYY-MM-DD at HH-MM-SS).
 
     Returns:
         A string representing the current date and time in the specified format.
@@ -23,9 +23,9 @@ def _get_timestamp(week_date_format: bool = WEEK_DATE_FORMAT) -> str:
     if week_date_format:
         iso_year, iso_week, iso_weekday = now.isocalendar()
         time_str = now.strftime("%H-%M-%S")
-        datetime_stamp = f"{iso_year}-W{iso_week}-{iso_weekday}T{time_str}"
+        datetime_stamp = f"on {iso_year}-W{iso_week}-{iso_weekday} at {time_str}"
     else:
-        datetime_stamp = now.strftime("%Y-%m-%dT%H-%M-%S")
+        datetime_stamp = now.strftime("on %Y-%m-%d at %H-%M-%S")
     return datetime_stamp
 
 def create_folder(folder_dir: str | Path) -> None:
@@ -142,7 +142,7 @@ def get_base_path(file_name: str) -> Path:
         A Path object combining TASKS_DIR, file_name, and a timestamp.
     """
     timestamp = _get_timestamp()
-    path = Path(f"{TASKS_DIR}/{file_name}_{timestamp}")
+    path = Path(f"{TASKS_DIR}/{file_name} {timestamp}")
     return path
 
 def get_setups() -> dict[str, list[str]] | None:
