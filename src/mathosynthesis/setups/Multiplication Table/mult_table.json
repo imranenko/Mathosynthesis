@@ -1,0 +1,42 @@
+{
+    "task_blocks": [
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 16,
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        }
+    ]
+}
