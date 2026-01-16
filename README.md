@@ -12,18 +12,33 @@ Before running the project, ensure you have the following installed:
 
 ### Installing Pandoc
 
-- **macOS (Homebrew)**: `brew install pandoc `
 - **Windows**: Download the installer from [pandoc.org](https://pandoc.org/installing.html).
+- **macOS (Homebrew)**: `brew install pandoc `
 - **Linux (Debian/Ubuntu)**: `sudo apt-get install pandoc`
 
 ## Installation
 
 1.  Clone the repository or download the source code.
-2.  Install the required Python dependencies: ```pip install -r requirements.txt```
+2.  Create a virtual environment and activate it.
+3.  Install the required Python dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  Install the project in editable mode:
+
+    ```bash
+    pip install -e .
+    ```
 
 ## Usage
 
-Run the script with: ```PYTHONPATH=src python -m mathosynthesis.main```
+Run the script with:
+
+```bash
+python -m mathosynthesis.main
+```
 
 You will see a list of available setup files. Enter the number corresponding to the setup you want to generate.
 
