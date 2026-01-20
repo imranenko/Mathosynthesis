@@ -23,7 +23,7 @@ def _get_timestamp(week_date_format: bool = WEEK_DATE_FORMAT) -> str:
     if week_date_format:
         iso_year, iso_week, iso_weekday = now.isocalendar()
         time_str = now.strftime("%H-%M-%S")
-        datetime_stamp = f"on {iso_year}-W{iso_week}-{iso_weekday} at {time_str}"
+        datetime_stamp = f"on {iso_year}-W{iso_week:02d}-{iso_weekday} at {time_str}"
     else:
         datetime_stamp = now.strftime("on %Y-%m-%d at %H-%M-%S")
     return datetime_stamp
