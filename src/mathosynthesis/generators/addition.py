@@ -35,7 +35,7 @@ class Addition(Generator):
             if commutative and random.random() < 0.5:
                 summand1, summand2 = summand2, summand1
             
-            task = f"{summand1} + {summand2} ="
+            task = fr"\num{{{summand1}}} + \num{{{summand2}}} ="
             lines.append(task)
             
         return lines
@@ -70,9 +70,9 @@ class Addition(Generator):
                 summand1, summand2 = summand2, summand1
             
             if random.random() < 0.5:
-                task = fr"{summand1} + \_\_\_ = {sum}"
+                task = fr"\num{{{summand1}}} + \_\_\_ = \num{{{sum}}}"
             else:
-                task = fr"\_\_\_ + {summand2} = {sum}"
+                task = fr"\_\_\_ + \num{{{summand2}}} = \num{{{sum}}}"
 
             lines.append(task)
 

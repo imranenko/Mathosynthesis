@@ -30,9 +30,9 @@ class Root(Generator):
             radicant = root**index
 
             if index == 2:
-                task = fr"\sqrt{{{radicant}}} ="
+                task = fr"\sqrt{{\num{{{radicant}}}}} ="
             else:
-                task = fr"\sqrt[{index}]{{{radicant}}} ="
+                task = fr"\sqrt[{index}]{{\num{{{radicant}}}}} ="
                 
             tasks.append(task)
                 

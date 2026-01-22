@@ -34,7 +34,7 @@ class Subtraction(Generator):
             if only_pos and minuend < subtrahend:
                 minuend, subtrahend = subtrahend, minuend
             
-            tasks.append(f"{minuend} - {subtrahend} =")
+            tasks.append(fr"\num{{{minuend}}} - \num{{{subtrahend}}} =")
 
         return tasks
 
@@ -68,9 +68,9 @@ class Subtraction(Generator):
             difference = minuend - subtrahend
             
             if random.random() < 0.5:
-                task = fr"{minuend} - \_\_\_ = {str(difference)*2}"
+                task = fr"\num{{{minuend}}} - \_\_\_ = \num{{{difference}}}"
             else:
-                task = fr"\_\_\_ - {subtrahend} = {difference}"
+                task = fr"\_\_\_ - \num{{{subtrahend}}} = \num{{{difference}}}"
                 
             tasks.append(task)
 

@@ -106,7 +106,7 @@ def _generate_block(tasks: list[str], columns: int = 2) -> list[str]:
         
         return lines
     
-    else: # NOTE: for columns <= 0, 1 set by deafult
+    else: # NOTE: for columns <= 0, by default: 1 column
         lines = []
         lines.append("\\begin{enumerate}")
         

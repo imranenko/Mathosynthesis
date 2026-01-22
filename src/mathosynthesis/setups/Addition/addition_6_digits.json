@@ -1,0 +1,43 @@
+{
+    "task_blocks": [
+        {
+            "id": "addition",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "summand1": {
+                    "range": [100001, 999999]
+                },
+                "summand2": {
+                    "range": [100001, 999999]
+                }
+            }
+        },
+        {
+            "id": "addition",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "summand1": {
+                    "range": [100001, 999999]
+                },
+                "summand2": {
+                    "range": [100001, 999999]
+                }
+            }
+        },
+        {
+            "id": "addition",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "summand1": {
+                    "range": [100001, 999999]
+                },
+                "summand2": {
+                    "range": [100001, 999999]
+                }
+            }
+        }
+    ]
+}

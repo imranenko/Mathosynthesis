@@ -53,7 +53,7 @@ def parse_args() -> argparse.Namespace:
     
     parser.add_argument(
         "--open", "-o",
-        nargs="?", # optionally to specify boolean
+        nargs="?", # optional to specify boolean
         const=True, # if not specified, store True
         type=_str_to_bool, # if specified, converts input to boolean
         help="Open PDF file after creation"

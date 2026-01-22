@@ -1,0 +1,43 @@
+{
+    "task_blocks": [
+        {
+            "id": "multiplication",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "multiplication",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "multiplication",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "task_blocks": [
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                }
+            }
+        }
+    ]
+}

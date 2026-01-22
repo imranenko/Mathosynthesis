@@ -6,7 +6,7 @@
             "settings": {
                 "amount": 10,
                 "minuend": {
-                    "range": [2, 9]
+                    "range": [11, 19]
                 },
                 "subtrahend": {
                     "range": [11, 19]
@@ -19,7 +19,7 @@
             "settings": {
                 "amount": 10,
                 "minuend": {
-                    "range": [2, 9]
+                    "range": [11, 19]
                 },
                 "subtrahend": {
                     "range": [11, 19]
@@ -32,7 +32,7 @@
             "settings": {
                 "amount": 10,
                 "minuend": {
-                    "range": [2, 9]
+                    "range": [11, 19]
                 },
                 "subtrahend": {
                     "range": [11, 19]

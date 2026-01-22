@@ -34,7 +34,7 @@ class Multiplication(Generator):
             if commutative and random.random() < 0.5:
                 factor1, factor2 = factor2, factor1
             
-            task = fr"{factor1} \cdot {factor2} =" + "\n"
+            task = fr"\num{{{factor1}}} \cdot \num{{{factor2}}} ="
             tasks.append(task)
         
         return tasks
@@ -68,9 +68,9 @@ class Multiplication(Generator):
                 factor1, factor2 = factor2, factor1
             
             if random.random() < 0.5:
-                task = fr"{factor1} \cdot \_\_\_ = {product}"
+                task = fr"\num{factor1} \cdot \_\_\_ = \num{{{product}}}"
             else:
-                task = fr"\_\_\_ \cdot {factor2} = {product}"
+                task = fr"\_\_\_ \cdot \num{{{factor2}}} = \num{{{product}}}"
             
             tasks.append(task)
             

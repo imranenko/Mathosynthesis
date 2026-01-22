@@ -39,6 +39,7 @@ def create_folder(folder_dir: str | Path) -> None:
     """
     try:
         os.makedirs(folder_dir, exist_ok=True)
+        logger.info(f"Created folder: {folder_dir}")
     except OSError as e:
         logger.error(f"Couldn't create folder: {e}")
 
@@ -50,9 +51,13 @@ def create_md(content: list[str], file_name: str | Path) -> None:
         content: List of lines to write.
         file_name: Path to the Markdown file to create.
     """
-    with open(file_name, 'w') as file:
-        for line in content:
-            file.write(line + '\n')
+    try:
+        with open(file_name, 'w') as file:
+            for line in content:
+                file.write(line + '\n')
+        logger.info(f"Created MD: {file_name}")
+    except OSError as e:
+        logger.error(f"Couldn't create md file: {e}")
 
 def create_pdf(md_file_path: str | Path, pdf_file_path: str | Path) -> None:
     """
@@ -63,7 +68,7 @@ def create_pdf(md_file_path: str | Path, pdf_file_path: str | Path) -> None:
         pdf_file_path: Path where the generated PDF will be saved.
 
     Logs success or failure of the conversion process.
-    """  
+    """
     create_pdf_command = [
         "pandoc",
         md_file_path,
@@ -78,7 +83,7 @@ def create_pdf(md_file_path: str | Path, pdf_file_path: str | Path) -> None:
     ]
     try:
         subprocess.run(create_pdf_command, check=True)
-        logger.info(f"PDF created: {pdf_file_path}")
+        logger.info(f"Created PDF: {pdf_file_path}")
     except subprocess.CalledProcessError:
         logger.error("Pandoc conversion failed!")
 

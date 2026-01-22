@@ -30,7 +30,7 @@ class Division(Generator):
             quotient = quotient_list[i]
             divident = quotient * divisor
             
-            task = fr"{divident} \div {divisor} ="
+            task = fr"\num{{{divident}}} \div \num{{{divisor}}} ="
             tasks.append(task)
                 
         return tasks
@@ -60,9 +60,9 @@ class Division(Generator):
             divident = quotient * divisor
 
             if random.random() < 0.5:
-                task = fr"{divident} \div \_\_\_ = {quotient}"
+                task = fr"\num{{{divident}}} \div \_\_\_ = \num{{{quotient}}}"
             else:
-                task = fr"\_\_\_ \div {divisor} = {quotient}"
+                task = fr"\_\_\_ \div \num{{{divisor}}} = \num{{{quotient}}}"
                 
             tasks.append(task)
         
