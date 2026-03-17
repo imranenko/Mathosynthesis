@@ -2,6 +2,11 @@
     "task_blocks": [
         {
             "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -15,6 +20,11 @@
         },
         {
             "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -28,6 +38,11 @@
         },
         {
             "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
