@@ -35,25 +35,6 @@
                     "range": [2, 9]
                 }
             }
-        },
-        {
-            "id": "division",
-            "description": {
-                "de": "Dividiere die Zahlen:",
-                "en": "Divide the numbers:",
-                "uk": "Поділи числа:"
-            },
-            "columns": 3,
-            "settings": {
-                "amount": 24,
-                "divisor": {
-                    "range": [2, 9]
-                },
-                "quotient": {
-                    "range": [2, 9]
-                }
-            }
         }
-        
     ]
 }
