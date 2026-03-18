@@ -68,7 +68,7 @@ python main.py --language uk --markdown
 - `config/`: Configuration files and default settings.
 - `generators/`: Logic for generating different types of mathematical problems.
 - `handlers/`: Helper modules for file handling, CLI parsing, and generation logic.
-- `setups/`: JSON files defining the structure and content of task såheets.
+- `setups/`: JSON files defining the structure and content of task sheets.
 - `math-tasks/`: Directory where generated PDF and Markdown files are saved.
 
 ## JSON Setup Formats
@@ -91,48 +91,63 @@ A basic JSON setup file looks like this:
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "...": { "range": [1, 9] }
+                "...": { "range": [1, 9, 1] },
+                "...": { "choices": [1, 3, 5, 7] }
             }
         }
     ]
 }
 ```
 
-- **`id`**: Supported operation types: `addition`, `subtraction`, `multiplication`, `division`, `exponentiation`, `logarithm`, `root`.
-- **`description`**: (Optional) Title or instructions for this specific mathematical block in various languages.
-- **`columns`**: (Optional) Number of columns to layout the tasks.
+- **`id`**: Supported operation types:
+  - `addition`,
+  - `subtraction`,
+  - `multiplication`,
+  - `multiplication_with_round_numbers`
+  - `division`,
+  - `exponentiation`,
+  - `logarithm`,
+  - `root`.
+- **`description`** (optional): Title or instructions for this specific mathematical block in various languages.
+- **`columns`** (optional): Number of columns to layout the tasks.
 - **`settings`**: Configuration for random number generation. Always requires `amount` for the number of tasks.
+
 
 ### Operation Settings Reference
 In the `settings` object, you can specify ranges for the components of each operation type. The ranges are provided as `{"range": [min, max]}`.
 
-* **Addition (`addition`)**
-  * `summand1`: Configuration for the first number.
-  * `summand2`: Configuration for the second number.
+- **Addition (`addition`)**
+  - `summand1`: Configuration for the first number.
+  - `summand2`: Configuration for the second number.
 
-* **Subtraction (`subtraction`)**
-  * `minuend`: Configuration for the initial number in the subtraction.
-  * `subtrahend`: Configuration for the number to be subtracted.
+- **Subtraction (`subtraction`)**
+  - `minuend`: Configuration for the initial number in the subtraction.
+  - `subtrahend`: Configuration for the number to be subtracted.
 
-* **Multiplication (`multiplication`)**
-  * `factor1`: Configuration for the first multiplier.
-  * `factor2`: Configuration for the second multiplier.
+- **Multiplication (`multiplication`)**
+  - `factor1`: Configuration for the first multiplier.
+  - `factor2`: Configuration for the second multiplier.
 
-* **Division (`division`)**
-  * `divisor`: Configuration for the dividing number.
-  * `quotient`: Configuration for the resulting whole number answer.
+- **Multiplication with round numbers (`multiplication_with_round_numbers`)**
+  - `factor1`: Configuration for the first multiplier.
+  - `factor2`: Configuration for the second multiplier.
+  - `ten_power1`: Configuration for the power of 10 of 1st number
+  - `ten_power2`: Configuration for the power of 10 of 2nd number
 
-* **Exponentiation (`exponentiation`)**
-  * `base`: Configuration for the base number.
-  * `exponent`: Configuration for the exponent (power).
+- **Division (`division`)**
+  - `divisor`: Configuration for the dividing number.
+  - `quotient`: Configuration for the resulting whole number answer.
 
-* **Logarithm (`logarithm`)**
-  * `base`: Configuration for the base of the logarithm.
-  * `log`: Configuration for the value of the logarithm (result).
+- **Exponentiation (`exponentiation`)**
+  - `base`: Configuration for the base number.
+  - `exponent`: Configuration for the exponent (power).
+- **Logarithm (`logarithm`)**
+  - `base`: Configuration for the base of the logarithm.
+  - `log`: Configuration for the value of the logarithm (result).
 
-* **Root (`root`)**
-  * `root`: Configuration for the solution/root value.
-  * `index`: Configuration for the root degree (e.g., 2 for a square root).
+- **Root (`root`)**
+  - `root`: Configuration for the solution/root value.
+  - `index`: Configuration for the root degree (e.g., 2 for a square root).
 
 ## Supported Languages
 

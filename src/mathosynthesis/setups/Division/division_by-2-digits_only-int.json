@@ -7,14 +7,14 @@
                 "en": "Divide the numbers:",
                 "uk": "Поділи числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
-                "divident": {
-                    "range": [2, 9]
-                },
+                "amount": 24,
                 "divisor": {
-                    "range": [11, 19]
+                    "range": [101, 999]
+                },
+                "quotient": {
+                    "range": [101, 999]
                 }
             }
         },
@@ -25,14 +25,14 @@
                 "en": "Divide the numbers:",
                 "uk": "Поділи числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
-                "divident": {
-                    "range": [2, 9]
-                },
+                "amount": 24,
                 "divisor": {
-                    "range": [11, 19]
+                    "range": [101, 999]
+                },
+                "quotient": {
+                    "range": [101, 999]
                 }
             }
         },
@@ -43,14 +43,14 @@
                 "en": "Divide the numbers:",
                 "uk": "Поділи числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
-                "divident": {
-                    "range": [2, 9]
-                },
+                "amount": 24,
                 "divisor": {
-                    "range": [11, 19]
+                    "range": [101, 999]
+                },
+                "quotient": {
+                    "range": [101, 999]
                 }
             }
         }
