@@ -71,6 +71,69 @@ python main.py --language uk --markdown
 - `setups/`: JSON files defining the structure and content of task såheets.
 - `math-tasks/`: Directory where generated PDF and Markdown files are saved.
 
+## JSON Setup Formats
+
+Mathosynthesis uses JSON files in the `setups/` directory to define the mathematical tasks generated. Each file consists of an array of `task_blocks` that determine the type of problems, their settings, and the layout.
+
+### General Structure
+A basic JSON setup file looks like this:
+
+```json
+{
+    "task_blocks": [
+        {
+            "id": "operation_type",
+            "description": {
+                "en": "Description in English:",
+                "de": "Description in German:",
+                "uk": "Description in Ukrainian:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "...": { "range": [1, 9] }
+            }
+        }
+    ]
+}
+```
+
+- **`id`**: Supported operation types: `addition`, `subtraction`, `multiplication`, `division`, `exponentiation`, `logarithm`, `root`.
+- **`description`**: (Optional) Title or instructions for this specific mathematical block in various languages.
+- **`columns`**: (Optional) Number of columns to layout the tasks.
+- **`settings`**: Configuration for random number generation. Always requires `amount` for the number of tasks.
+
+### Operation Settings Reference
+In the `settings` object, you can specify ranges for the components of each operation type. The ranges are provided as `{"range": [min, max]}`.
+
+* **Addition (`addition`)**
+  * `summand1`: Configuration for the first number.
+  * `summand2`: Configuration for the second number.
+
+* **Subtraction (`subtraction`)**
+  * `minuend`: Configuration for the initial number in the subtraction.
+  * `subtrahend`: Configuration for the number to be subtracted.
+
+* **Multiplication (`multiplication`)**
+  * `factor1`: Configuration for the first multiplier.
+  * `factor2`: Configuration for the second multiplier.
+
+* **Division (`division`)**
+  * `divisor`: Configuration for the dividing number.
+  * `quotient`: Configuration for the resulting whole number answer.
+
+* **Exponentiation (`exponentiation`)**
+  * `base`: Configuration for the base number.
+  * `exponent`: Configuration for the exponent (power).
+
+* **Logarithm (`logarithm`)**
+  * `base`: Configuration for the base of the logarithm.
+  * `log`: Configuration for the value of the logarithm (result).
+
+* **Root (`root`)**
+  * `root`: Configuration for the solution/root value.
+  * `index`: Configuration for the root degree (e.g., 2 for a square root).
+
 ## Supported Languages
 
 - English (en)
