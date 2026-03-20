@@ -186,3 +186,40 @@ def get_setups() -> dict[str, list[str]] | None:
         return None
 
     return setups
+
+def get_setup_path_by_number(setup_number: int) -> Path:
+    """
+    Return the full path to a setup file by its 1-based index.
+    """
+    setups_dict = get_setups()
+    if not setups_dict:
+        raise ValueError("No setups available.")
+
+    # Build a list of tuples (category, filename)
+    setups_list = []
+    for category, files in setups_dict.items():
+        for f in files:
+            setups_list.append((category, f))
+
+    index = setup_number - 1
+    if index < 0 or index >= len(setups_list):
+        raise ValueError("Invalid setup number.")
+
+    category, filename = setups_list[index]
+    category_path = "" if category == "NO_CATEGORY" else category
+    return Path(SETUPS_DIR) / category_path / filename
+    
+def get_setup_path_by_name(setup_name: str) -> Path:
+    """
+    Return the full path to a setup file by its name.
+    """
+    setups_dict = get_setups()
+    if not setups_dict:
+        raise ValueError("No setups available.")
+
+    for category, files in setups_dict.items():
+        if setup_name in files:
+            category_path = "" if category == "NO_CATEGORY" else category
+            return Path(SETUPS_DIR) / category_path / setup_name
+
+    raise ValueError(f"Setup '{setup_name}' not found.")

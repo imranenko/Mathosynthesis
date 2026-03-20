@@ -2,6 +2,7 @@ import argparse
 import logging
 
 import colorama
+from pathlib import Path
 
 from .files_handler import get_setups
 from ..config import SETUPS_DIR
@@ -29,6 +30,18 @@ def _str_to_bool(value: str) -> bool:
     else:
         raise argparse.ArgumentTypeError("Boolean value expected (True/False).")
 
+def _str_or_int(value: str):
+    """
+    Parse a value that can be either a string or an integer.
+
+    If the value represents an integer, return it as int,
+    otherwise return it as string.
+    """
+    try:
+        return int(value)
+    except ValueError:
+        return str(value)
+
 def parse_args() -> argparse.Namespace:
     """
     Parse command-line arguments for the math task generator CLI.
@@ -47,8 +60,8 @@ def parse_args() -> argparse.Namespace:
     
     parser.add_argument(
         "--setup", "-s",
-        type=str,
-        help="Name of the JSON setup file (e.g., basic_operations.json)"
+        type=_str_or_int,
+        help="Name or number of the JSON setup file (e.g., basic_operations.json)"
     )
     
     parser.add_argument(
@@ -84,7 +97,7 @@ def parse_args() -> argparse.Namespace:
     
     return parser.parse_args()
 
-def build_printable_setups(setups_dict: dict[str, list[str]]) -> list[str]:
+def build_printable_setups() -> list[str]:
     """
     Build a formatted list of strings representing available setup files grouped by category.
 
@@ -96,6 +109,10 @@ def build_printable_setups(setups_dict: dict[str, list[str]]) -> list[str]:
     """
     RESET = colorama.Style.RESET_ALL
     BLUE = colorama.Fore.BLUE
+    
+    setups_dict = get_setups()
+    if not setups_dict:
+        raise ValueError("No setups available.")
 
     category_names = list(setups_dict.keys())
     lines = []
@@ -112,8 +129,8 @@ def build_printable_setups(setups_dict: dict[str, list[str]]) -> list[str]:
 
         lines.append("")
     return lines
-
-def ask_setup(setups_dict: dict[str, list[str]]) -> str:
+    
+def ask_setup() -> str:
     """
     Prompt the user to select a setup file from available categories and return its full path.
 
@@ -125,6 +142,10 @@ def ask_setup(setups_dict: dict[str, list[str]]) -> str:
 
     The function handles invalid input by prompting repeatedly.
     """
+    setups_dict = get_setups()
+    if not setups_dict:
+        raise ValueError("No setups available.")
+    
     available_categories = list(setups_dict.keys())
     available_setups = []
     for category in available_categories:
