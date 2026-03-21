@@ -130,7 +130,7 @@ def build_printable_setups() -> list[str]:
         lines.append("")
     return lines
     
-def ask_setup() -> str:
+def ask_setup() -> Path:
     """
     Prompt the user to select a setup file from available categories and return its full path.
 
@@ -172,5 +172,5 @@ def ask_setup() -> str:
             chosen_category = cat
             break
     
-    chosen_path = f"{SETUPS_DIR}/{chosen_category}/{chosen_file}"
+    chosen_path = Path(f"{SETUPS_DIR}/{chosen_category}/{chosen_file}")
     return chosen_path

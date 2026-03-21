@@ -41,16 +41,16 @@ def setup_environment():
     setup_logging()
 
 
-def select_setup(args) -> Path:
-    if isinstance(args.setup, str):
-        return get_setup_path_by_name(args.setup)
-    elif isinstance(args.setup, int):
-        return get_setup_path_by_number(args.setup)
+def select_setup(selected_setup) -> Path:
+    if isinstance(selected_setup, str):
+        return get_setup_path_by_name(selected_setup)
+    elif isinstance(selected_setup, int):
+        return get_setup_path_by_number(selected_setup)
     else:
         for line in build_printable_setups():
             print(line)
-        selected = ask_setup()
-        return Path(SETUPS_DIR) / selected
+        json_path = ask_setup()
+        return json_path
 
 
 def generate_files(json_path, preferred_languages):
