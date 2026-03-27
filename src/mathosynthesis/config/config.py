@@ -1,15 +1,12 @@
 from pathlib import Path
+import os
 
-# File and Folder names
-TASKS_DIR = "math-tasks"
-SETUPS_DIR = Path(__file__).resolve().parent.parent / "setups"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
-# TASK_NAME = "math-task"
-
-# Default settings
-AUTO_OPEN_FILE = False
-AUTO_REVEAL_FILE = False
-KEEP_MD_FILE = False
+# Folder absolute paths
+DATA_DIR = PROJECT_ROOT / "data"
+SETUPS_DIR = DATA_DIR / "setups"
+TASKS_DIR = PROJECT_ROOT / "math-tasks"
 
 WEEK_DATE_FORMAT = True
 
@@ -17,10 +14,10 @@ PREFERRED_LANGUAGES = [
     "en",
     "de",
     "uk",
-    ]
+]
 
 PDF_FONT = "Lora"
 
-LOG_LEVEL = "INFO"
-LOGS_DIR = "logs"
-LOG_FILE_PATH = Path(LOGS_DIR, "mathosynthesis.log")
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+LOGS_DIR = PROJECT_ROOT / "logs"
+LOG_FILE_PATH = LOGS_DIR / "mathosynthesis.log"

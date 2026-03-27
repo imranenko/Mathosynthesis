@@ -4,8 +4,8 @@ import logging
 import colorama
 from pathlib import Path
 
-from .files_handler import get_setups
-from ..config import SETUPS_DIR
+from mathosynthesis.handlers.files_handler import get_setups
+from mathosynthesis.config.config import SETUPS_DIR
 
 logger = logging.getLogger(__name__)
 

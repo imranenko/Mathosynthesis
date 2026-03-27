@@ -10,4 +10,4 @@ name = "mathosynthesis"
 version = "1.6.0.dev0"
 
 [project.scripts]
-mathosynthesis = "mathosynthesis.main:main"
+mathos = "apps.cli_client.main:main"
