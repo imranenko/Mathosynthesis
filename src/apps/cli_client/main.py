@@ -16,7 +16,7 @@ from .cli_handler import parse_args, build_printable_setups, ask_setup
 # CLI-only defaults
 AUTO_OPEN_FILE = False
 AUTO_REVEAL_FILE = False
-KEEP_MD_FILE = False
+KEEP_TEX_FILE = False
 
 colorama.init()
 logger = logging.getLogger(__name__)
@@ -32,23 +32,24 @@ def select_setup(selected_setup) -> Path:
         json_path = ask_setup()
         return json_path
 
-def handle_files(args, md_path, pdf_path):
+def handle_files(args, tex_path, pdf_path):
+    # Handle post-generation actions
     if args.open or AUTO_OPEN_FILE:
         open_file(pdf_path)
-    if args.reveal or AUTO_REVEAL_FILE:
+    if args.file or AUTO_REVEAL_FILE:
         reveal_file(pdf_path)
-    if not (args.markdown or KEEP_MD_FILE):
-        delete_file(md_path)
+    if not (args.latex or KEEP_TEX_FILE):
+        delete_file(tex_path)
 
 def main() -> None:
     setup_environment()
     args = parse_args()
     json_path = select_setup(args.setup)
     
-    # Core Engine call
-    md_path, pdf_path = generate_files(json_path, args.language or PREFERRED_LANGUAGES)
+    # Core Engine call: now generates .tex and .pdf
+    tex_path, pdf_path = generate_files(json_path, args.language or PREFERRED_LANGUAGES)
     
-    handle_files(args, md_path, pdf_path)
+    handle_files(args, tex_path, pdf_path)
 
 if __name__ == "__main__":
     main()

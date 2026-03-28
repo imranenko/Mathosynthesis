@@ -1,6 +1,5 @@
 import argparse
 import logging
-
 import colorama
 from pathlib import Path
 
@@ -10,18 +9,7 @@ from mathosynthesis.config.config import SETUPS_DIR
 logger = logging.getLogger(__name__)
 
 def _str_to_bool(value: str) -> bool:
-    """
-    Convert a string representation of truth to a boolean.
-
-    Args:
-        value: String to convert, e.g., "true", "False", "1", "no".
-
-    Returns:
-        Boolean True or False corresponding to the input string.
-
-    Raises:
-        argparse.ArgumentTypeError: If the input string is not a valid boolean representation.
-    """
+    """Convert string truth to boolean."""
     val = str(value).lower()
     if val in ("true", "1", "yes", "y"):
         return True
@@ -31,31 +19,16 @@ def _str_to_bool(value: str) -> bool:
         raise argparse.ArgumentTypeError("Boolean value expected (True/False).")
 
 def _str_or_int(value: str):
-    """
-    Parse a value that can be either a string or an integer.
-
-    If the value represents an integer, return it as int,
-    otherwise return it as string.
-    """
+    """Parse string or integer."""
     try:
         return int(value)
     except ValueError:
         return str(value)
 
 def parse_args() -> argparse.Namespace:
-    """
-    Parse command-line arguments for the math task generator CLI.
-
-    Returns:
-        An argparse.Namespace object containing parsed command-line options:
-        - setup: JSON setup filename (str).
-        - open: Whether to open the PDF after creation (bool).
-        - reveal: Whether to reveal the PDF file in Finder (bool).
-        - markdown: Whether to keep the markdown file after PDF creation (bool).
-        - language: List of languages for generated tasks (list of str).
-    """
+    """Parse CLI arguments for math task generation."""
     parser = argparse.ArgumentParser(
-        description="Generate math tasks from a setup file and optionally open the results"
+        description="Generate math tasks (PDF) via LaTeX from a JSON setup file."
     )
     
     parser.add_argument(
@@ -66,47 +39,39 @@ def parse_args() -> argparse.Namespace:
     
     parser.add_argument(
         "--open", "-o",
-        nargs="?", # optional to specify boolean
-        const=True, # if not specified, store True
-        type=_str_to_bool, # if specified, converts input to boolean
+        nargs="?",
+        const=True,
+        type=_str_to_bool,
         help="Open PDF file after creation"
     )
     
     parser.add_argument(
-        "--reveal", "-r",
+        "--file", "-f",
         nargs="?",
         const=True,
         type=_str_to_bool,
-        help="Reveal PDF file in Finder"
+        help="Reveal PDF file in system file manager"
     )
     
     parser.add_argument(
-        "--markdown", "-md",
+        "--latex", "-tex",
         nargs="?",
         const=True,
         type=_str_to_bool,
-        help="Keep md file after PDF creation"
+        help="Keep intermediate .tex source file after PDF creation"
     )
     
     parser.add_argument(
         "--language", "-lang",
-        nargs='+', # one or more arguments
+        nargs='+',
         type=str,
-        help="Specify the language for the generated tasks."
+        help="Specify the language for the generated tasks (e.g., en de)."
     )
     
     return parser.parse_args()
 
 def build_printable_setups() -> list[str]:
-    """
-    Build a formatted list of strings representing available setup files grouped by category.
-
-    Args:
-        setups_dict: Dictionary mapping category names to lists of setup filenames.
-
-    Returns:
-        List of formatted strings ready to be printed to the console.
-    """
+    """Build formatted list of available setups for the console."""
     RESET = colorama.Style.RESET_ALL
     BLUE = colorama.Fore.BLUE
     
@@ -114,16 +79,14 @@ def build_printable_setups() -> list[str]:
     if not setups_dict:
         raise ValueError("No setups available.")
 
-    category_names = list(setups_dict.keys())
     lines = []
     lines.append(f"\n{BLUE}=== SETUPS ==={RESET}\n")
     index = 1
-    for category in category_names:
-        files_in_category = setups_dict[category]
+    for category in list(setups_dict.keys()):
         if category != "NO_CATEGORY":
             lines.append(f"{BLUE}== {category} =={RESET}")
 
-        for filename in files_in_category:
+        for filename in setups_dict[category]:
             lines.append(f"    {BLUE}{index}.{RESET} {filename}")
             index += 1
 
@@ -131,46 +94,33 @@ def build_printable_setups() -> list[str]:
     return lines
     
 def ask_setup() -> Path:
-    """
-    Prompt the user to select a setup file from available categories and return its full path.
-
-    Args:
-        setups_dict: Dictionary mapping category names to lists of setup filenames.
-
-    Returns:
-        Full path (string) to the chosen setup file, including category folder.
-
-    The function handles invalid input by prompting repeatedly.
-    """
+    """Prompt user to select a setup and return its path."""
     setups_dict = get_setups()
     if not setups_dict:
         raise ValueError("No setups available.")
     
-    available_categories = list(setups_dict.keys())
     available_setups = []
-    for category in available_categories:
+    for category in list(setups_dict.keys()):
         available_setups.extend(setups_dict[category])
     
     chosen_file = None
     while chosen_file is None:
         try:
-            choice = input("Choose the number of the setup: ")
+            choice = input(f"Choose the number of the setup (1-{len(available_setups)}): ")
             selected_index = int(choice) - 1
             if 0 <= selected_index < len(available_setups):
                 chosen_file = available_setups[selected_index]
             else:
-                logger.warning(f"INVALID INPUT NUMBER!\n")
+                logger.warning(f"Invalid choice! Please pick a number from 1 to {len(available_setups)}.")
         except ValueError:
-            logger.warning(f"INVALID INPUT NUMBER!\n")
+            logger.warning("Please enter a valid number.")
     
-    # Find the category that contains the chosen file (excluding "NO_CATEGORY")
+    # Resolve category to find full path
     chosen_category = ""
-    for cat in available_categories:
-        if cat == "NO_CATEGORY":
-            continue
-        if chosen_file in setups_dict[cat]:
-            chosen_category = cat
+    for cat in list(setups_dict.keys()):
+        if chose_file_in_cat := (chosen_file in setups_dict[cat]):
+            if cat != "NO_CATEGORY":
+                chosen_category = cat
             break
     
-    chosen_path = Path(f"{SETUPS_DIR}/{chosen_category}/{chosen_file}")
-    return chosen_path
+    return SETUPS_DIR / chosen_category / chosen_file

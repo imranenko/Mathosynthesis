@@ -4,21 +4,12 @@ import datetime
 import logging
 from pathlib import Path
 
-from mathosynthesis.config.config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT, PDF_FONT
+from mathosynthesis.config.config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT
 
 logger = logging.getLogger(__name__)
 
 def _get_timestamp(week_date_format: bool = WEEK_DATE_FORMAT) -> str:
-    """
-    Return the current timestamp.
-
-    Args:
-        week_date_format: If True, return ISO week date format (on YYYY-Www-D at HH-MM-SS).
-                          If False, return standard datetime format (on YYYY-MM-DD at HH-MM-SS).
-
-    Returns:
-        A string representing the current date and time in the specified format.
-    """
+    """Return the current timestamp in specified format."""
     now = datetime.datetime.now()
     if week_date_format:
         iso_year, iso_week, iso_weekday = now.isocalendar()
@@ -29,154 +20,96 @@ def _get_timestamp(week_date_format: bool = WEEK_DATE_FORMAT) -> str:
     return datetime_stamp
 
 def create_folder(folder_dir: str | Path) -> None:
-    """
-    Create a folder at the specified path, including any necessary parent directories.
-
-    Args:
-        folder_dir: Path to the folder to create.
-
-    Logs an error if folder creation fails.
-    """
+    """Create folder at specified path."""
     try:
         os.makedirs(folder_dir, exist_ok=True)
         logger.info(f"Created folder: {folder_dir}")
     except OSError as e:
         logger.error(f"Couldn't create folder: {e}")
 
-def create_md(content: list[str], file_name: str | Path) -> None:
-    """
-    Write a list of strings to a Markdown file, each string as a separate line.
-
-    Args:
-        content: List of lines to write.
-        file_name: Path to the Markdown file to create.
-    """
+def create_tex(content: str, file_name: str | Path) -> None:
+    """Write string content to a LaTeX file."""
     try:
-        with open(file_name, 'w') as file:
-            for line in content:
-                file.write(line + '\n')
-        logger.info(f"Created MD: {file_name}")
+        with open(file_name, 'w', encoding='utf-8') as file:
+            file.write(content)
+        logger.info(f"Created LaTeX source: {file_name}")
     except OSError as e:
-        logger.error(f"Couldn't create md file: {e}")
+        logger.error(f"Couldn't create tex file: {e}")
 
-def create_pdf(md_file_path: str | Path, pdf_file_path: str | Path) -> None:
+def create_pdf(tex_file_path: str | Path, pdf_file_path: str | Path) -> None:
     """
-    Convert a Markdown file to a PDF using Pandoc and XeLaTeX.
-
-    Args:
-        md_file_path: Path to the source Markdown file.
-        pdf_file_path: Path where the generated PDF will be saved.
-
-    Logs success or failure of the conversion process.
+    Compile a LaTeX file to PDF using xelatex.
     """
-    create_pdf_command = [
-        "pandoc",
-        md_file_path,
-        "-o", pdf_file_path,
-        "--pdf-engine=xelatex",  # use Unicode-compatible engine
-        "-V", "documentclass=extarticle",  # allows larger font sizes
-        "-V", "fontsize=17pt",  # Supports only default font-sizes: 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
-        "-V", "geometry=margin=1.5cm",
-        "-V", "papersize=a4",
-        "-V", "pagestyle=empty", # to remove page numbers
-        "--variable", f"mainfont={PDF_FONT}"
+    tex_path = Path(tex_file_path)
+    output_dir = tex_path.parent
+    
+    # We run xelatex to compile the PDF
+    # -interaction=nonstopmode prevents it from hanging on errors
+    command = [
+        "xelatex",
+        "-interaction=nonstopmode",
+        f"-output-directory={output_dir}",
+        str(tex_path)
     ]
+    
     try:
-        subprocess.run(create_pdf_command, check=True)
+        # Run twice for cross-references if necessary, though for simple sheets once is fine
+        subprocess.run(command, check=True, capture_output=True)
         logger.info(f"Created PDF: {pdf_file_path}")
-    except subprocess.CalledProcessError:
-        logger.error("Pandoc conversion failed!")
+    except subprocess.CalledProcessError as e:
+        logger.error(f"LaTeX compilation failed: {e.stderr.decode() if e.stderr else e}")
+    finally:
+        # Cleanup LaTeX garbage files (.aux, .log, etc)
+        for ext in [".aux", ".log", ".out"]:
+            garbage = tex_path.with_suffix(ext)
+            if garbage.exists():
+                os.remove(garbage)
 
 def open_file(file_path: str | Path) -> None:
-    """
-    Open a file with the default application (macOS 'open' command).
-
-    Args:
-        file_path: Path to the file to open.
-
-    Logs an error if the file cannot be opened.
-    """ 
-    open_pdf_command = [
-        "open",
-        file_path
-        ]
+    """Open a file with the default application.""" 
     try:
-        subprocess.run(open_pdf_command, check=True)
-    except subprocess.CalledProcessError as e:
+        subprocess.run(["open", str(file_path)], check=True)
+    except (subprocess.CalledProcessError, FileNotFoundError) as e:
         logger.error(f"Could not open file: {e}")
 
 def delete_file(file_path: str | Path) -> None:
-    """
-    Delete the specified file from the filesystem.
-
-    Args:
-        file_path: Path to the file to delete.
-
-    Logs success or failure of the deletion operation.
-    """
+    """Delete a file from the filesystem."""
     try:
         os.remove(file_path)
         logger.info(f"Deleted: {file_path}")
     except FileNotFoundError:
-        logger.error("File not found!")
+        logger.error("File not found to delete!")
     except OSError as e:
         logger.error(f"Couldn't delete file: {e}")
       
 def reveal_file(file_path: str | Path) -> None:
-    """
-    Reveal the specified file in macOS Finder.
-
-    Args:
-        file_path: Path to the file to reveal.
-
-    Logs an error if the file cannot be revealed.
-    """
+    """Reveal file in Finder/Explorer."""
     try:
-        subprocess.run(["open", "-R", file_path], check=True)
-    except OSError as e:
-        logger.error(f"Could not reveal file in Finder: {e}")
+        subprocess.run(["open", "-R", str(file_path)], check=True)
+    except (subprocess.CalledProcessError, FileNotFoundError) as e:
+        logger.error(f"Could not reveal file: {e}")
      
 def get_base_path(file_name: str) -> Path:
-    """
-    Generate a base file path inside the TASKS_DIR with a timestamp suffix.
-
-    Args:
-        file_name: Base name for the file or folder.
-
-    Returns:
-        A Path object combining TASKS_DIR, file_name, and a timestamp.
-    """
+    """Generate a base file path inside TASKS_DIR with timestamp."""
     timestamp = _get_timestamp()
-    path = Path(f"{TASKS_DIR}/{file_name} {timestamp}")
-    return path
+    return Path(TASKS_DIR) / f"{file_name} {timestamp}"
 
 def get_setups() -> dict[str, list[str]] | None:
-    """
-    Retrieve all JSON setup files organized by category from SETUPS_DIR.
+    """Retrieve setup files grouped by category."""
+    setups = {}
+    if not SETUPS_DIR.exists():
+        logger.error(f"Setups directory not found: {SETUPS_DIR}")
+        return None
 
-    Returns:
-        A dictionary mapping category names to lists of JSON filenames.
-        Includes a 'NO_CATEGORY' key for files directly inside SETUPS_DIR.
-        Returns None if no setup files are found.
+    all_items = sorted(os.listdir(SETUPS_DIR))
+    files = [f for f in all_items if os.path.isfile(SETUPS_DIR / f) and f.endswith('.json')]
+    folders = [d for d in all_items if os.path.isdir(SETUPS_DIR / d)]
 
-    Logs an error if no setups are found.
-    """
-    setups: dict[str, list[str]] = {}
-
-    # List all items in the parent folder
-    all_items = sorted(os.listdir(SETUPS_DIR)) # all_items = ['setup1.json', 'addition']
-
-    # Separate files and folders
-    files = [f for f in all_items if os.path.isfile(os.path.join(SETUPS_DIR, f)) and f.endswith('.json')]
-    folders = [d for d in all_items if os.path.isdir(os.path.join(SETUPS_DIR, d))]
-
-    # Add files in setups
     if files:
         setups['NO_CATEGORY'] = files
 
-    # Add files in each category folder
     for folder in folders:
-        folder_path = os.path.join(SETUPS_DIR, folder)
+        folder_path = SETUPS_DIR / folder
         child_files = sorted([f for f in os.listdir(folder_path) if f.endswith('.json')])
         if child_files:
             setups[folder] = child_files
@@ -184,18 +117,14 @@ def get_setups() -> dict[str, list[str]] | None:
     if not setups:
         logger.error("No setups found!")
         return None
-
     return setups
 
 def get_setup_path_by_number(setup_number: int) -> Path:
-    """
-    Return the full path to a setup file by its 1-based index.
-    """
+    """Return path to setup by its 1-based index."""
     setups_dict = get_setups()
     if not setups_dict:
         raise ValueError("No setups available.")
 
-    # Build a list of tuples (category, filename)
     setups_list = []
     for category, files in setups_dict.items():
         for f in files:
@@ -206,20 +135,18 @@ def get_setup_path_by_number(setup_number: int) -> Path:
         raise ValueError("Invalid setup number.")
 
     category, filename = setups_list[index]
-    category_path = "" if category == "NO_CATEGORY" else category
-    return Path(SETUPS_DIR) / category_path / filename
+    category_sub = "" if category == "NO_CATEGORY" else category
+    return SETUPS_DIR / category_sub / filename
     
 def get_setup_path_by_name(setup_name: str) -> Path:
-    """
-    Return the full path to a setup file by its name.
-    """
+    """Return path to setup by its name."""
     setups_dict = get_setups()
     if not setups_dict:
         raise ValueError("No setups available.")
 
     for category, files in setups_dict.items():
         if setup_name in files:
-            category_path = "" if category == "NO_CATEGORY" else category
-            return Path(SETUPS_DIR) / category_path / setup_name
+            category_sub = "" if category == "NO_CATEGORY" else category
+            return SETUPS_DIR / category_sub / setup_name
 
     raise ValueError(f"Setup '{setup_name}' not found.")

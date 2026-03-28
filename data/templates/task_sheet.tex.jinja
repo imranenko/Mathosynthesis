@@ -1,0 +1,27 @@
+\documentclass[fontsize=14pt, a5paper]{extarticle}
+\usepackage[margin=1.0cm]{geometry}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{fontspec}
+
+\setmainfont{ {{- font_family -}} }
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{enumerate}
+{%- for block in task_blocks %}
+    \item {{ block.description }}
+    \begin{multicols}{ {{- block.columns -}} }
+        \begin{enumerate}
+            \renewcommand{\labelenumii}{\arabic{enumii})}
+{%- for task in block.tasks %}
+            \item $ {{ task }} $
+{%- endfor %}
+        \end{enumerate}
+    \end{multicols}
+    \vspace{0.4cm}
+{%- endfor %}
+\end{enumerate}
+
+\end{document}

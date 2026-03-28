@@ -8,6 +8,7 @@ __pycache__/
 *.pyc
 
 # General files
+*.tex
 *.md
 *.pdf
 
@@ -19,7 +20,9 @@ _TEST.py
 NOTES.md
 _NOTES.md
 
+# Include
 !README.md
+!task_sheet.tex
 
 # Log files
 logs

@@ -1,20 +1,19 @@
 # Mathosynthesis Project
 
-Mathosynthesis is a Python-based tool that generates mathematical tasks as PDF files. It uses JSON setup files to define the tasks and Pandoc to convert Markdown to PDF. The project supports multiple languages and offers customizable options for generating worksheets.
+Mathosynthesis is a Python-based tool that generates mathematical tasks as PDF files. It uses JSON setup files to define the tasks and LaTeX to natively generate high-quality, perfectly formatted worksheets. The project supports multiple languages and offers customizable options for generating worksheets.
 
 ## Prerequisites
 
 Before running the project, ensure you have the following installed:
 
-- **Python 3.6+**
-- **Pandoc**: Required for converting Markdown to PDF.
-- **Lora Font**: Used by default in the generated PDFs.
+- **Python 3.10+**
+- **TeX Live / MacTeX**: Required for compiling LaTeX to PDF (`xelatex`).
 
-### Installing Pandoc
+### Installing LaTeX (xelatex)
 
-- **Windows**: Download the installer from [pandoc.org](https://pandoc.org/installing.html).
-- **macOS (Homebrew)**: `brew install pandoc `
-- **Linux (Debian/Ubuntu)**: `sudo apt-get install pandoc`
+- **Windows**: Install [MiKTeX](https://miktex.org/download) or [TeX Live](https://www.tug.org/texlive/).
+- **macOS**: `brew install --cask mactex`
+- **Linux (Debian/Ubuntu)**: `sudo apt-get install texlive-xetex`
 
 ## Installation
 
@@ -26,7 +25,7 @@ Before running the project, ensure you have the following installed:
     pip install -r requirements.txt
     ```
 
-4.  Install the project in editable mode:
+4.  Install the project in editable mode (this installs the `mathos` CLI command):
 
     ```bash
     pip install -e .
@@ -34,32 +33,31 @@ Before running the project, ensure you have the following installed:
 
 ## Usage
 
-Run the script with:
+Run the script using the installed CLI command:
 
 ```bash
-python -m mathosynthesis.main
+mathos
 ```
-
 You will see a list of available setup files. Enter the number corresponding to the setup you want to generate.
 
 ### Command-Line Arguments
 
-- `--setup`, `-s`: Specify the name of the JSON setup file (e.g., `basic_operations.json`).
-- `--open`, `-o`: Open the generated PDF file after creation. (Default: `True` if flag is present without value, or pass `true`/`false`).
-- `--reveal`, `-r`: Reveal the generated PDF file in the system file manager (Finder/Explorer).
-- `--markdown`, `-md`: Keep the intermediate Markdown file after PDF creation.
+- `--setup`, `-s`: Specify the name or number of the JSON setup file (e.g., `1` or `basic_operations.json`).
+- `--open`, `-o`: Open the generated PDF file after creation.
+- `--file`, `-f`: Reveal the generated PDF file in the system file manager (Finder/Explorer).
+- `--latex`, `-tex`: Keep the intermediate LaTeX (`.tex`) source file after PDF creation.
 - `--language`, `-lang`: Specify one or more languages for the generated tasks (e.g., `en`, `de`).
 
 **Examples:**
 
-Generate tasks using `basic_operations.json` and open the PDF:
-```
-python main.py --setup basic_operations.json --open
+Generate tasks using setup 1 and open the PDF:
+```bash
+mathos -s 1 --open
 ```
 
-Generate tasks in Ukrainian, keeping the Markdown file:
-```
-python main.py --language uk --markdown
+Generate tasks in Ukrainian, keeping the LaTeX source file:
+```bash
+mathos -lang uk --latex
 ```
 
 ## Project Structure
