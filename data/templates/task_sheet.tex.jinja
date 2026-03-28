@@ -1,11 +1,16 @@
-\documentclass[fontsize=14pt, a5paper]{extarticle}
+\documentclass[fontsize=20pt, a5paper]{extarticle}
 \usepackage[margin=1.0cm]{geometry}
 \usepackage{multicol}
 \usepackage{siunitx}
 \usepackage{fontspec}
+\usepackage{enumitem}
 
 \setmainfont{ {{- font_family -}} }
+\setlist[enumerate,2]{itemsep=0.5em}
+
+\everymath{\displaystyle}
 \pagestyle{empty}
+
 
 \begin{document}
 
@@ -16,11 +21,10 @@
         \begin{enumerate}
             \renewcommand{\labelenumii}{\arabic{enumii})}
 {%- for task in block.tasks %}
-            \item $ {{ task }} $
+            \item \( \displaystyle {{ task }} \)
 {%- endfor %}
         \end{enumerate}
     \end{multicols}
-    \vspace{0.4cm}
 {%- endfor %}
 \end{enumerate}
 
