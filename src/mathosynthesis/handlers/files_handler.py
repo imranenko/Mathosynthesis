@@ -52,18 +52,28 @@ def create_pdf(tex_file_path: str | Path, pdf_file_path: str | Path) -> None:
         str(tex_path)
     ]
     
+    success = False
     try:
-        # Run twice for cross-references if necessary, though for simple sheets once is fine
-        subprocess.run(command, check=True, capture_output=True)
+        # Run xelatex
+        result = subprocess.run(command, check=True, capture_output=True, text=True)
         logger.info(f"Created PDF: {pdf_file_path}")
+        success = True
     except subprocess.CalledProcessError as e:
-        logger.error(f"LaTeX compilation failed: {e.stderr.decode() if e.stderr else e}")
+        error_msg = f"LaTeX compilation failed for {tex_path.name}:\n"
+        if e.stdout:
+            error_msg += f"STDOUT: {e.stdout[-2000:]}\n"
+        if e.stderr:
+            error_msg += f"STDERR: {e.stderr}\n"
+        logger.error(error_msg)
     finally:
-        # Cleanup LaTeX garbage files (.aux, .log, etc)
-        for ext in [".aux", ".log", ".out"]:
-            garbage = tex_path.with_suffix(ext)
-            if garbage.exists():
-                os.remove(garbage)
+        # Cleanup LaTeX garbage files only if successful
+        if success:
+            for ext in [".aux", ".log", ".out"]:
+                garbage = tex_path.with_suffix(ext)
+                if garbage.exists():
+                    os.remove(garbage)
+        else:
+            logger.warning(f"Keeping LaTeX log files for debugging: {tex_path.with_suffix('.log')}")
 
 def open_file(file_path: str | Path) -> None:
     """Open a file with the default application.""" 

@@ -25,11 +25,13 @@ def read_json(json_path: str | Path) -> dict[str, Any]:
 
 def generate_latex(
     json_data: dict[str, Any],
-    preferred_languages: list[str] = PREFERRED_LANGUAGES,
+    preferred_languages: list[str] | str = PREFERRED_LANGUAGES,
 ) -> str:
     """
     Renders the LaTeX source for a task sheet using a Jinja2 template.
     """
+    if isinstance(preferred_languages, str):
+        preferred_languages = [preferred_languages]
     # Prepare data for the template
     template_data = {
         "font_family": PDF_FONT,
