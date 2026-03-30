@@ -2,6 +2,11 @@
     "task_blocks": [
         {
             "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -15,6 +20,11 @@
         },
         {
             "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -28,6 +38,11 @@
         },
         {
             "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,

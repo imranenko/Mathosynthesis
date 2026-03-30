@@ -2,6 +2,11 @@
     "task_blocks": [
         {
             "id": "multiplication_with_round_numbers",
+            "description": {
+                "de": "Multipliziere die runden Zahlen:",
+                "en": "Multiply the round numbers:",
+                "uk": "Помнож круглі числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -22,6 +27,11 @@
         },
         {
             "id": "multiplication_with_round_numbers",
+            "description": {
+                "de": "Multipliziere die runden Zahlen:",
+                "en": "Multiply the round numbers:",
+                "uk": "Помнож круглі числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
@@ -42,6 +52,11 @@
         },
         {
             "id": "multiplication_with_round_numbers",
+            "description": {
+                "de": "Multipliziere die runden Zahlen:",
+                "en": "Multiply the round numbers:",
+                "uk": "Помнож круглі числа:"
+            },
             "columns": 2,
             "settings": {
                 "amount": 10,
