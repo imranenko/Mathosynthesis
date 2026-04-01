@@ -16,7 +16,7 @@
             },
             "columns": 3,
             "settings": {
-                "amount": 30,
+                "amount": 15,
                 "factor1": {
                     "range": [1, 10]
                 },
@@ -35,7 +35,45 @@
             },
             "columns": 3,
             "settings": {
-                "amount": 30,
+                "amount": 15,
+                "factor1": {
+                    "range": [1, 10]
+                },
+                "factor2": {
+                    "range": [1, 10]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "factor1": {
+                    "range": [1, 10]
+                },
+                "factor2": {
+                    "range": [1, 10]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
                 "factor1": {
                     "range": [1, 10]
                 },
