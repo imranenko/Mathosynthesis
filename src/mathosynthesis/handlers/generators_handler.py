@@ -33,11 +33,20 @@ def generate_latex(
     if isinstance(preferred_languages, str):
         preferred_languages = [preferred_languages]
     # Prepare data for the template
-    template_data = {
+    template_data: dict[str, Any] = {
+        "title": "",
         "font_family": PDF_FONT,
         "task_blocks": []
     }
     
+    # Extract title from metadata based on preferred languages
+    metadata = json_data.get("metadata", {})
+    names = metadata.get("name", {})
+    for lang in preferred_languages:
+        if lang in names:
+            template_data["title"] = names[lang]
+            break
+
     for block_cfg in json_data.get("task_blocks", []):
         task_id = block_cfg.get("id")
         if not task_id or task_id not in register:

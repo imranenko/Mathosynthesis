@@ -81,13 +81,14 @@ def build_printable_setups() -> list[str]:
 
     lines = []
     lines.append(f"\n{BLUE}=== SETUPS ==={RESET}\n")
-    index = 1
+    index: int = 1
     for category in list(setups_dict.keys()):
         if category != "NO_CATEGORY":
             lines.append(f"{BLUE}== {category} =={RESET}")
 
-        for filename in setups_dict[category]:
-            lines.append(f"    {BLUE}{index}.{RESET} {filename}")
+        for item in setups_dict[category]:
+            display_name = item["name"].get("en", item["filename"])
+            lines.append(f"    {BLUE}{index}.{RESET} {display_name}")
             index += 1
 
         lines.append("")
@@ -99,28 +100,21 @@ def ask_setup() -> Path:
     if not setups_dict:
         raise ValueError("No setups available.")
     
-    available_setups = []
+    available_paths = []
     for category in list(setups_dict.keys()):
-        available_setups.extend(setups_dict[category])
+        for item in setups_dict[category]:
+            available_paths.append(item["path"])
     
-    chosen_file = None
-    while chosen_file is None:
+    chosen_path = None
+    while chosen_path is None:
         try:
-            choice = input(f"Choose the number of the setup (1-{len(available_setups)}): ")
+            choice = input(f"Choose the number of the setup (1-{len(available_paths)}): ")
             selected_index = int(choice) - 1
-            if 0 <= selected_index < len(available_setups):
-                chosen_file = available_setups[selected_index]
+            if 0 <= selected_index < len(available_paths):
+                chosen_path = available_paths[selected_index]
             else:
-                logger.warning(f"Invalid choice! Please pick a number from 1 to {len(available_setups)}.")
+                logger.warning(f"Invalid choice! Please pick a number from 1 to {len(available_paths)}.")
         except ValueError:
             logger.warning("Please enter a valid number.")
     
-    # Resolve category to find full path
-    chosen_category = ""
-    for cat in list(setups_dict.keys()):
-        if chose_file_in_cat := (chosen_file in setups_dict[cat]):
-            if cat != "NO_CATEGORY":
-                chosen_category = cat
-            break
-    
-    return SETUPS_DIR / chosen_category / chosen_file
+    return chosen_path

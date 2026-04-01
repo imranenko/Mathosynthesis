@@ -2,11 +2,39 @@ import os
 import subprocess
 import datetime
 import logging
+import json
 from pathlib import Path
 
 from mathosynthesis.config.config import TASKS_DIR, SETUPS_DIR, WEEK_DATE_FORMAT
 
 logger = logging.getLogger(__name__)
+
+# In-memory cache for setup metadata
+# Format: { file_path: { "metadata": ..., "mtime": ... } }
+_METADATA_CACHE: dict[str, dict] = {}
+
+def _get_metadata(file_path: Path) -> dict:
+    """Read metadata from a JSON setup file with caching based on file modification time."""
+    global _METADATA_CACHE
+    
+    try:
+        mtime = os.path.getmtime(file_path)
+        cached = _METADATA_CACHE.get(str(file_path))
+        
+        if cached and isinstance(cached, dict) and cached.get("mtime") == mtime:
+            return cached.get("metadata", {})
+            
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            metadata = data.get("metadata", {})
+            _METADATA_CACHE[str(file_path)] = {
+                "metadata": metadata,
+                "mtime": mtime
+            }
+            return metadata
+    except (json.JSONDecodeError, OSError) as e:
+        logger.error(f"Error reading metadata from {file_path}: {e}")
+        return {}
 
 def _get_timestamp(week_date_format: bool = WEEK_DATE_FORMAT) -> str:
     """Return the current timestamp in specified format."""
@@ -52,12 +80,10 @@ def create_pdf(tex_file_path: str | Path, pdf_file_path: str | Path) -> None:
         str(tex_path)
     ]
     
-    success = False
     try:
         # Run xelatex
         result = subprocess.run(command, check=True, capture_output=True, text=True)
         logger.info(f"Created PDF: {pdf_file_path}")
-        success = True
     except subprocess.CalledProcessError as e:
         error_msg = f"LaTeX compilation failed for {tex_path.name}:\n"
         if e.stdout:
@@ -66,14 +92,14 @@ def create_pdf(tex_file_path: str | Path, pdf_file_path: str | Path) -> None:
             error_msg += f"STDERR: {e.stderr}\n"
         logger.error(error_msg)
     finally:
-        # Cleanup LaTeX garbage files only if successful
-        if success:
-            for ext in [".aux", ".log", ".out"]:
-                garbage = tex_path.with_suffix(ext)
-                if garbage.exists():
+        # Always clean up auxiliary LaTeX files
+        for ext in [".aux", ".log", ".out"]:
+            garbage = tex_path.with_suffix(ext)
+            if garbage.exists():
+                try:
                     os.remove(garbage)
-        else:
-            logger.warning(f"Keeping LaTeX log files for debugging: {tex_path.with_suffix('.log')}")
+                except OSError as e:
+                    logger.warning(f"Could not delete {garbage.name}: {e}")
 
 def open_file(file_path: str | Path) -> None:
     """Open a file with the default application.""" 
@@ -104,8 +130,11 @@ def get_base_path(file_name: str) -> Path:
     timestamp = _get_timestamp()
     return Path(TASKS_DIR) / f"{file_name} {timestamp}"
 
-def get_setups() -> dict[str, list[str]] | None:
-    """Retrieve setup files grouped by category."""
+def get_setups() -> dict[str, list[dict]] | None:
+    """
+    Retrieve setup files grouped by category.
+    Returns: { category: [ {"filename": str, "name": dict, "path": Path}, ... ] }
+    """
     setups = {}
     if not SETUPS_DIR.exists():
         logger.error(f"Setups directory not found: {SETUPS_DIR}")
@@ -116,13 +145,27 @@ def get_setups() -> dict[str, list[str]] | None:
     folders = [d for d in all_items if os.path.isdir(SETUPS_DIR / d)]
 
     if files:
-        setups['NO_CATEGORY'] = files
+        setups['NO_CATEGORY'] = [
+            {
+                "filename": f,
+                "name": _get_metadata(SETUPS_DIR / f).get("name", {}),
+                "path": SETUPS_DIR / f
+            }
+            for f in files
+        ]
 
     for folder in folders:
         folder_path = SETUPS_DIR / folder
         child_files = sorted([f for f in os.listdir(folder_path) if f.endswith('.json')])
         if child_files:
-            setups[folder] = child_files
+            setups[folder] = [
+                {
+                    "filename": f,
+                    "name": _get_metadata(folder_path / f).get("name", {}),
+                    "path": folder_path / f
+                }
+                for f in child_files
+            ]
     
     if not setups:
         logger.error("No setups found!")
@@ -136,17 +179,16 @@ def get_setup_path_by_number(setup_number: int) -> Path:
         raise ValueError("No setups available.")
 
     setups_list = []
-    for category, files in setups_dict.items():
-        for f in files:
-            setups_list.append((category, f))
+    # Use list(setups_dict.keys()) to match display order in CLI
+    for category in list(setups_dict.keys()):
+        for item in setups_dict[category]:
+            setups_list.append(item["path"])
 
     index = setup_number - 1
     if index < 0 or index >= len(setups_list):
         raise ValueError("Invalid setup number.")
 
-    category, filename = setups_list[index]
-    category_sub = "" if category == "NO_CATEGORY" else category
-    return SETUPS_DIR / category_sub / filename
+    return setups_list[index]
     
 def get_setup_path_by_name(setup_name: str) -> Path:
     """Return path to setup by its name."""
@@ -154,9 +196,9 @@ def get_setup_path_by_name(setup_name: str) -> Path:
     if not setups_dict:
         raise ValueError("No setups available.")
 
-    for category, files in setups_dict.items():
-        if setup_name in files:
-            category_sub = "" if category == "NO_CATEGORY" else category
-            return SETUPS_DIR / category_sub / setup_name
+    for category, items in setups_dict.items():
+        for item in items:
+            if item["filename"] == setup_name:
+                return item["path"]
 
     raise ValueError(f"Setup '{setup_name}' not found.")
