@@ -1,0 +1,49 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Multiplication Table by 4 and 5",
+            "de": "Multiplikationstabelle mit 4 und 5",
+            "uk": "Таблиця множення на 4 та 5"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 30,
+                "factor1": {
+                    "choices": [4]
+                },
+                "factor2": {
+                    "range": [1, 10]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 30,
+                "factor1": {
+                    "choices": [5]
+                },
+                "factor2": {
+                    "range": [1, 10]
+                },
+                "commutative": true
+            }
+        }
+    ]
+}

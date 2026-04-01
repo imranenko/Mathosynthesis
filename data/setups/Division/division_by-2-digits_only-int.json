@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Division by 2-digits numbers (integer result)",
+            "de": "Division durch 2-stellige Zahlen (ganzzahlig)",
+            "uk": "Ділення на 2-цифрові числа (ціле число)"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "divisor": {
+                    "range": [11, 99]
+                },
+                "quotient": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "divisor": {
+                    "range": [11, 99]
+                },
+                "quotient": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "divisor": {
+                    "range": [11, 99]
+                },
+                "quotient": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "divisor": {
+                    "range": [11, 99]
+                },
+                "quotient": {
+                    "range": [11, 99]
+                }
+            }
+        }
+    ]
+}

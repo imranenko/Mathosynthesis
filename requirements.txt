@@ -1,0 +1,4 @@
+colorama
+pytest
+jinja2
+python-dotenv

@@ -1,0 +1,67 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Subtraction with 2-digit numbers (until 20)",
+            "de": "Subtraktion mit 2-stellig Zahlen (bis 20)",
+            "uk": "Віднімання з 2-цифровими числами (до 20)"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "subtraction",
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 19]
+                },
+                "subtrahend": {
+                    "range": [11, 19]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 19]
+                },
+                "subtrahend": {
+                    "range": [11, 19]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 19]
+                },
+                "subtrahend": {
+                    "range": [11, 19]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 19]
+                },
+                "subtrahend": {
+                    "range": [11, 19]
+                },
+                "only_pos": true
+            }
+        }
+    ]
+}

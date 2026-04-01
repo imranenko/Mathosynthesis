@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Exponentiation with bases 2 and 3",
+            "de": "Potenzieren mit Basen 2 und 3",
+            "uk": "Піднесення до степеня з основами 2 та 3"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Potenzwerte:",
+                "en": "Calculate the powers:",
+                "uk": "Обчисли степінь:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [2]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Potenzwerte:",
+                "en": "Calculate the powers:",
+                "uk": "Обчисли степінь:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [2]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Potenzwerte:",
+                "en": "Calculate the powers:",
+                "uk": "Обчисли степінь:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [3]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            }
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Potenzwerte:",
+                "en": "Calculate the powers:",
+                "uk": "Обчисли степінь:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [3]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            }
+        }
+    ]
+}

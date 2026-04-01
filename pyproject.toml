@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[project]
+name = "mathosynthesis"
+version = "1.6.0.dev0"
+
+[project.scripts]
+mathos = "apps.cli_client.main:main"

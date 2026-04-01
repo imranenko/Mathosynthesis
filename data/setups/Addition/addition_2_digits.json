@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Addition with 2-digit numbers",
+            "de": "Addition mit 2-stelligen Zahlen",
+            "uk": "Додавання з 2-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "range": [11, 99]
+                },
+                "summand2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "range": [11, 99]
+                },
+                "summand2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "range": [22, 99]
+                },
+                "summand2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "range": [22, 99]
+                },
+                "summand2": {
+                    "range": [11, 99]
+                }
+            }
+        }
+    ]
+}

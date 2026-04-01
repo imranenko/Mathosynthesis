@@ -1,0 +1,49 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Multiplication Table by 8 and 9",
+            "de": "Multiplikationstabelle mit 8 und 9",
+            "uk": "Таблиця множення на 8 та 9"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 30,
+                "factor1": {
+                    "choices": [8]
+                },
+                "factor2": {
+                    "range": [1, 10]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Löse die Aufgaben ohne Multiplikationstabelle:",
+                "en": "Solve the tasks without using the multiplication table:",
+                "uk": "Виріши завдання без використання таблиці множення:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 30,
+                "factor1": {
+                    "choices": [9]
+                },
+                "factor2": {
+                    "range": [1, 10]
+                },
+                "commutative": true
+            }
+        }
+    ]
+}

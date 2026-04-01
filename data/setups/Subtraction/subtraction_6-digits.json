@@ -1,0 +1,67 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Subtraction with 6-digit numbers",
+            "de": "Subtraktion mit 6-stellig Zahlen",
+            "uk": "Віднімання з 6-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        }
+    ]
+}

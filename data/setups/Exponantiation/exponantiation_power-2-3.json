@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Exponentiation with powers 2 and 3",
+            "de": "Potenzieren mit Potenzen 2 and 3",
+            "uk": "Піднесення до степеня з показниками 2 та 3"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Quadratzahlen:",
+                "en": "Calculate the square numbers:",
+                "uk": "Обчисли квадрати чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "range": [2, 9]
+                },
+                "exponent": {
+                    "choices": [2]
+                }
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Quadratzahlen:",
+                "en": "Calculate the square numbers:",
+                "uk": "Обчисли квадрати чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "range": [2, 9]
+                },
+                "exponent": {
+                    "choices": [2]
+                }
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Kubikzahlen:",
+                "en": "Calculate the cube numbers:",
+                "uk": "Обчисли куби чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "range": [2, 9]
+                },
+                "exponent": {
+                    "choices": [3]
+                }
+            }
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Kubikzahlen:",
+                "en": "Calculate the cube numbers:",
+                "uk": "Обчисли куби чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "range": [2, 9]
+                },
+                "exponent": {
+                    "choices": [3]
+                }
+            }
+        }
+    ]
+}

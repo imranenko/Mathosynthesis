@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Basic operations",
+            "de": "Grundoperationen",
+            "uk": "Базові операції"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "summand1": {
+                    "range": [11, 99]
+                },
+                "summand2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                }
+            }
+        },
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "divisor": {
+                    "range": [2, 9]
+                },
+                "quotient": {
+                    "range": [2, 9]
+                }
+            }
+        }
+    ]
+}

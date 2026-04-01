@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Exponentiation with base 10",
+            "de": "Potenzieren mit Basis 10",
+            "uk": "Піднесення до степеня з основою 10"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Exponenten:",
+                "en": "Calculate the square numbers:",
+                "uk": "Обчисли квадрати чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [10]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Kubikzahlen:",
+                "en": "Calculate the cube numbers:",
+                "uk": "Обчисли куби чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [10]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            }
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Exponenten:",
+                "en": "Calculate the square numbers:",
+                "uk": "Обчисли квадрати чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [10]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            } 
+        },
+        {
+            "id": "exponantiation",
+            "description": {
+                "de": "Berechne die Exponenten:",
+                "en": "Calculate the square numbers:",
+                "uk": "Обчисли квадрати чисел:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "base": {
+                    "choices": [10]
+                },
+                "exponent": {
+                    "range": [2, 9]
+                }
+            } 
+        }
+    ]
+}

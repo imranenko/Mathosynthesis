@@ -8,9 +8,27 @@ __pycache__/
 *.pyc
 
 # General files
+*.tex
 *.md
 *.pdf
+*.db
 
 .DS_Store
 
 TEST.py
+_TEST.py
+
+NOTES.md
+_NOTES.md
+
+# Include
+!README.md
+!task_sheet.tex
+
+# Environment / secrets
+.env
+
+# Log files
+logs
+
+*.egg-info/
