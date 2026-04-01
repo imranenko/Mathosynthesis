@@ -1,9 +1,9 @@
 {
     "metadata": {
         "name": {
-            "en": "Logarithm Base 10",
-            "de": "Logarithmus Basis 10",
-            "uk": "Логарифми Основа 10"
+            "en": "Logarithm with base 10",
+            "de": "Logarithmus mit Basis 10",
+            "uk": "Логарифми з основою 10"
         }
     },
     "task_blocks": [

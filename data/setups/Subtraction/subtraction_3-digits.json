@@ -1,49 +1,66 @@
 {
     "metadata": {
         "name": {
-            "en": "Subtraction: 3-digit",
-            "de": "Subtraktion: 3-stellig",
-            "uk": "Віднімання: 3-цифрові"
+            "en": "Subtraction with 3-digit numbers",
+            "de": "Subtraktion mit 3-stellig Zahlen",
+            "uk": "Віднімання з 3-цифровими числами"
         }
     },
     "task_blocks": [
         {
             "id": "subtraction",
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "minuend": {
                     "range": [101, 999]
                 },
                 "subtrahend": {
                     "range": [101, 999]
-                }
+                },
+                "only_pos": true
             }
         },
         {
             "id": "subtraction",
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "minuend": {
                     "range": [101, 999]
                 },
                 "subtrahend": {
                     "range": [101, 999]
-                }
+                },
+                "only_pos": true
             }
         },
         {
             "id": "subtraction",
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "minuend": {
                     "range": [101, 999]
                 },
                 "subtrahend": {
                     "range": [101, 999]
-                }
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction",
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [101, 999]
+                },
+                "subtrahend": {
+                    "range": [101, 999]
+                },
+                "only_pos": true
             }
         }
     ]
