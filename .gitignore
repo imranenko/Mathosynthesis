@@ -24,6 +24,9 @@ _NOTES.md
 !README.md
 !task_sheet.tex
 
+# Environment / secrets
+.env
+
 # Log files
 logs
 
