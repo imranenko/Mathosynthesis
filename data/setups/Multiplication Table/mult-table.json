@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Multiplication Table",
+            "de": "Mutiplikationstabelle",
+            "uk": "Таблиця множення"
+        }
+    },
     "task_blocks": [
         {
             "id": "multiplication",
@@ -9,12 +16,12 @@
             },
             "columns": 3,
             "settings": {
-                "amount": 24,
+                "amount": 30,
                 "factor1": {
-                    "range": [2, 9]
+                    "range": [1, 10]
                 },
                 "factor2": {
-                    "range": [2, 9]
+                    "range": [1, 10]
                 },
                 "commutative": true
             }
@@ -28,12 +35,12 @@
             },
             "columns": 3,
             "settings": {
-                "amount": 24,
+                "amount": 30,
                 "factor1": {
-                    "range": [2, 9]
+                    "range": [1, 10]
                 },
                 "factor2": {
-                    "range": [2, 9]
+                    "range": [1, 10]
                 },
                 "commutative": true
             }

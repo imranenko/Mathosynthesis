@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Multiplication of round numbers (3-digit)",
+            "de": "Multiplikation der runden Zahlen (3-stellig)",
+            "uk": "Множення круглих чисел (3-цифрові)"
+        }
+    },
     "task_blocks": [
         {
             "id": "multiplication_with_round_numbers",
@@ -7,9 +14,9 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
                 "factor1": {
                     "range": [111, 999]
                 },
@@ -32,9 +39,9 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
                 "factor1": {
                     "range": [111, 999]
                 },
@@ -57,9 +64,34 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
+                "factor1": {
+                    "range": [111, 999]
+                },
+                "factor2": {
+                    "range": [111, 999]
+                },
+                "ten_power1": {
+                    "range": [0, 3]
+                },
+                "ten_power2": {
+                    "range": [1, 3]
+                },
+                "commutative": true
+            }
+        },
+                {
+            "id": "multiplication_with_round_numbers",
+            "description": {
+                "de": "Multipliziere die runden Zahlen:",
+                "en": "Multiply the round numbers:",
+                "uk": "Помнож круглі числа:"
+            },
+            "columns": 1,
+            "settings": {
+                "amount": 5,
                 "factor1": {
                     "range": [111, 999]
                 },

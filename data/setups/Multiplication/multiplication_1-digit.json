@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Multiplication with 1-digit numbers",
+            "de": "Multiplikation mit 1-stelligen Zahlen",
+            "uk": "Множення з 1-цифровими числами"
+        }
+    },
     "task_blocks": [
         {
             "id": "multiplication",
@@ -7,9 +14,9 @@
                 "en": "Multiply the numbers:",
                 "uk": "Помнож числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "factor1": {
                     "range": [2, 9]
                 },
@@ -25,9 +32,9 @@
                 "en": "Multiply the numbers:",
                 "uk": "Помнож числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "factor1": {
                     "range": [2, 9]
                 },
@@ -43,9 +50,27 @@
                 "en": "Multiply the numbers:",
                 "uk": "Помнож числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                }
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
                 "factor1": {
                     "range": [2, 9]
                 },

@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Multiplication of 1- with 2-digit numbers",
+            "de": "Multiplikation von 1- mit 2-stelligen Zahlen",
+            "uk": "Множення 1- з 2-цифровими числами"
+        }
+    },
     "task_blocks": [
         {
             "id": "multiplication",
@@ -7,9 +14,9 @@
                 "en": "Multiply the numbers:",
                 "uk": "Помнож числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "factor1": {
                     "range": [2, 9]
                 },
@@ -26,9 +33,9 @@
                 "en": "Multiply the numbers:",
                 "uk": "Помнож числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "factor1": {
                     "range": [2, 9]
                 },
@@ -45,9 +52,28 @@
                 "en": "Multiply the numbers:",
                 "uk": "Помнож числа:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
+                "factor1": {
+                    "range": [2, 9]
+                },
+                "factor2": {
+                    "range": [11, 19]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
                 "factor1": {
                     "range": [2, 9]
                 },

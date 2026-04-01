@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Basic operations",
+            "de": "Grundoperationen",
+            "uk": "Базові операції"
+        }
+    },
     "task_blocks": [
         {
             "id": "addition",
@@ -9,7 +16,7 @@
             },
             "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 10,
                 "summand1": {
                     "range": [11, 99]
                 },
@@ -27,7 +34,7 @@
             },
             "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 10,
                 "minuend": {
                     "range": [11, 99]
                 },
@@ -45,7 +52,7 @@
             },
             "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 10,
                 "factor1": {
                     "range": [2, 9]
                 },
@@ -63,7 +70,7 @@
             },
             "columns": 2,
             "settings": {
-                "amount": 6,
+                "amount": 10,
                 "divisor": {
                     "range": [2, 9]
                 },

@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Logarithm with base 2",
+            "de": "Logarithmus mit Basis 2",
+            "uk": "Логарифми з основою 2"
+        }
+    },
     "task_blocks": [
         {
             "id": "logarithm",

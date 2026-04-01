@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Subtraction: 2-digit",
+            "de": "Subtraktion: 2-stellig",
+            "uk": "Віднімання: 2-цифрові"
+        }
+    },
     "task_blocks": [
         {
             "id": "subtraction",

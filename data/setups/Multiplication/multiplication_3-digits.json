@@ -1,5 +1,30 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Multiplication with 3-digit numbers",
+            "de": "Multiplikation mit 3-stelligen Zahlen",
+            "uk": "Множення з 3-цифровими числами"
+        }
+    },
     "task_blocks": [
+        {
+            "id": "multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [101, 999]
+                }
+            }
+        },
         {
             "id": "multiplication",
             "description": {

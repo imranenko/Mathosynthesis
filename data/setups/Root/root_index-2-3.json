@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Roots with index 2 and 3",
+            "de": "Wurzeln mit Index 2 und 3",
+            "uk": "Корені з показниками 2 та 3"
+        }
+    },
     "task_blocks": [
         {
             "id": "root",
@@ -7,9 +14,9 @@
                 "en": "Calculate the roots:",
                 "uk": "Обчисли корені:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 16,
+                "amount": 30,
                 "root": {
                     "range": [2, 9]
                 },
@@ -25,9 +32,9 @@
                 "en": "Calculate the cube roots:",
                 "uk": "Обчисли кубічні корені:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 16,
+                "amount": 30,
                 "root": {
                     "range": [2, 9]
                 },

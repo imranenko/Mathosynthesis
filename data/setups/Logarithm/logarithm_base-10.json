@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Logarithm Base 10",
+            "de": "Logarithmus Basis 10",
+            "uk": "Логарифми Основа 10"
+        }
+    },
     "task_blocks": [
         {
             "id": "logarithm",
@@ -11,12 +18,17 @@
             "settings": {
                 "amount": 16,
                 "base": {
-                    "choices": [10]
+                    "choices": [
+                        10
+                    ]
                 },
                 "log": {
-                    "range": [2, 5]
+                    "range": [
+                        2,
+                        5
+                    ]
                 }
-            } 
+            }
         },
         {
             "id": "logarithm",
@@ -29,10 +41,15 @@
             "settings": {
                 "amount": 16,
                 "base": {
-                    "choices": [10]
+                    "choices": [
+                        10
+                    ]
                 },
                 "log": {
-                    "range": [2, 5]
+                    "range": [
+                        2,
+                        5
+                    ]
                 }
             }
         }

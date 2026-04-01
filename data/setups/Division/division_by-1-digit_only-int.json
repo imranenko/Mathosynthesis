@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Division by 1-digits numbers (integer result)",
+            "de": "Division durch 1-stellige Zahlen (ganzzahlig)",
+            "uk": "Ділення на 1-цифрові числа (ціле число)"
+        }
+    },
     "task_blocks": [
         {
             "id": "division",
@@ -9,7 +16,7 @@
             },
             "columns": 3,
             "settings": {
-                "amount": 24,
+                "amount": 15,
                 "divisor": {
                     "range": [2, 9]
                 },
@@ -27,7 +34,43 @@
             },
             "columns": 3,
             "settings": {
-                "amount": 24,
+                "amount": 15,
+                "divisor": {
+                    "range": [2, 9]
+                },
+                "quotient": {
+                    "range": [2, 9]
+                }
+            }
+        },
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "divisor": {
+                    "range": [2, 9]
+                },
+                "quotient": {
+                    "range": [2, 9]
+                }
+            }
+        },
+        {
+            "id": "division",
+            "description": {
+                "de": "Dividiere die Zahlen:",
+                "en": "Divide the numbers:",
+                "uk": "Поділи числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
                 "divisor": {
                     "range": [2, 9]
                 },

@@ -1,9 +1,9 @@
 {
     "metadata": {
         "name": {
-            "en": "Division by 2-digits numbers (integer result)",
-            "de": "Division durch 2-stellige Zahlen (ganzzahlig)",
-            "uk": "Ділення на 2-цифрові числа (ціле число)"
+            "en": "Division by 3-digits numbers (integer result)",
+            "de": "Division durch 3-stellige Zahlen (ganzzahlig)",
+            "uk": "Ділення на 3-цифрові числа (ціле число)"
         }
     },
     "task_blocks": [
@@ -18,10 +18,10 @@
             "settings": {
                 "amount": 10,
                 "divisor": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 },
                 "quotient": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 }
             }
         },
@@ -36,10 +36,10 @@
             "settings": {
                 "amount": 10,
                 "divisor": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 },
                 "quotient": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 }
             }
         },
@@ -54,10 +54,10 @@
             "settings": {
                 "amount": 10,
                 "divisor": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 },
                 "quotient": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 }
             }
         },
@@ -72,10 +72,10 @@
             "settings": {
                 "amount": 10,
                 "divisor": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 },
                 "quotient": {
-                    "range": [11, 99]
+                    "range": [101, 999]
                 }
             }
         }

@@ -1,4 +1,11 @@
 {
+    "metadata": {
+        "name": {
+            "en": "Addition with 3-digit numbers",
+            "de": "Addition mit 3-stelligen Zahlen",
+            "uk": "Додавання з 3-цифровими числами"
+        }
+    },
     "task_blocks": [
         {
             "id": "addition",
@@ -7,9 +14,9 @@
                 "en": "Add the numbers together:",
                 "uk": "Додай числа разом:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "summand1": {
                     "range": [101, 999]
                 },
@@ -25,9 +32,9 @@
                 "en": "Add the numbers together:",
                 "uk": "Додай числа разом:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
                 "summand1": {
                     "range": [101, 999]
                 },
@@ -43,9 +50,27 @@
                 "en": "Add the numbers together:",
                 "uk": "Додай числа разом:"
             },
-            "columns": 2,
+            "columns": 3,
             "settings": {
-                "amount": 10,
+                "amount": 15,
+                "summand1": {
+                    "range": [101, 999]
+                },
+                "summand2": {
+                    "range": [101, 999]
+                }
+            }
+        },
+        {
+            "id": "addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
                 "summand1": {
                     "range": [101, 999]
                 },
