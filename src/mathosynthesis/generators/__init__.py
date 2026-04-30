@@ -7,6 +7,8 @@ from .exponentiation import Exponantiation
 from .root import Root
 from .logarithm import Logarithm
 
+from .fractions import Fractions
+
 register = {
     "addition": Addition.generate_task,
     "subtraction": Subtraction.generate_task,
@@ -18,6 +20,8 @@ register = {
     "exponantiation": Exponantiation.generate_task,
     "root": Root.generate_task,
     "logarithm": Logarithm.generate_task,
+
+    "fraction_addition": Fractions.generate_task_with_addition,
     
     
     # "addition_missing": Addition.generate_with_missing_element,

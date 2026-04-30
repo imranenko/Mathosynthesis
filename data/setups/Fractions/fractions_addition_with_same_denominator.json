@@ -1,0 +1,59 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Fractions: Addition with the Same Denominator",
+            "de": "Brüche: Addition mit gleichem Nenner",
+            "uk": "Дроби: Додавання з однаковими знаменниками"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "denominator": {
+                    "range": [2, 10]
+                },
+                "same_denominator": "true"
+            }
+        },
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "denominator": {
+                    "range": [2, 10]
+                },
+                "same_denominator": "true"
+            }
+        },
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "denominator": {
+                    "range": [2, 10]
+                },
+                "same_denominator": "true"
+            }
+        }
+    ]
+}

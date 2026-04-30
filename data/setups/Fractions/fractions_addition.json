@@ -1,0 +1,56 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Fractions: Addition",
+            "de": "Brüche: Addition",
+            "uk": "Дроби: Додавання"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "denominator": {
+                    "range": [2, 10]
+                }
+            }
+        },
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "denominator": {
+                    "range": [2, 10]
+                }
+            }
+        },
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "denominator": {
+                    "range": [2, 10]
+                }
+            }
+        }
+    ]
+}

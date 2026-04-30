@@ -1,0 +1,68 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Fractions: Addition with a Denominator Multiplier",
+            "de": "Brüche: Addition mit einem Nennermultiplikator",
+            "uk": "Дроби: Додавання з множником знаменника"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "denominator": {
+                    "range": [2, 10]
+                },
+                "multiplier": {
+                    "range": [2, 9]
+                },
+                "same_denominator": "true"
+            }
+        },
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "denominator": {
+                    "range": [2, 10]
+                },
+                "multiplier": {
+                    "range": [2, 9]
+                },
+                "same_denominator": "true"
+            }
+        },
+        {
+            "id": "fraction_with_denominator_multiplier",
+            "description": {
+                "de": "Addiere die Brüche:",
+                "en": "Add the fractions:",
+                "uk": "Додай дроби:"
+            },
+            "columns": 2,
+            "settings": {
+                "amount": 10,
+                "denominator": {
+                    "range": [2, 10]
+                },
+                "multiplier": {
+                    "range": [2, 9]
+                },
+                "same_denominator": "true"
+            }
+        }
+    ]
+}
