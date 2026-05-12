@@ -8,7 +8,7 @@
     },
     "task_blocks": [
         {
-            "id": "fraction_with_denominator_multiplier",
+            "id": "fraction_addition",
             "description": {
                 "de": "Addiere die Brüche:",
                 "en": "Add the fractions:",
@@ -20,11 +20,11 @@
                 "denominator": {
                     "range": [2, 10]
                 },
-                "same_denominator": "true"
+                "same_denominator": true
             }
         },
         {
-            "id": "fraction_with_denominator_multiplier",
+            "id": "fraction_addition",
             "description": {
                 "de": "Addiere die Brüche:",
                 "en": "Add the fractions:",
@@ -36,11 +36,11 @@
                 "denominator": {
                     "range": [2, 10]
                 },
-                "same_denominator": "true"
+                "same_denominator": true
             }
         },
         {
-            "id": "fraction_with_denominator_multiplier",
+            "id": "fraction_addition",
             "description": {
                 "de": "Addiere die Brüche:",
                 "en": "Add the fractions:",
@@ -52,7 +52,7 @@
                 "denominator": {
                     "range": [2, 10]
                 },
-                "same_denominator": "true"
+                "same_denominator": true
             }
         }
     ]

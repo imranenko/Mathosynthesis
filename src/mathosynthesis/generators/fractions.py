@@ -11,16 +11,17 @@ class Fractions(Generator):
     def generate_task_with_addition(settings: dict[str, Any]) -> list[str]:
         tasks = []
 
-        amount = settings.get("amount", 1)
+        amount = settings.get("amount", 1)   
         multiplier_cfg = settings.get("multiplier", {"choices": [1]})
         simplified_fractions = settings.get("simplified_fractions", False)
         same_denominator = settings.get("same_denominator", False)
-        
         denominator_cfg = settings.get("denominator", {"range": (2, 10)})
+        
         denominator1_list = Generator.generate_numbers(denominator_cfg, amount)
         multiplier_list = Generator.generate_numbers(multiplier_cfg, amount)
+        
         if same_denominator:
-            denominator2_list = [denominator1 * multiplier for denominator1, multiplier in zip(denominator1_list, multiplier_list)]
+            denominator2_list = denominator1_list.copy()
         else:
             denominator2_list = Generator.generate_numbers(denominator_cfg, amount)
             denominator2_list = [denominator2 * multiplier for denominator2, multiplier in zip(denominator2_list, multiplier_list)]
@@ -41,5 +42,74 @@ class Fractions(Generator):
                 numerator2 = random.randint(1, denominator2 - 1)
 
             tasks.append(fr"\frac{{\num{{{numerator1}}}}}{{\num{{{denominator1}}}}} + \frac{{\num{{{numerator2}}}}}{{\num{{{denominator2}}}}} =")
+        return tasks
+    
+    @staticmethod
+    def generate_tasks_with_simplification(settings: dict[str, Any]) -> list[str]:
+        tasks = []
+
+        amount = settings.get("amount", 1)
+        denominator_cfg = settings.get("denominator", {"range": (2, 10)})
+        coefficient_cfg = settings.get("coefficient", {"range": (1, 10)})
+        
+        denominator_list = Generator.generate_numbers(denominator_cfg, amount)
+        numerator_list = [random.randint(1, denominator - 1) for denominator in denominator_list]
+        coefficient_list = Generator.generate_numbers(coefficient_cfg, amount)
+        
+        for i in range(amount):
+            coefficient = coefficient_list[i]
+            denominator = denominator_list[i] * coefficient
+            numerator = numerator_list[i] * coefficient
+            
+            tasks.append(fr"\frac{{\num{{{numerator}}}}}{{\num{{{denominator}}}}} =")
+        
+        return tasks
+    
+    @staticmethod
+    def generate_tasks_improper_to_mixed(settings: dict[str, Any]) -> list[str]:
+        tasks = []
+
+        amount = settings.get("amount", 1)
+        numerator_cfg = settings.get("numerator", {"range": (2, 10)})
+        simplified_fractions = settings.get("simplified_fractions", False)
+        
+        numerator_list = Generator.generate_numbers(numerator_cfg, amount)
+        
+        for i in range(amount):
+            numerator = numerator_list[i]
+
+            if simplified_fractions:
+                possible_denominators = list(filter(lambda x: math.gcd(x, numerator) == 1, range(1, numerator)))
+                denominator = random.choice(possible_denominators)
+            else:
+                denominator = random.randint(1, numerator - 1)
+            
+            tasks.append(fr"\frac{{\num{{{numerator}}}}}{{\num{{{denominator}}}}} =")
+        
+        return tasks
+    
+    @staticmethod
+    def generate_task_mixed_to_improper(settings: dict[str, Any]) -> list[str]:
+        tasks = []
+        
+        amount = settings.get("amount", 1)
+        whole_number_cfg = settings.get("whole", {"range":[1, 9]})
+        denominator_cfg = settings.get("denominator")
+        simplified_fractions = settings.get("simplified_fractions", False)
+        
+        whole_number_list = Generator.generate_numbers(whole_number_cfg, amount)
+        denominator_list = Generator.generate_numbers(denominator_cfg, amount)
+        
+        for i in range(amount):
+            whole_number = whole_number_list[i]
+            denominator = denominator_list[i]
+            
+            if simplified_fractions:
+                possible_numerators = list(filter(lambda x: math.gcd(x, denominator) == 1, range(1, denominator)))
+                numerator = random.choice(possible_numerators)
+            else:
+                numerator = random.randint(1, denominator - 1)
+
+            tasks.append(fr"\num{{{whole_number}}} \frac{{\num{{{numerator}}}}}{{\num{{{denominator}}}}} =")
         
         return tasks

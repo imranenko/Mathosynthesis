@@ -8,7 +8,7 @@
     },
     "task_blocks": [
         {
-            "id": "fraction_with_denominator_multiplier",
+            "id": "fraction_addition",
             "description": {
                 "de": "Addiere die Brüche:",
                 "en": "Add the fractions:",
@@ -23,7 +23,7 @@
             }
         },
         {
-            "id": "fraction_with_denominator_multiplier",
+            "id": "fraction_addition",
             "description": {
                 "de": "Addiere die Brüche:",
                 "en": "Add the fractions:",
@@ -38,7 +38,7 @@
             }
         },
         {
-            "id": "fraction_with_denominator_multiplier",
+            "id": "fraction_addition",
             "description": {
                 "de": "Addiere die Brüche:",
                 "en": "Add the fractions:",

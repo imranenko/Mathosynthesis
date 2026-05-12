@@ -22,6 +22,9 @@ register = {
     "logarithm": Logarithm.generate_task,
 
     "fraction_addition": Fractions.generate_task_with_addition,
+    "fraction_simplification": Fractions.generate_tasks_with_simplification,
+    "fraction_improper_to_mixed": Fractions.generate_tasks_improper_to_mixed,
+    "fraction_mixed_to_improper": Fractions.generate_task_mixed_to_improper,
     
     
     # "addition_missing": Addition.generate_with_missing_element,

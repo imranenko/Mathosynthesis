@@ -89,8 +89,14 @@ A basic JSON setup file looks like this:
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "...": { "range": [1, 9, 1] },
-                "...": { "choices": [1, 3, 5, 7] }
+                "...": {
+                  "range": [1, 9],
+                  "step": 1
+                },
+                "...": {
+                  "choices": [1, 3, 5, 7],
+                  "weights": [1, 2, 1, 1]
+                }
             }
         }
     ]
