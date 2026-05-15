@@ -11,6 +11,7 @@ class Division(Generator):
         Args:
             settings: Configuration dictionary containing:
                 - amount: Number of tasks to generate.
+                - dividend: Range or choices for the dividend.
                 - divisor: Range or choices for the divisor.
                 - quotient: Range or choices for the quotient.
 
