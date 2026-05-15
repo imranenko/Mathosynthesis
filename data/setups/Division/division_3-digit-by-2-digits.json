@@ -1,9 +1,9 @@
 {
     "metadata": {
         "name": {
-            "en": "Division by 3-digits numbers (integer result)",
-            "de": "Division durch 3-stellige Zahlen (ganzzahlig)",
-            "uk": "Ділення на 3-цифрові числа (ціле число)"
+            "en": "Division: 3 digits by 2-digits numbers",
+            "de": "Division: 3-stellige durch 2-stellige Zahlen",
+            "uk": "Ділення: 3-цифрові на 2-цифрові числа"
         }
     },
     "task_blocks": [
@@ -17,11 +17,11 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divisor": {
+                "dividend": {
                     "range": [101, 999]
                 },
-                "quotient": {
-                    "range": [101, 999]
+                "divisor": {
+                    "range": [11, 99]
                 }
             }
         },
@@ -35,11 +35,11 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divisor": {
+                "dividend": {
                     "range": [101, 999]
                 },
-                "quotient": {
-                    "range": [101, 999]
+                "divisor": {
+                    "range": [11, 99]
                 }
             }
         },
@@ -53,11 +53,11 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divisor": {
+                "dividend": {
                     "range": [101, 999]
                 },
-                "quotient": {
-                    "range": [101, 999]
+                "divisor": {
+                    "range": [11, 99]
                 }
             }
         },
@@ -71,11 +71,11 @@
             "columns": 2,
             "settings": {
                 "amount": 10,
-                "divisor": {
+                "dividend": {
                     "range": [101, 999]
                 },
-                "quotient": {
-                    "range": [101, 999]
+                "divisor": {
+                    "range": [11, 99]
                 }
             }
         }
