@@ -21,10 +21,9 @@ class Fractions(Generator):
         multiplier_list = Generator.generate_numbers(multiplier_cfg, amount)
         
         if same_denominator:
-            denominator2_list = denominator1_list.copy()
+            denominator2_list = [denominator1 * multiplier for denominator1, multiplier in zip(denominator1_list, multiplier_list)]
         else:
             denominator2_list = Generator.generate_numbers(denominator_cfg, amount)
-            denominator2_list = [denominator2 * multiplier for denominator2, multiplier in zip(denominator2_list, multiplier_list)]
         
         for i in range(amount):
             denominator1 = denominator1_list[i]

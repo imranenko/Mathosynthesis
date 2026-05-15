@@ -22,7 +22,8 @@
                 },
                 "multiplier": {
                     "range": [2, 9]
-                }
+                },
+                "same_denominator": true
             }
         },
         {
@@ -40,7 +41,8 @@
                 },
                 "multiplier": {
                     "range": [2, 9]
-                }
+                },
+                "same_denominator": true
             }
         },
         {
@@ -58,7 +60,8 @@
                 },
                 "multiplier": {
                     "range": [2, 9]
-                }
+                },
+                "same_denominator": true
             }
         }
     ]
