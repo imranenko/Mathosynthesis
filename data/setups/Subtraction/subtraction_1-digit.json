@@ -9,6 +9,11 @@
     "task_blocks": [
         {
             "id": "subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
             "columns": 3,
             "settings": {
                 "amount": 15,
@@ -23,6 +28,11 @@
         },
         {
             "id": "subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
             "columns": 3,
             "settings": {
                 "amount": 15,
@@ -37,6 +47,11 @@
         },
         {
             "id": "subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
             "columns": 3,
             "settings": {
                 "amount": 15,
@@ -52,6 +67,11 @@
         ,
         {
             "id": "subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
             "columns": 3,
             "settings": {
                 "amount": 15,
