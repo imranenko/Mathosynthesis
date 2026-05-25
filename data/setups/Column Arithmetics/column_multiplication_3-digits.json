@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Column Multiplication with 3-Digit Numbers",
+            "de": "Schriftliche Multiplikation mit 3-stelligen Zahlen",
+            "uk": "Множення стовпчиком із 3-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [101, 999]
+                }
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [101, 999]
+                }
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [101, 999]
+                }
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [101, 999]
+                }
+            }
+        }
+    ]
+}

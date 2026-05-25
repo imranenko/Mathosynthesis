@@ -1,0 +1,87 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Column Multiplication of 1- with 2-Digit Numbers",
+            "de": "Schriftliche Multiplikation von 1- mit 2-stelligen Zahlen",
+            "uk": "Множення стовпчиком 1- з 2-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [11, 19]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [11, 19]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [11, 19]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [11, 19]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        }
+    ]
+}

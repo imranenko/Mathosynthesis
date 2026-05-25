@@ -1,0 +1,87 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Column Multiplication of 1- with 3-Digit Numbers",
+            "de": "Schriftliche Multiplikation von 1- mit 3-stelligen Zahlen",
+            "uk": "Множення стовпчиком 1- з 3-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        },
+        {
+            "id": "column_multiplication",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "factor1": {
+                    "range": [101, 999]
+                },
+                "factor2": {
+                    "range": [2, 9]
+                },
+                "commutative": true
+            }
+        }
+    ]
+}

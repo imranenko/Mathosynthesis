@@ -121,3 +121,32 @@ class Multiplication(Generator):
             tasks.append(task)
             
         return tasks
+    
+    def generate_column_task(settings: dict[str, Any]) -> list[str]:
+        tasks = []
+        amount = settings.get("amount", 1)
+        factor1_cfg = settings.get("factor1", {"range": (1, 10)})
+        factor2_cfg = settings.get("factor2", {"range": (1, 10)})
+        commutative = settings.get("commutative", False)
+        
+        factor1_list = Multiplication.generate_numbers(factor1_cfg, amount)
+        factor2_list = Multiplication.generate_numbers(factor2_cfg, amount)
+        
+        for i in range(amount):
+            factor1 = factor1_list[i]
+            factor2 = factor2_list[i]
+            
+            if commutative and random.random() < 0.5:
+                factor1, factor2 = factor2, factor1
+                
+            product = factor1 * factor2
+            
+            task = task = fr"""\begin{{array}}{{r}}
+\num{{{factor1}}} \\
+\times\num{{{factor2}}} \\
+\hline
+\phantom{{{product}}}
+\end{{array}}"""
+            tasks.append(task)
+        
+        return tasks

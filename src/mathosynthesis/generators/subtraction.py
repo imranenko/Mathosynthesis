@@ -51,8 +51,8 @@ class Subtraction(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        minuend_cfg = settings.get("minuend", {"range": (1, 10)})
-        subtrahend_cfg = settings.get("subrahend", {"range": (1, 10)})
+        minuend_cfg = settings.get("minuend")
+        subtrahend_cfg = settings.get("subtrahend")
         only_pos = settings.get("only_pos", False)
 
         minuend_list = Subtraction.generate_numbers(minuend_cfg, amount)
@@ -75,3 +75,34 @@ class Subtraction(Generator):
             tasks.append(task)
 
         return tasks
+
+
+    def generate_column_task(settings: dict[str, Any]) -> list[str]:
+            tasks = []
+            amount = settings.get("amount", 1)
+            minuend_cfg = settings.get("minuend", {"range": (1, 10)})
+            subtrahend_cfg = settings.get("subtrahend", {"range": (1, 10)})
+            only_pos = settings.get("only_pos", False)
+
+            minuend_list = Subtraction.generate_numbers(minuend_cfg, amount)
+            subtrahend_list = Subtraction.generate_numbers(subtrahend_cfg, amount)
+            
+            for i in range(amount):
+                minuend = minuend_list[i]
+                subtrahend = subtrahend_list[i]
+                
+                if only_pos and minuend < subtrahend:
+                    minuend, subtrahend = subtrahend, minuend
+                
+                difference = minuend - subtrahend
+                
+                task = fr"""\begin{{array}}{{r}}
+\num{{{minuend}}} \\
+-\num{{{subtrahend}}} \\
+\hline
+\phantom{{{difference}}}
+\end{{array}}"""
+
+                tasks.append(task)
+
+            return tasks

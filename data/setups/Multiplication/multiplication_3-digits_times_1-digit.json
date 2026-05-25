@@ -18,10 +18,10 @@
             "settings": {
                 "amount": 15,
                 "factor1": {
-                    "range": [2, 9]
+                    "range": [101, 999]
                 },
                 "factor2": {
-                    "range": [11, 19]
+                    "range": [2, 9]
                 },
                 "commutative": true
             }
@@ -37,10 +37,10 @@
             "settings": {
                 "amount": 15,
                 "factor1": {
-                    "range": [2, 9]
+                    "range": [101, 999]
                 },
                 "factor2": {
-                    "range": [11, 19]
+                    "range": [2, 9]
                 },
                 "commutative": true
             }
@@ -56,10 +56,10 @@
             "settings": {
                 "amount": 15,
                 "factor1": {
-                    "range": [2, 9]
+                    "range": [101, 999]
                 },
                 "factor2": {
-                    "range": [11, 19]
+                    "range": [2, 9]
                 },
                 "commutative": true
             }
@@ -75,10 +75,10 @@
             "settings": {
                 "amount": 15,
                 "factor1": {
-                    "range": [2, 9]
+                    "range": [101, 999]
                 },
                 "factor2": {
-                    "range": [11, 19]
+                    "range": [2, 9]
                 },
                 "commutative": true
             }

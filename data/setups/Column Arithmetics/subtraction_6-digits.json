@@ -1,0 +1,87 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Column Subtraction with 6-Digit Numbers",
+            "de": "Schriftliche Subtraktion mit 6-stelligen Zahlen",
+            "uk": "Віднімання стовпчиком із 6-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "column_subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "column_subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "column_subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "column_subtraction",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 4,
+            "settings": {
+                "amount": 8,
+                "minuend": {
+                    "range": [100001, 999999]
+                },
+                "subtrahend": {
+                    "range": [100001, 999999]
+                },
+                "only_pos": true
+            }
+        }
+    ]
+}
