@@ -17,16 +17,15 @@ class Root(Generator):
             List of root extraction tasks, e.g., "\\sqrt{16} =", "\\sqrt[3]{27} =".
         """
         tasks = []
+        
         amount = settings.get("amount", 1)
-        root_cfg = settings.get("root", {"range": (2, 9)})
-        index_cfg = settings.get("index", {"range": (2, 2)})
+        root_cfg = settings.get("root")
+        index_cfg = settings.get("index")
         
         root_list = Root.generate_numbers(root_cfg, amount)
         index_list = Root.generate_numbers(index_cfg, amount)
         
-        for i in range(amount):
-            root = root_list[i]
-            index = index_list[i]
+        for root, index in zip(root_list, index_list):
             radicant = root**index
 
             if index == 2:

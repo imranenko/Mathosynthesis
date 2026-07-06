@@ -16,19 +16,16 @@ class Logarithm(Generator):
             List of logarithm tasks, e.g., "\\log_{2}\\num{16} =".
         """
         tasks = []
+        
         amount = settings.get("amount", 1)
-        base_cfg = settings.get("base", {"range": (1, 10)})
-        log_cfg = settings.get("log", {"range": (2, 4)})
+        base_cfg = settings.get("base")
+        log_cfg = settings.get("log")
         
         base_list = Logarithm.generate_numbers(base_cfg, amount)
         log_list = Logarithm.generate_numbers(log_cfg, amount)
         
-        for i in range(amount):
-            base = base_list[i]
-            log = log_list[i]
+        for base, log in zip(base_list, log_list):
             anti_log = base**log
-            
-            task = fr"\log_{{{base}}}\num{{{anti_log}}} ="
-            tasks.append(task)
+            tasks.append(fr"\log_{{{base}}}\num{{{anti_log}}} =")
         
         return tasks

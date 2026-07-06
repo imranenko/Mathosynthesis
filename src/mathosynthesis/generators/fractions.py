@@ -12,10 +12,10 @@ class Fractions(Generator):
         tasks = []
 
         amount = settings.get("amount", 1)   
-        multiplier_cfg = settings.get("multiplier", {"choices": [1]})
-        simplified_fractions = settings.get("simplified_fractions", False)
-        same_denominator = settings.get("same_denominator", False)
-        denominator_cfg = settings.get("denominator", {"range": (2, 10)})
+        multiplier_cfg = settings.get("multiplier")
+        denominator_cfg = settings.get("denominator")
+        same_denominator = settings.get("same_denominator")
+        simplified_fractions = settings.get("simplified_fractions")
         
         denominator1_list = Generator.generate_numbers(denominator_cfg, amount)
         multiplier_list = Generator.generate_numbers(multiplier_cfg, amount)
@@ -25,9 +25,7 @@ class Fractions(Generator):
         else:
             denominator2_list = Generator.generate_numbers(denominator_cfg, amount)
         
-        for i in range(amount):
-            denominator1 = denominator1_list[i]
-            denominator2 = denominator2_list[i]
+        for denominator1, denominator2 in zip(denominator1_list, denominator2_list):
             if random.random() < 0.5:
                 denominator1, denominator2 = denominator2, denominator1
 
@@ -48,17 +46,16 @@ class Fractions(Generator):
         tasks = []
 
         amount = settings.get("amount", 1)
-        denominator_cfg = settings.get("denominator", {"range": (2, 10)})
-        coefficient_cfg = settings.get("coefficient", {"range": (1, 10)})
+        denominator_cfg = settings.get("denominator")
+        coefficient_cfg = settings.get("coefficient")
         
         denominator_list = Generator.generate_numbers(denominator_cfg, amount)
         numerator_list = [random.randint(1, denominator - 1) for denominator in denominator_list]
         coefficient_list = Generator.generate_numbers(coefficient_cfg, amount)
         
-        for i in range(amount):
-            coefficient = coefficient_list[i]
-            denominator = denominator_list[i] * coefficient
-            numerator = numerator_list[i] * coefficient
+        for coefficient, denominator, numerator in zip(coefficient_list, denominator_list, numerator_list):
+            denominator *= coefficient
+            numerator *= coefficient
             
             tasks.append(fr"\frac{{\num{{{numerator}}}}}{{\num{{{denominator}}}}} =")
         
@@ -69,14 +66,12 @@ class Fractions(Generator):
         tasks = []
 
         amount = settings.get("amount", 1)
-        numerator_cfg = settings.get("numerator", {"range": (2, 10)})
+        numerator_cfg = settings.get("numerator")
         simplified_fractions = settings.get("simplified_fractions", False)
         
         numerator_list = Generator.generate_numbers(numerator_cfg, amount)
         
-        for i in range(amount):
-            numerator = numerator_list[i]
-
+        for numerator in numerator_list:
             if simplified_fractions:
                 possible_denominators = list(filter(lambda x: math.gcd(x, numerator) == 1, range(1, numerator)))
                 denominator = random.choice(possible_denominators)
@@ -92,17 +87,14 @@ class Fractions(Generator):
         tasks = []
         
         amount = settings.get("amount", 1)
-        whole_number_cfg = settings.get("whole", {"range":[1, 9]})
+        whole_number_cfg = settings.get("whole")
         denominator_cfg = settings.get("denominator")
         simplified_fractions = settings.get("simplified_fractions", False)
         
         whole_number_list = Generator.generate_numbers(whole_number_cfg, amount)
         denominator_list = Generator.generate_numbers(denominator_cfg, amount)
         
-        for i in range(amount):
-            whole_number = whole_number_list[i]
-            denominator = denominator_list[i]
-            
+        for whole_number, denominator in zip(whole_number_list, denominator_list):
             if simplified_fractions:
                 possible_numerators = list(filter(lambda x: math.gcd(x, denominator) == 1, range(1, denominator)))
                 numerator = random.choice(possible_numerators)

@@ -1,5 +1,6 @@
 import random
 from typing import Any
+from textwrap import dedent
 from .generator import Generator
 
 class Addition(Generator):
@@ -18,7 +19,7 @@ class Addition(Generator):
         Returns:
             List of addition task strings, e.g., "3 + 5 =".
         """
-        lines = []
+        tasks = []
         
         amount = settings.get("amount", 1)
         summand1_cfg = settings.get("summand1", {"range": (1, 10)})
@@ -28,17 +29,13 @@ class Addition(Generator):
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
         summand2_list = Addition.generate_numbers(summand2_cfg, amount)
 
-        for i in range(amount):
-            summand1 = summand1_list[i]
-            summand2 = summand2_list[i]
-        
+        for summand1, summand2 in zip(summand1_list, summand2_list):
             if commutative and random.random() < 0.5:
                 summand1, summand2 = summand2, summand1
             
-            task = fr"\num{{{summand1}}} + \num{{{summand2}}} ="
-            lines.append(task)
+            tasks.append(fr"\num{{{summand1}}} + \num{{{summand2}}} =")
             
-        return lines
+        return tasks
 
 
     @staticmethod
@@ -52,7 +49,7 @@ class Addition(Generator):
         Returns:
             List of addition tasks with a missing summand, e.g., "3 + ___ = 8".
         """
-        lines = []
+        tasks = []
         amount = settings.get("amount", 1)
         summand1_cfg = settings.get("summand1", {"range": (1, 10)})
         summand2_cfg = settings.get("summand2", {"range": (1, 10)})
@@ -61,25 +58,23 @@ class Addition(Generator):
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
         summand2_list = Addition.generate_numbers(summand2_cfg, amount)
 
-        for i in range(amount):
-            summand1 = summand1_list[i]
-            summand2 = summand2_list[i]
-            sum = summand1 + summand2
-        
+        for summand1, summand2 in zip(summand1_list, summand2_list):
             if commutative and random.random() < 0.5:
                 summand1, summand2 = summand2, summand1
-            
+                
+            sum = summand1 + summand2
+        
             if random.random() < 0.5:
                 task = fr"\num{{{summand1}}} + \_\_\_ = \num{{{sum}}}"
             else:
                 task = fr"\_\_\_ + \num{{{summand2}}} = \num{{{sum}}}"
 
-            lines.append(task)
+            tasks.append(task)
 
-        return lines
+        return tasks
     
     def generate_column_task(settings: dict[str, Any]) -> list[str]:
-        lines = []
+        tasks = []
         
         amount = settings.get("amount", 1)
         summand1_cfg = settings.get("summand1", {"range": (1, 10)})
@@ -89,21 +84,40 @@ class Addition(Generator):
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
         summand2_list = Addition.generate_numbers(summand2_cfg, amount)
 
-        for i in range(amount):
-            summand1 = summand1_list[i]
-            summand2 = summand2_list[i]
-        
+        for summand1, summand2 in zip(summand1_list, summand2_list):       
             if commutative and random.random() < 0.5:
                 summand1, summand2 = summand2, summand1
                 
             sum = summand1 + summand2
+        
+            task = dedent(fr"""
+                \begin{{array}}{{r}}
+                \num{{{summand1}}} \\
+                +\num{{{summand2}}} \\
+                \hline
+                \phantom{{{sum}}}
+                \end{{array}}
+            """)
+            tasks.append(task)
             
-            task = fr"""\begin{{array}}{{r}}
-\num{{{summand1}}} \\
-+\num{{{summand2}}} \\
-\hline
-\phantom{{{sum}}}
-\end{{array}}"""
-            lines.append(task)
-            
-        return lines
+        return tasks
+    
+    @staticmethod
+    def generate_with_decimal_numbers(settings: dict[str, Any]) -> list[str]:
+        tasks = []
+        
+        amount = settings.get("amount", 1)
+        summand1_cfg = settings.get("summand1")
+        summand2_cfg = settings.get("summand2")
+        commutative = settings.get("commutative", True)
+        
+        summand1_list = Generator.generate_scientific_notation_number(summand1_cfg, amount)
+        summand2_list = Generator.generate_scientific_notation_number(summand2_cfg, amount)
+        
+        for summand1, summand2 in zip(summand1_list, summand2_list):
+            if commutative and random.random() < 0.5:
+                summand1, summand2 = summand2, summand1
+                
+            tasks.append(fr"\num{{{summand1}}}+\num{{{summand2}}}=")
+        
+        return tasks

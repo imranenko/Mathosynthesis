@@ -62,15 +62,15 @@ class Multiplication(Generator):
         factor1_cfg = settings.get("factor1", {"range": (1, 10)})
         factor2_cfg = settings.get("factor2", {"range": (1, 10)})
         ten_power1_cfg = settings.get("ten_power1", {"range": (1, 3)})
-        ten_power2_cfg = settings.get("ten_power2", {"range": (1, 3)})
-        commutative = settings.get("commutative", False)
+        # ten_power2_cfg = settings.get("ten_power2", {"range": (1, 3)})
+        # commutative = settings.get("commutative", False)
         
-        factor1_list = Multiplication.generate_numbers(factor1_cfg, amount)
-        factor2_list = Multiplication.generate_numbers(factor2_cfg, amount)
-        ten_power1_list = Multiplication.generate_numbers(ten_power1_cfg, amount)
-        ten_power2_list = Multiplication.generate_numbers(ten_power2_cfg, amount)
+        # factor1_list = Multiplication.generate_numbers(factor1_cfg, amount)
+        # factor2_list = Multiplication.generate_numbers(factor2_cfg, amount)
+        # ten_power1_list = Multiplication.generate_numbers(ten_power1_cfg, amount)
+        # ten_power2_list = Multiplication.generate_numbers(ten_power2_cfg, amount)
         
-        for i in range(amount):
+        # for factor1, factor2 in zip():
             factor1 = factor1_list[i]
             factor2 = factor2_list[i]
             ten_power1 = ten_power1_list[i]
@@ -97,17 +97,16 @@ class Multiplication(Generator):
             List of multiplication tasks with a missing factor, e.g., "3 \\cdot ___ = 15".
         """
         tasks = []
+        
         amount = settings.get("amount", 1)
-        factor1_cfg = settings.get("factor1", {"range": (1, 10)})
-        factor2_cfg = settings.get("factor2", {"range": (1, 10)})
+        factor1_cfg = settings.get("factor1")
+        factor2_cfg = settings.get("factor2")
         commutative = settings.get("commutative", False)
         
         factor1_list = Multiplication.generate_numbers(factor1_cfg, amount)
         factor2_list = Multiplication.generate_numbers(factor2_cfg, amount)
         
-        for i in range(amount):
-            factor1 = factor1_list[i]
-            factor2 = factor2_list[i]
+        for factor1, factor2 in zip(factor1_list, factor2_list):
             product = factor1 * factor2
             
             if commutative and random.random() < 0.5:
@@ -125,17 +124,14 @@ class Multiplication(Generator):
     def generate_column_task(settings: dict[str, Any]) -> list[str]:
         tasks = []
         amount = settings.get("amount", 1)
-        factor1_cfg = settings.get("factor1", {"range": (1, 10)})
-        factor2_cfg = settings.get("factor2", {"range": (1, 10)})
+        factor1_cfg = settings.get("factor1")
+        factor2_cfg = settings.get("factor2")
         commutative = settings.get("commutative", False)
         
         factor1_list = Multiplication.generate_numbers(factor1_cfg, amount)
         factor2_list = Multiplication.generate_numbers(factor2_cfg, amount)
         
-        for i in range(amount):
-            factor1 = factor1_list[i]
-            factor2 = factor2_list[i]
-            
+        for factor1, factor2 in zip(factor1_list, factor2_list):            
             if commutative and random.random() < 0.5:
                 factor1, factor2 = factor2, factor1
                 

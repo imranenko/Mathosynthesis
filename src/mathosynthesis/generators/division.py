@@ -19,6 +19,7 @@ class Division(Generator):
             List of division task strings, e.g., "20 \\div 5 =".
         """
         tasks = []
+        
         amount = settings.get("amount", 1)
         dividend_cfg = settings.get("dividend")
         divisor_cfg = settings.get("divisor")
@@ -31,15 +32,15 @@ class Division(Generator):
             divisor_list = Division.generate_numbers(divisor_cfg, amount)
             quotient_list = Division.generate_numbers(quotient_cfg, amount)
             dividend_list = [quotient * divisor for quotient, divisor in zip(quotient_list, divisor_list)]
+        elif dividend_cfg and quotient_cfg:
+            dividend_list = Division.generate_numbers(dividend_cfg, amount)
+            quotient_list = Division.generate_numbers(quotient_cfg, amount)
+            divisor_list = [dividend / quotient for dividend, quotient in zip(dividend_list, quotient_list)]
         else:
             raise ValueError("Invalid JSON format")
                 
-        for i in range(amount):
-            divisor = divisor_list[i]
-            dividend = dividend_list[i]
-            
-            task = fr"\num{{{dividend}}} \div \num{{{divisor}}} ="
-            tasks.append(task)
+        for divisor, dividend in zip(divisor_list, dividend_list):
+            tasks.append(fr"\num{{{dividend}}} \div \num{{{divisor}}} =")
                 
         return tasks
 
@@ -55,23 +56,32 @@ class Division(Generator):
             List of division tasks with a missing divisor or dividend, e.g., "20 \\div ___ = 4".
         """
         tasks = []
+        
         amount = settings.get("amount", 1)
-        divisor_cfg = settings.get("divisor", {"range": (1, 10)})
-        quotient_cfg = settings.get("quotient", {"range": (1, 10)})
+        dividend_cfg = settings.get("dividend")
+        divisor_cfg = settings.get("divisor")
+        quotient_cfg = settings.get("quotient")
         
-        divisor_list = Division.generate_numbers(divisor_cfg, amount)
-        quotient_list = Division.generate_numbers(quotient_cfg, amount)
+        if dividend_cfg and divisor_cfg:
+            dividend_list = Division.generate_numbers(dividend_cfg, amount)
+            divisor_list = Division.generate_numbers(divisor_cfg, amount)
+            quotient_list = [dividend / divisor for dividend, divisor in zip(dividend_list, divisor_list)]
+        elif divisor_cfg and quotient_cfg:
+            divisor_list = Division.generate_numbers(divisor_cfg, amount)
+            quotient_list = Division.generate_numbers(quotient_cfg, amount)
+            dividend_list = [quotient * divisor for quotient, divisor in zip(quotient_list, divisor_list)]
+        elif dividend_cfg and quotient_cfg:
+            dividend_list = Division.generate_numbers(dividend_cfg, amount)
+            quotient_list = Division.generate_numbers(quotient_cfg, amount)
+            divisor_list = [dividend / quotient for dividend, quotient in zip(dividend_list, quotient_list)]
+        else:
+            raise ValueError("Invalid JSON format")
         
-        for i in range(amount):
-            divisor = divisor_list[i]
-            quotient = quotient_list[i]
-            divident = quotient * divisor
-
+        for divident, divisor, quotient in zip(divisor_list, quotient_list, quotient_list):
             if random.random() < 0.5:
                 task = fr"\num{{{divident}}} \div \_\_\_ = \num{{{quotient}}}"
             else:
                 task = fr"\_\_\_ \div \num{{{divisor}}} = \num{{{quotient}}}"
-                
             tasks.append(task)
         
         return tasks

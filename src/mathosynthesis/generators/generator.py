@@ -81,10 +81,41 @@ class Generator():
         # else:
         #     numerator1 = random.randint(1, denominator1 - 1)
         
-        for i in range(amount):
-            numerator = numerator_list[i]
-            denominator = denominator_list[i]
-
+        for numerator, denominator in zip(numerator_list, denominator_list):
             fractions.append(fr"\frac{{{numerator}}}{{\num{{{denominator}}}}}")
         
         return fractions
+    
+
+    @staticmethod
+    def generate_scientific_notation_number(scientific_notation_number_cfg: dict[str, Any], amount: int):
+        scientific_notation_numbers = []
+        
+        significand_cfg = scientific_notation_number_cfg.get("significand")
+        exponent_cfg = scientific_notation_number_cfg.get("exponent")
+        
+        significand_list = Generator.generate_numbers(significand_cfg)
+        exponent_list = Generator.generate_numbers(exponent_cfg)
+        
+        for significand, exponent in zip(significand_list, exponent_list):
+            scientific_notation_numbers.append(fr"{significand * 10**exponent}")
+            
+        return scientific_notation_numbers
+        
+        
+    @staticmethod
+    def generate_monomials(monomial_cfg: dict[str, Any], amount: int = 1):
+        monomials = []
+        
+        coefficient_cfg = monomial_cfg.get("coefficient")
+        exponent_cfg = monomial_cfg.get("exponent")
+        possible_base_symbols = monomial_cfg.get("possible_base_symbols", ["x"])
+        
+        coefficient_list = Generator.generate_numbers(coefficient_cfg, amount)
+        exponent_list = Generator.generate_numbers(exponent_cfg, amount)
+        base_symbol_list = random.choices(possible_base_symbols, amount)
+        
+        for coefficient, exponent, base_symbol in zip(coefficient_list, exponent_list, base_symbol_list):            
+            monomials.append(fr"\num{{{coefficient}}}{base_symbol}^{{{exponent}}}")
+
+        return monomials
