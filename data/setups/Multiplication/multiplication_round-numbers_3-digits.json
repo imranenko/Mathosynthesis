@@ -18,21 +18,17 @@
             "settings": {
                 "amount": 5,
                 "factor1": {
-                    "range": [111, 999]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [111, 999]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
         },
-                {
+        {
             "id": "multiplication_with_round_numbers",
             "description": {
                 "de": "Multipliziere die runden Zahlen:",
@@ -43,21 +39,17 @@
             "settings": {
                 "amount": 5,
                 "factor1": {
-                    "range": [111, 999]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [111, 999]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
         },
-                {
+        {
             "id": "multiplication_with_round_numbers",
             "description": {
                 "de": "Multipliziere die runden Zahlen:",
@@ -68,21 +60,17 @@
             "settings": {
                 "amount": 5,
                 "factor1": {
-                    "range": [111, 999]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [111, 999]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
         },
-                {
+        {
             "id": "multiplication_with_round_numbers",
             "description": {
                 "de": "Multipliziere die runden Zahlen:",
@@ -93,16 +81,12 @@
             "settings": {
                 "amount": 5,
                 "factor1": {
-                    "range": [111, 999]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [111, 999]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [111, 999]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }

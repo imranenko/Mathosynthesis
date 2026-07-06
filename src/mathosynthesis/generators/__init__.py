@@ -18,6 +18,7 @@ register = {
     "subtraction": Subtraction.generate_task,
     # "subtraction_missing": Subtraction.generate_with_missing_element,
     "column_subtraction": Subtraction.generate_column_task,
+    "decimal_subtraction": Subtraction.generate_with_decimal_numbers,
     
     "multiplication": Multiplication.generate_task,
     # "multiplication_missing": Multiplication.generate_with_missing_element,

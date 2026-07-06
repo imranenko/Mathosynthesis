@@ -18,16 +18,12 @@
             "settings": {
                 "amount": 10,
                 "factor1": {
-                    "range": [1, 9]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [1, 9]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
@@ -43,16 +39,12 @@
             "settings": {
                 "amount": 10,
                 "factor1": {
-                    "range": [1, 9]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [1, 9]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
@@ -68,16 +60,12 @@
             "settings": {
                 "amount": 10,
                 "factor1": {
-                    "range": [1, 9]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [1, 9]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
@@ -93,16 +81,12 @@
             "settings": {
                 "amount": 10,
                 "factor1": {
-                    "range": [1, 9]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [1, 9]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [1, 9]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }

@@ -1,0 +1,91 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Addition of decimal number with 3 decimal places",
+            "de": "Addition mit Zahlen mit 3 Nachkommastellen",
+            "uk": "Додавання чисел з 3 знаками після коми"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "decimal_addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                },
+                "summand2": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                }
+            }
+        },
+        {
+            "id": "decimal_addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                },
+                "summand2": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                }
+            }
+        },
+        {
+            "id": "decimal_addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                },
+                "summand2": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                }
+            }
+        },
+        {
+            "id": "decimal_addition",
+            "description": {
+                "de": "Addiere die Zahlen miteinander:",
+                "en": "Add the numbers together:",
+                "uk": "Додай числа разом:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "summand1": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                },
+                "summand2": {
+                    "significand": {"range": [1, 999]},
+                    "exponent": {"choices": [-3]}
+                }
+            }
+        }
+    ]
+}

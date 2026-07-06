@@ -14,20 +14,16 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
                 "factor1": {
-                    "range": [11, 99]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [11, 99]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
@@ -39,20 +35,16 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
                 "factor1": {
-                    "range": [11, 99]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [11, 99]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
@@ -64,20 +56,16 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
                 "factor1": {
-                    "range": [11, 99]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [11, 99]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }
@@ -89,20 +77,16 @@
                 "en": "Multiply the round numbers:",
                 "uk": "Помнож круглі числа:"
             },
-            "columns": 2,
+            "columns": 1,
             "settings": {
-                "amount": 10,
+                "amount": 5,
                 "factor1": {
-                    "range": [11, 99]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "factor2": {
-                    "range": [11, 99]
-                },
-                "ten_power1": {
-                    "range": [0, 3]
-                },
-                "ten_power2": {
-                    "range": [1, 3]
+                    "significand": {"range": [11, 99]},
+                    "exponent": {"range": [0, 3]}
                 },
                 "commutative": true
             }

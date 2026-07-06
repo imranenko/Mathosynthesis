@@ -1,6 +1,7 @@
 import random
 import logging
 from typing import Any
+from decimal import Decimal
 
 logger = logging.getLogger(__name__)
 
@@ -94,11 +95,13 @@ class Generator():
         significand_cfg = scientific_notation_number_cfg.get("significand")
         exponent_cfg = scientific_notation_number_cfg.get("exponent")
         
-        significand_list = Generator.generate_numbers(significand_cfg)
-        exponent_list = Generator.generate_numbers(exponent_cfg)
+        significand_list = Generator.generate_numbers(significand_cfg, amount)
+        exponent_list = Generator.generate_numbers(exponent_cfg, amount)
         
         for significand, exponent in zip(significand_list, exponent_list):
-            scientific_notation_numbers.append(fr"{significand * 10**exponent}")
+            significand = Decimal(significand)
+            exponent = Decimal(exponent)
+            scientific_notation_numbers.append(fr"{significand * (10**exponent)}")
             
         return scientific_notation_numbers
         

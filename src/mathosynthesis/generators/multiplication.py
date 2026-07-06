@@ -1,5 +1,6 @@
 import random
 from typing import Any
+from textwrap import dedent
 from .generator import Generator
 
 class Multiplication(Generator):
@@ -59,29 +60,18 @@ class Multiplication(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        factor1_cfg = settings.get("factor1", {"range": (1, 10)})
-        factor2_cfg = settings.get("factor2", {"range": (1, 10)})
-        ten_power1_cfg = settings.get("ten_power1", {"range": (1, 3)})
-        # ten_power2_cfg = settings.get("ten_power2", {"range": (1, 3)})
-        # commutative = settings.get("commutative", False)
+        factor1_cfg = settings.get("factor1")
+        factor2_cfg = settings.get("factor2")
+        commutative = settings.get("commutative", False)
         
-        # factor1_list = Multiplication.generate_numbers(factor1_cfg, amount)
-        # factor2_list = Multiplication.generate_numbers(factor2_cfg, amount)
-        # ten_power1_list = Multiplication.generate_numbers(ten_power1_cfg, amount)
-        # ten_power2_list = Multiplication.generate_numbers(ten_power2_cfg, amount)
+        factor1_list = Multiplication.generate_scientific_notation_number(factor1_cfg, amount)
+        factor2_list = Multiplication.generate_scientific_notation_number(factor2_cfg, amount)
         
-        # for factor1, factor2 in zip():
-            factor1 = factor1_list[i]
-            factor2 = factor2_list[i]
-            ten_power1 = ten_power1_list[i]
-            ten_power2 = ten_power2_list[i]
-            
+        for factor1, factor2 in zip(factor1_list, factor2_list):
             if commutative and random.random() < 0.5:
                 factor1, factor2 = factor2, factor1
-                ten_power1, ten_power2 = ten_power2, ten_power1
             
-            task = fr"\num{{{factor1 * 10**ten_power1}}} \cdot \num{{{factor2 * 10**ten_power2}}} ="
-            tasks.append(task)
+            tasks.append(fr"\num{{{factor1}}} \cdot \num{{{factor2}}} =")
         
         return tasks
 
@@ -137,12 +127,14 @@ class Multiplication(Generator):
                 
             product = factor1 * factor2
             
-            task = task = fr"""\begin{{array}}{{r}}
-\num{{{factor1}}} \\
-\times\num{{{factor2}}} \\
-\hline
-\phantom{{{product}}}
-\end{{array}}"""
+            task = dedent(fr"""
+                \begin{{array}}{{r}}
+                \num{{{factor1}}} \\
+                \times\num{{{factor2}}} \\
+                \hline
+                \phantom{{{product}}}
+                \end{{array}}
+            """)
             tasks.append(task)
         
         return tasks
