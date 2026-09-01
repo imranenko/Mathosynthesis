@@ -77,9 +77,9 @@ class Division(Generator):
         else:
             raise ValueError("Invalid JSON format")
         
-        for divident, divisor, quotient in zip(divisor_list, quotient_list, quotient_list):
+        for dividend, divisor, quotient in zip(dividend_list, divisor_list, quotient_list):
             if random.random() < 0.5:
-                task = fr"\num{{{divident}}} \div \_\_\_ = \num{{{quotient}}}"
+                task = fr"\num{{{dividend}}} \div \_\_\_ = \num{{{quotient}}}"
             else:
                 task = fr"\_\_\_ \div \num{{{divisor}}} = \num{{{quotient}}}"
             tasks.append(task)

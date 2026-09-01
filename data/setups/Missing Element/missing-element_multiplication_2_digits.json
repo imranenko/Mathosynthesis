@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Multiplication with 2-digit numbers",
+            "de": "Multiplikation mit 2-stelligen Zahlen",
+            "uk": "Множення з 2-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "multiplication_missing",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "multiplication_missing",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "multiplication_missing",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        },
+        {
+            "id": "multiplication_missing",
+            "description": {
+                "de": "Multipliziere die Zahlen:",
+                "en": "Multiply the numbers:",
+                "uk": "Помнож числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "factor1": {
+                    "range": [11, 99]
+                },
+                "factor2": {
+                    "range": [11, 99]
+                }
+            }
+        }
+    ]
+}

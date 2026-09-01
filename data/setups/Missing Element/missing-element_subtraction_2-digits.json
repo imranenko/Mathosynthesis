@@ -1,0 +1,87 @@
+{
+    "metadata": {
+        "name": {
+            "en": "Subtraction with 2-digit numbers",
+            "de": "Subtraktion mit 2-stellig Zahlen",
+            "uk": "Віднімання з 2-цифровими числами"
+        }
+    },
+    "task_blocks": [
+        {
+            "id": "subtraction_missing",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction_missing",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction_missing",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                },
+                "only_pos": true
+            }
+        },
+        {
+            "id": "subtraction_missing",
+            "description": {
+                "de": "Subtrahiere die Zahlen:",
+                "en": "Subtract the numbers:",
+                "uk": "Відніми числа:"
+            },
+            "columns": 3,
+            "settings": {
+                "amount": 15,
+                "minuend": {
+                    "range": [11, 99]
+                },
+                "subtrahend": {
+                    "range": [11, 99]
+                },
+                "only_pos": true
+            }
+        }
+    ]
+}
