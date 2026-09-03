@@ -22,8 +22,8 @@ class Addition(Generator):
         tasks = []
         
         amount = settings.get("amount", 1)
-        summand1_cfg = settings.get("summand1", {"range": (1, 10)})
-        summand2_cfg = settings.get("summand2", {"range": (1, 10)})
+        summand1_cfg = settings.get("summand1")
+        summand2_cfg = settings.get("summand2")
         commutative = settings.get("commutative", False)
         
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
@@ -51,8 +51,8 @@ class Addition(Generator):
         """
         tasks = []
         amount = settings.get("amount", 1)
-        summand1_cfg = settings.get("summand1", {"range": (1, 10)})
-        summand2_cfg = settings.get("summand2", {"range": (1, 10)})
+        summand1_cfg = settings.get("summand1")
+        summand2_cfg = settings.get("summand2")
         commutative = settings.get("commutative", False)
         
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
@@ -77,8 +77,8 @@ class Addition(Generator):
         tasks = []
         
         amount = settings.get("amount", 1)
-        summand1_cfg = settings.get("summand1", {"range": (1, 10)})
-        summand2_cfg = settings.get("summand2", {"range": (1, 10)})
+        summand1_cfg = settings.get("summand1")
+        summand2_cfg = settings.get("summand2")
         commutative = settings.get("commutative", False)
         
         summand1_list = Addition.generate_numbers(summand1_cfg, amount)
