@@ -31,8 +31,8 @@ class Generator():
 
         Args:
             number_cfg: Configuration dictionary containing either:
-                - 'range': tuple of (start, end) integers, and optional 'step'.
-                - 'choices': list of possible values, with optional 'weights'.
+                - "range": tuple of (start, end) integers, and optional "step".
+                - "choices": list of possible values, with optional "weights".
             amount: Number of numbers to generate.
 
         Returns:
@@ -108,6 +108,23 @@ class Generator():
         
     @staticmethod
     def generate_monomials(monomial_cfg: dict[str, Any], amount: int = 1):
+        """
+        Generate a list of monomials according to the given configuration.
+
+        Args:
+            monomial_cfg: Configuration dictionary containing:
+                - "coefficient": Configuration for generating the monomial coefficients.
+                - "exponent": Configuration for generating the exponents.
+                - "possible_base_symbols": Optional list of base symbols to choose from.
+                Defaults to ["x"].
+            amount: Number of monomials to generate. Defaults to 1.
+
+        Returns:
+            A list of monomials formatted as LaTeX strings.
+
+        Raises:
+            ValueError: If the coefficient or exponent configuration is invalid.
+        """
         monomials = []
         
         coefficient_cfg = monomial_cfg.get("coefficient")
